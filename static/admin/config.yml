@@ -1,0 +1,167 @@
+backend:
+  name: github
+  repo: Nik-STZA/africanstn
+  branch: main
+
+media_folder: "static/assets/images"
+public_folder: "/assets/images"
+
+publish_mode: editorial_workflow
+
+collections:
+
+  # ── SITE SETTINGS ──────────────────────────────
+  - name: "settings"
+    label: "Site settings"
+    files:
+      - name: "site"
+        label: "Global settings"
+        file: "src/_data/site.json"
+        fields:
+          - { label: "Site name", name: "site_name", widget: "string" }
+          - { label: "Short name", name: "site_short", widget: "string" }
+          - { label: "Site description", name: "site_description", widget: "text" }
+          - { label: "Footer tagline", name: "footer_tagline", widget: "text" }
+          - { label: "SA entity name", name: "entity_sa", widget: "string" }
+          - { label: "SA company reg", name: "reg_sa", widget: "string" }
+          - { label: "POPIA reg", name: "popia_reg", widget: "string" }
+          - { label: "UK entity name", name: "entity_uk", widget: "string" }
+          - { label: "Companies House", name: "companies_house", widget: "string" }
+          - { label: "ICO number", name: "ico_number", widget: "string" }
+          - { label: "STZA URL", name: "stza_url", widget: "string" }
+          - { label: "Copyright year", name: "copyright_year", widget: "string" }
+
+  # ── PAGES ──────────────────────────────────────
+  - name: "pages"
+    label: "Pages"
+    files:
+
+      - name: "home"
+        label: "Home page"
+        file: "src/_data/home.json"
+        fields:
+          - { label: "Hero headline", name: "hero_headline", widget: "string" }
+          - { label: "Highlighted words (turns gold)", name: "hero_headline_highlight", widget: "string", hint: "Must match exact text in the headline" }
+          - { label: "Hero subheadline", name: "hero_subheadline", widget: "text" }
+          - { label: "Primary button text", name: "hero_cta_primary", widget: "string" }
+          - { label: "Secondary button text", name: "hero_cta_secondary", widget: "string" }
+          - { label: "What we do heading", name: "what_we_do_heading", widget: "string" }
+          - { label: "Card 1 title", name: "card1_title", widget: "string" }
+          - { label: "Card 1 body", name: "card1_body", widget: "text" }
+          - { label: "Card 2 title", name: "card2_title", widget: "string" }
+          - { label: "Card 2 body", name: "card2_body", widget: "text" }
+          - { label: "Card 3 title", name: "card3_title", widget: "string" }
+          - { label: "Card 3 body", name: "card3_body", widget: "text" }
+          - { label: "Services preview heading", name: "services_preview_heading", widget: "string" }
+          - { label: "Services card 1 title", name: "services_card1_title", widget: "string" }
+          - { label: "Services card 1 body", name: "services_card1_body", widget: "text" }
+          - { label: "Services card 2 title", name: "services_card2_title", widget: "string" }
+          - { label: "Services card 2 body", name: "services_card2_body", widget: "text" }
+          - { label: "CTA heading", name: "cta_heading", widget: "string" }
+          - { label: "CTA body", name: "cta_body", widget: "text" }
+
+      - name: "about"
+        label: "About page"
+        file: "src/_data/about.json"
+        fields:
+          - { label: "Hero heading", name: "hero_heading", widget: "string" }
+          - { label: "Hero subheading", name: "hero_subheading", widget: "text" }
+          - { label: "Purpose heading", name: "purpose_heading", widget: "string" }
+          - { label: "Paragraph 1", name: "para1", widget: "text" }
+          - { label: "Paragraph 2", name: "para2", widget: "text" }
+          - { label: "Paragraph 3", name: "para3", widget: "text" }
+          - { label: "Values heading", name: "values_heading", widget: "string" }
+          - { label: "Value 1 title", name: "value1_title", widget: "string" }
+          - { label: "Value 1 body", name: "value1_body", widget: "text" }
+          - { label: "Value 2 title", name: "value2_title", widget: "string" }
+          - { label: "Value 2 body", name: "value2_body", widget: "text" }
+          - { label: "Value 3 title", name: "value3_title", widget: "string" }
+          - { label: "Value 3 body", name: "value3_body", widget: "text" }
+          - { label: "Value 4 title", name: "value4_title", widget: "string" }
+          - { label: "Value 4 body", name: "value4_body", widget: "text" }
+          - { label: "Value 5 title", name: "value5_title", widget: "string" }
+          - { label: "Value 5 body", name: "value5_body", widget: "text" }
+          - { label: "Value 6 title", name: "value6_title", widget: "string" }
+          - { label: "Value 6 body", name: "value6_body", widget: "text" }
+
+      - name: "services"
+        label: "Services page"
+        file: "src/_data/services.json"
+        fields:
+          - { label: "Hero heading", name: "hero_heading", widget: "string" }
+          - { label: "Hero subheading", name: "hero_subheading", widget: "text" }
+          - { label: "POPIA heading", name: "popia_heading", widget: "string" }
+          - { label: "POPIA paragraph 1", name: "popia_para1", widget: "text" }
+          - { label: "POPIA paragraph 2", name: "popia_para2", widget: "text" }
+          - { label: "POPIA notice", name: "popia_notice", widget: "text" }
+          - { label: "POPIA CTA button", name: "popia_cta", widget: "string" }
+          - { label: "Feature 1 title", name: "feature1_title", widget: "string" }
+          - { label: "Feature 1 body", name: "feature1_body", widget: "text" }
+          - { label: "Feature 2 title", name: "feature2_title", widget: "string" }
+          - { label: "Feature 2 body", name: "feature2_body", widget: "text" }
+          - { label: "Feature 3 title", name: "feature3_title", widget: "string" }
+          - { label: "Feature 3 body", name: "feature3_body", widget: "text" }
+          - { label: "Feature 4 title", name: "feature4_title", widget: "string" }
+          - { label: "Feature 4 body", name: "feature4_body", widget: "text" }
+          - { label: "Intelligence heading", name: "intel_heading", widget: "string" }
+          - { label: "Intelligence paragraph 1", name: "intel_para1", widget: "text" }
+          - { label: "Intelligence paragraph 2", name: "intel_para2", widget: "text" }
+          - { label: "Intel card 1 title", name: "intel_card1_title", widget: "string" }
+          - { label: "Intel card 1 body", name: "intel_card1_body", widget: "text" }
+          - { label: "Intel card 2 title", name: "intel_card2_title", widget: "string" }
+          - { label: "Intel card 2 body", name: "intel_card2_body", widget: "text" }
+          - { label: "Intel card 3 title", name: "intel_card3_title", widget: "string" }
+          - { label: "Intel card 3 body", name: "intel_card3_body", widget: "text" }
+          - { label: "Intel card 4 title", name: "intel_card4_title", widget: "string" }
+          - { label: "Intel card 4 body", name: "intel_card4_body", widget: "text" }
+          - { label: "CTA heading", name: "cta_heading", widget: "string" }
+          - { label: "CTA body", name: "cta_body", widget: "text" }
+
+  # ── COMPANY DIRECTORY ──────────────────────────
+  - name: "directory"
+    label: "Company directory"
+    label_singular: "Company"
+    folder: "src/_data/companies"
+    create: true
+    slug: "{{fields.name | slug}}"
+    extension: "json"
+    format: "json"
+    fields:
+      - { label: "Company name", name: "name", widget: "string" }
+      - label: "Country"
+        name: "country"
+        widget: "select"
+        options: ["South Africa","Nigeria","Egypt","Kenya","Ghana","Ethiopia","Rwanda","Senegal","United Kingdom","United States","Australia","Other Africa","Other"]
+      - label: "Sector"
+        name: "sector"
+        widget: "select"
+        options: ["Performance technology","Fan engagement","Media & broadcast","eSports & gaming","Health & biotech","Analytics & data","Wearables & sensors","Venue technology","Compliance & legal","Investment & finance","Education & training","Ecosystem platform","Other"]
+      - label: "Stage"
+        name: "stage"
+        widget: "select"
+        options: ["Pre-revenue","Early stage","Growth","Scale-up","Established"]
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Website", name: "website", widget: "string", required: false }
+      - { label: "Featured on homepage", name: "featured", widget: "boolean", default: false }
+      - { label: "Logo", name: "logo", widget: "image", required: false }
+
+  # ── INSIGHTS & BLOG ────────────────────────────
+  - name: "posts"
+    label: "Insights & news"
+    label_singular: "Post"
+    folder: "src/_data/posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{fields.slug}}"
+    extension: "json"
+    format: "json"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "URL slug", name: "slug", widget: "string", hint: "URL-friendly, e.g. africanstn-launches-2026" }
+      - { label: "Excerpt", name: "excerpt", widget: "text", hint: "1-2 sentence summary shown in listings" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options: ["News","Insight","Research","Ecosystem","Compliance","Event"]
+      - { label: "Cover image", name: "cover", widget: "image", required: false }

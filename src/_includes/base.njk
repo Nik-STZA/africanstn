@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ pageTitle }} — {{ site.site_name }}</title>
+  <meta name="description" content="{{ pageDescription or site.site_description }}">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  {% if extraCss %}<style>{{ extraCss | safe }}</style>{% endif %}
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<!-- NAV -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <a href="/" class="nav-logo" aria-label="{{ site.site_name }} home"
+     style="text-decoration:none;display:flex;align-items:center;gap:10px;flex-shrink:0;">
+    <img src="/assets/images/africanstn-logo-white.svg"
+         alt=""
+         aria-hidden="true"
+         style="height:46px;width:46px;object-fit:contain;object-position:68% 30%;display:block;flex-shrink:0;">
+    <div style="line-height:1.15;">
+      <div style="font-size:9.5px;font-weight:600;color:rgba(255,255,255,0.5);letter-spacing:0.13em;text-transform:uppercase;">African</div>
+      <div style="font-size:15px;font-weight:800;color:#C5A059;letter-spacing:-0.2px;">Sports Technology</div>
+      <div style="font-size:9.5px;font-weight:600;color:rgba(255,255,255,0.5);letter-spacing:0.13em;text-transform:uppercase;">Network</div>
+    </div>
+  </a>
+  <ul class="nav-links" role="list">
+    <li><a href="/" {% if navActive == "home" %}class="active"{% endif %}>Home</a></li>
+    <li><a href="/about/" {% if navActive == "about" %}class="active"{% endif %}>About</a></li>
+    <li><a href="/what-is-sports-tech/" {% if navActive == "what" %}class="active"{% endif %}>What is sports tech</a></li>
+    <li><a href="/services/" {% if navActive == "services" %}class="active"{% endif %}>Services</a></li>
+    <li><a href="/ecosystem/" {% if navActive == "ecosystem" %}class="active"{% endif %}>Ecosystem</a></li>
+    <li><a href="/contact/" {% if navActive == "contact" %}class="active"{% endif %}>Contact</a></li>
+    <li><a href="/join/" class="nav-cta">Join AfricanSTN</a></li>
+  </ul>
+  <button class="theme-toggle" aria-label="Toggle colour theme">◑ Auto</button>
+  <button class="nav-hamburger" aria-label="Open navigation menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-mobile" role="navigation" aria-label="Mobile navigation">
+  <a href="/">Home</a>
+  <a href="/about/">About</a>
+  <a href="/what-is-sports-tech/">What is sports tech</a>
+  <a href="/services/">Services</a>
+  <a href="/ecosystem/">Ecosystem</a>
+  <a href="/contact/">Contact</a>
+  <a href="/join/" style="color:#C5A059;font-weight:700;">Join AfricanSTN →</a>
+</div>
+
+<!-- MAIN CONTENT -->
+<main id="main-content">
+  {{ content | safe }}
+</main>
+
+<!-- FOOTER -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="/assets/images/africanstn-logo-white.svg"
+             alt="{{ site.site_name }}"
+             style="height:32px;width:auto;display:block;margin-bottom:8px;">
+        <p>{{ site.footer_tagline }}</p>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/what-is-sports-tech/">What is sports tech</a></li>
+          <li><a href="/ecosystem/">Ecosystem</a></li>
+          <li><a href="/services/">Services</a></li>
+          <li><a href="/join/">Join AfricanSTN</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/privacy/">Privacy policy</a></li>
+          <li><a href="/terms/">Terms of use</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Group</h4>
+        <ul>
+          <li><a href="{{ site.stza_url }}" target="_blank" rel="noopener noreferrer">stza.io</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© {{ site.copyright_year }} {{ site.entity_sa }} · {{ site.reg_sa }} · {{ site.popia_reg }} · South Africa</p>
+      <p>A subsidiary of {{ site.entity_uk }} · {{ site.companies_house }} · {{ site.ico_number }} · United Kingdom</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/script.js"></script>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", function(user) {
+      if (!user) {
+        window.netlifyIdentity.on("login", function() {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
+</body>
+</html>
