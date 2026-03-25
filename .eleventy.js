@@ -1,6 +1,8 @@
 module.exports = function(eleventyConfig) {
   // Copy static assets directly to output
-  eleventyConfig.addPassthroughCopy("static");
+  // Copy contents of static/ directly to site root
+  // so /static/assets/css/ becomes /assets/css/
+  eleventyConfig.addPassthroughCopy({"static": "."});
 
   // Watch CSS and JS for changes
   eleventyConfig.addWatchTarget("static/assets/css/");
