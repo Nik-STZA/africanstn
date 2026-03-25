@@ -959,3 +959,30 @@ p:last-child { margin-bottom: 0; }
   pointer-events: none;
 }
 .circuit-bg--subtle .container { position: relative; z-index: 1; }
+
+/* ── FIXES ── */
+
+/* 1. Circuit sections need position:relative so ::before overlay stays contained */
+.circuit-bg, .circuit-bg--subtle {
+  position: relative;
+  overflow: hidden;
+}
+
+/* 2. Nav logo vertical centering */
+.nav { align-items: center; }
+.nav-logo { display: flex; align-items: center; }
+.nav-logo img { display: block; }
+
+/* 3. Footer logo - remove, show text only */
+.footer-logo-img { display: none; }
+
+/* 4. Footer tagline text - brighter */
+.footer-brand p {
+  color: rgba(255,255,255,0.6) !important;
+}
+
+/* 5. Hero sub text on dark backgrounds - ensure readability */
+.circuit-bg .hero-sub,
+.circuit-bg--subtle .hero-sub {
+  color: rgba(255,255,255,0.85) !important;
+}
