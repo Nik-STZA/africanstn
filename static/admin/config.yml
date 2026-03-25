@@ -1,6 +1,5 @@
 backend:
-  name: github
-  repo: Nik-STZA/africanstn
+  name: git-gateway
   branch: main
 
 media_folder: "static/assets/images"
