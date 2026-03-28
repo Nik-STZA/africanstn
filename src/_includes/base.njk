@@ -7,6 +7,49 @@
   <meta name="description" content="{{ pageDescription or site.site_description }}">
   <link rel="stylesheet" href="/assets/css/style.css">
   {% if extraCss %}<style>{{ extraCss | safe }}</style>{% endif %}
+
+  <!-- Google Consent Mode v2 — default to denied, updated on user choice -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'analytics_storage': 'denied',
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'functionality_storage': 'denied',
+      'personalization_storage': 'denied',
+      'security_storage': 'granted',
+      'wait_for_update': 500
+    });
+
+    // If user previously accepted, update consent and load GA
+    (function() {
+      var consent = localStorage.getItem('africanstn-consent');
+      if (consent === 'accept_all') {
+        gtag('consent', 'update', {
+          'analytics_storage': 'granted',
+          'functionality_storage': 'granted',
+          'personalization_storage': 'granted'
+        });
+        // Load GA only after consent is granted
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-TRYEETGY0L';
+        document.head.appendChild(s);
+        s.onload = function() {
+          gtag('js', new Date());
+          gtag('config', 'G-TRYEETGY0L');
+        };
+      } else if (consent === 'essentials_only') {
+        gtag('consent', 'update', {
+          'analytics_storage': 'denied',
+          'functionality_storage': 'denied',
+          'personalization_storage': 'denied'
+        });
+      }
+    })();
+  </script>
 </head>
 <body>
 
@@ -85,6 +128,21 @@
     </div>
   </div>
 </footer>
+
+<!-- COOKIE CONSENT BANNER -->
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-label="Cookie consent" aria-hidden="true">
+  <div class="cookie-banner__inner">
+    <p class="cookie-banner__text">
+      We use cookies and local storage to improve your experience. Essential cookies are required for the site to function.
+      Optional cookies help with analytics and remembering your preferences.
+      <a href="/privacy/#cookies">Learn more</a>
+    </p>
+    <div class="cookie-banner__actions">
+      <button id="cookie-accept" class="cookie-banner__btn cookie-banner__btn--accept">Accept all</button>
+      <button id="cookie-essentials" class="cookie-banner__btn cookie-banner__btn--essentials">Essentials only</button>
+    </div>
+  </div>
+</div>
 
 <script src="/assets/js/script.js"></script>
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>

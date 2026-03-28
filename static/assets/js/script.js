@@ -1,10 +1,22 @@
 /* ============================================================
-   AfricanSTN — script.js v2.0
-   Mobile nav · Scroll reveal · Manual theme override
+   AfricanSTN — script.js v3.0
+   Mobile nav · Scroll reveal · Cookie consent · Theme toggle
    ============================================================ */
 
 (function () {
   'use strict';
+
+  var CONSENT_KEY = 'africanstn-consent';
+  var THEME_KEY = 'africanstn-theme';
+
+  /* ── CONSENT HELPERS ── */
+  function getConsent() {
+    return localStorage.getItem(CONSENT_KEY);
+  }
+
+  function hasFullConsent() {
+    return getConsent() === 'accept_all';
+  }
 
   /* ── MOBILE NAV ── */
   var hamburger = document.querySelector('.nav-hamburger');
@@ -54,9 +66,8 @@
   }
 
   /* ── MANUAL THEME TOGGLE ── */
-  /* Allows user to override system preference.
-     Stored in localStorage so it persists between pages. */
-  var THEME_KEY = 'africanstn-theme';
+  /* Respects cookie consent — only persists to localStorage when
+     the user has accepted functionality cookies. */
   var toggleBtn = document.querySelector('.theme-toggle');
 
   function applyTheme(theme) {
@@ -72,21 +83,121 @@
     }
   }
 
-  /* On load: apply saved preference if any */
-  var saved = localStorage.getItem(THEME_KEY);
-  if (saved) applyTheme(saved);
+  /* On load: only read saved theme if consent allows it */
+  if (hasFullConsent()) {
+    var saved = localStorage.getItem(THEME_KEY);
+    if (saved) applyTheme(saved);
+  }
+
+  /* Session-only fallback when consent is not granted */
+  var sessionTheme = null;
 
   if (toggleBtn) {
     toggleBtn.addEventListener('click', function () {
-      var current = localStorage.getItem(THEME_KEY) || 'system';
-      var next = current === 'system' ? 'dark' : current === 'dark' ? 'light' : 'system';
-      if (next === 'system') {
-        localStorage.removeItem(THEME_KEY);
+      var current;
+      if (hasFullConsent()) {
+        current = localStorage.getItem(THEME_KEY) || 'system';
       } else {
-        localStorage.setItem(THEME_KEY, next);
+        current = sessionTheme || 'system';
+      }
+      var next = current === 'system' ? 'dark' : current === 'dark' ? 'light' : 'system';
+
+      if (hasFullConsent()) {
+        if (next === 'system') {
+          localStorage.removeItem(THEME_KEY);
+        } else {
+          localStorage.setItem(THEME_KEY, next);
+        }
+      } else {
+        sessionTheme = next;
       }
       applyTheme(next);
     });
+  }
+
+  /* ── COOKIE CONSENT BANNER ── */
+  var banner = document.getElementById('cookie-banner');
+  var acceptBtn = document.getElementById('cookie-accept');
+  var essentialsBtn = document.getElementById('cookie-essentials');
+
+  function loadGoogleAnalytics() {
+    if (typeof gtag !== 'function') return;
+    gtag('consent', 'update', {
+      'analytics_storage': 'granted',
+      'functionality_storage': 'granted',
+      'personalization_storage': 'granted'
+    });
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-TRYEETGY0L';
+    document.head.appendChild(s);
+    s.onload = function () {
+      gtag('js', new Date());
+      gtag('config', 'G-TRYEETGY0L');
+    };
+  }
+
+  function logConsentToServer(action) {
+    try {
+      var payload = JSON.stringify({ action: action });
+      if (navigator.sendBeacon) {
+        navigator.sendBeacon('/api/consent-log', new Blob([payload], { type: 'application/json' }));
+      } else {
+        fetch('/api/consent-log', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: payload,
+          keepalive: true
+        });
+      }
+    } catch (e) {
+      /* Silently fail — consent logging is non-critical */
+    }
+  }
+
+  function dismissBanner() {
+    if (banner) {
+      banner.setAttribute('aria-hidden', 'true');
+      banner.classList.remove('cookie-banner--visible');
+    }
+  }
+
+  function handleConsent(choice) {
+    localStorage.setItem(CONSENT_KEY, choice);
+    dismissBanner();
+    logConsentToServer(choice);
+
+    if (choice === 'accept_all') {
+      loadGoogleAnalytics();
+      /* Now that consent is granted, persist current theme if set */
+      var currentTheme = document.documentElement.getAttribute('data-theme');
+      if (currentTheme) {
+        localStorage.setItem(THEME_KEY, currentTheme);
+      }
+    } else {
+      /* Essentials only — deny all optional storage */
+      if (typeof gtag === 'function') {
+        gtag('consent', 'update', {
+          'analytics_storage': 'denied',
+          'functionality_storage': 'denied',
+          'personalization_storage': 'denied'
+        });
+      }
+      /* Remove any previously stored theme preference */
+      localStorage.removeItem(THEME_KEY);
+    }
+  }
+
+  if (banner && !getConsent()) {
+    banner.setAttribute('aria-hidden', 'false');
+    banner.classList.add('cookie-banner--visible');
+  }
+
+  if (acceptBtn) {
+    acceptBtn.addEventListener('click', function () { handleConsent('accept_all'); });
+  }
+  if (essentialsBtn) {
+    essentialsBtn.addEventListener('click', function () { handleConsent('essentials_only'); });
   }
 
   /* ── TALLY FORM LOADER ── */
