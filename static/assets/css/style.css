@@ -779,6 +779,46 @@ p:last-child { margin-bottom: 0; }
 }
 .form-wrap iframe { width: 100%; min-height: 520px; border: none; display: block; }
 
+/* ── CONTACT FORM ── */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.form-field--full { grid-column: 1 / -1; }
+.form-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+.form-label span { color: var(--gold); }
+.form-input {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-family: var(--font);
+  color: var(--text-primary);
+  background: var(--surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  transition: border-color 0.2s ease;
+  box-sizing: border-box;
+}
+.form-input:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(197,160,89,0.15);
+}
+.form-input::placeholder { color: var(--text-muted); opacity: 0.6; }
+textarea.form-input { resize: vertical; min-height: 100px; }
+select.form-input { appearance: auto; cursor: pointer; }
+@media (max-width: 600px) {
+  .form-grid { grid-template-columns: 1fr; }
+}
+
 /* ── FOOTER ── */
 .footer {
   background: var(--footer-bg);
