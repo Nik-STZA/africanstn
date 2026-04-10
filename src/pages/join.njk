@@ -80,7 +80,7 @@ permalink: /join/
     <div class="form-wrap reveal">
       <iframe
         id="tally-iframe"
-        data-tally-src="https://tally.so/embed/BzagEQ?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+        data-tally-src="https://tally.so/embed/BzagEQ?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&theme=dark"
         width="100%"
         height="520"
         frameborder="0"
@@ -98,23 +98,13 @@ permalink: /join/
       (function(){
         var TALLY_URL = "https://tally.so/widgets/embed.js";
         var iframe = document.getElementById("tally-iframe");
-        var baseSrc = "https://tally.so/embed/BzagEQ?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1";
-
-        // Detect effective colour scheme and append Tally theme param
-        function tallyThemeSrc() {
-          var theme = document.documentElement.getAttribute('data-theme');
-          var isDark = theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches);
-          return isDark ? baseSrc + '&theme=dark' : baseSrc;
-        }
-
-        // Update iframe data-tally-src so Tally widget picks up the right theme
-        if (iframe) iframe.setAttribute('data-tally-src', tallyThemeSrc());
+        var baseSrc = "https://tally.so/embed/BzagEQ?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&theme=dark";
 
         // Fallback: if the Tally widget script fails to load within 4 seconds,
         // load the form directly via src attribute
         var fallbackTimer = setTimeout(function(){
           if(iframe && !iframe.src){
-            iframe.src = tallyThemeSrc();
+            iframe.src = baseSrc;
           }
         }, 4000);
 
@@ -132,7 +122,7 @@ permalink: /join/
             // Script blocked or failed — load directly
             clearTimeout(fallbackTimer);
             if(iframe){
-              iframe.src = tallyThemeSrc();
+              iframe.src = baseSrc;
             }
           };
           document.body.appendChild(s);
