@@ -70,28 +70,6 @@
      the user has accepted functionality cookies. */
   var toggleBtn = document.querySelector('.theme-toggle');
 
-  function getEffectiveColorScheme(theme) {
-    if (theme === 'dark' || theme === 'light') return theme;
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  }
-
-  function updateTallyTheme(effectiveScheme) {
-    var iframe = document.getElementById('tally-iframe');
-    if (!iframe) return;
-    var src = iframe.getAttribute('src') || iframe.getAttribute('data-tally-src') || '';
-    if (!src || src.indexOf('tally.so') === -1) return;
-    // Remove existing theme param if present
-    src = src.replace(/([?&])theme=(dark|light)/, '$1').replace(/[?&]$/, '');
-    // Tally treats "dark" theme = light text; default/no param = dark text.
-    // We only need to add theme=dark when the effective scheme is dark.
-    if (effectiveScheme === 'dark') {
-      src += (src.indexOf('?') !== -1 ? '&' : '?') + 'theme=dark';
-    }
-    if (iframe.src && iframe.src.indexOf('tally.so') !== -1) {
-      iframe.src = src;
-    }
-  }
-
   function applyTheme(theme) {
     if (theme === 'dark') {
       document.documentElement.setAttribute('data-theme', 'dark');
@@ -103,7 +81,6 @@
       document.documentElement.removeAttribute('data-theme');
       if (toggleBtn) toggleBtn.textContent = '◑ Auto';
     }
-    updateTallyTheme(getEffectiveColorScheme(theme));
   }
 
   /* On load: only read saved theme if consent allows it */
