@@ -98,12 +98,23 @@ permalink: /join/
       (function(){
         var TALLY_URL = "https://tally.so/widgets/embed.js";
         var iframe = document.getElementById("tally-iframe");
+        var baseSrc = "https://tally.so/embed/BzagEQ?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1";
+
+        // Detect effective colour scheme and append Tally theme param
+        function tallyThemeSrc() {
+          var theme = document.documentElement.getAttribute('data-theme');
+          var isDark = theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          return isDark ? baseSrc + '&theme=dark' : baseSrc;
+        }
+
+        // Update iframe data-tally-src so Tally widget picks up the right theme
+        if (iframe) iframe.setAttribute('data-tally-src', tallyThemeSrc());
 
         // Fallback: if the Tally widget script fails to load within 4 seconds,
         // load the form directly via src attribute
         var fallbackTimer = setTimeout(function(){
           if(iframe && !iframe.src){
-            iframe.src = "https://tally.so/embed/BzagEQ?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1";
+            iframe.src = tallyThemeSrc();
           }
         }, 4000);
 
@@ -121,7 +132,7 @@ permalink: /join/
             // Script blocked or failed — load directly
             clearTimeout(fallbackTimer);
             if(iframe){
-              iframe.src = "https://tally.so/embed/BzagEQ?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1";
+              iframe.src = tallyThemeSrc();
             }
           };
           document.body.appendChild(s);
