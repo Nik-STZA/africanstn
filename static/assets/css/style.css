@@ -777,7 +777,7 @@ p:last-child { margin-bottom: 0; }
   max-width: 680px;
   margin: 0 auto;
 }
-.form-wrap iframe { width: 100%; min-height: 520px; border: none; display: block; }
+.form-wrap iframe { width: 100%; min-height: 520px; height: 520px; border: none; display: block; }
 
 /* ── CONTACT FORM ── */
 .form-grid {

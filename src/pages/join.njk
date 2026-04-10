@@ -77,23 +77,57 @@ permalink: /join/
       <p class="section-lead" style="margin:0 auto 40px;">Complete the form below. AfricanSTN responds within two business days.</p>
     </div>
     <!-- TALLY FORM -->
-    <p style="text-align:center;font-size:13px;color:var(--text-muted);margin-bottom:16px;">
-      Form not loading?
-      <a href="https://tally.so/r/BzagEQ" target="_blank" rel="noopener noreferrer">Open directly →</a>
-    </p>
     <div class="form-wrap reveal">
       <iframe
-        src="https://tally.so/embed/BzagEQ?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-        loading="lazy"
+        id="tally-iframe"
+        data-tally-src="https://tally.so/embed/BzagEQ?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
         width="100%"
         height="520"
         frameborder="0"
         marginheight="0"
         marginwidth="0"
         title="AfricanSTN — Register interest"
+        style="min-height:520px;"
       ></iframe>
     </div>
-    <script>var d=document,w="https://tally.so/widgets/embed.js";if("undefined"!=typeof Tally)Tally.loadEmbeds();else if(!d.querySelector('script[src="'+w+'"]')){var s=d.createElement("script");s.src=w;s.onload=function(){if(window.Tally)Tally.loadEmbeds();};d.body.appendChild(s);}</script>
+    <p style="text-align:center;font-size:13px;color:var(--text-muted);margin-top:16px;">
+      Form not loading?
+      <a href="https://tally.so/r/BzagEQ" target="_blank" rel="noopener noreferrer">Open directly →</a>
+    </p>
+    <script>
+      (function(){
+        var TALLY_URL = "https://tally.so/widgets/embed.js";
+        var iframe = document.getElementById("tally-iframe");
+
+        // Fallback: if the Tally widget script fails to load within 4 seconds,
+        // load the form directly via src attribute
+        var fallbackTimer = setTimeout(function(){
+          if(iframe && !iframe.src){
+            iframe.src = "https://tally.so/embed/BzagEQ?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1";
+          }
+        }, 4000);
+
+        if(typeof Tally !== "undefined"){
+          clearTimeout(fallbackTimer);
+          Tally.loadEmbeds();
+        } else {
+          var s = document.createElement("script");
+          s.src = TALLY_URL;
+          s.onload = function(){
+            clearTimeout(fallbackTimer);
+            if(window.Tally) Tally.loadEmbeds();
+          };
+          s.onerror = function(){
+            // Script blocked or failed — load directly
+            clearTimeout(fallbackTimer);
+            if(iframe){
+              iframe.src = "https://tally.so/embed/BzagEQ?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1";
+            }
+          };
+          document.body.appendChild(s);
+        }
+      })();
+    </script>
   </div>
 </section>
 
