@@ -769,9 +769,11 @@ p:last-child { margin-bottom: 0; }
 .contact-detail-value a { color: var(--gold); }
 
 /* ── TALLY FORM ── */
+/* The Tally embed uses theme=dark + transparentBackground=1, so its text is
+   always white.  The wrapper must stay dark regardless of the site theme. */
 .form-wrap {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
+  background: #1E2022;
+  border: 1px solid #3A3830;
   border-radius: var(--radius);
   overflow: hidden;
   max-width: 680px;
