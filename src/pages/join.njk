@@ -92,20 +92,54 @@ permalink: "{% if lang == 'en' %}/join/index.html{% else %}/{{ lang }}/join/inde
     <!-- TALLY FORM -->
     <div class="form-wrap reveal">
       <iframe
-        data-tally-src="https://tally.so/embed/BzagEQ?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+        id="tally-iframe"
+        data-tally-src="https://tally.so/embed/BzagEQ?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&theme=dark"
         width="100%"
         height="520"
         frameborder="0"
         marginheight="0"
         marginwidth="0"
         title="{{ t.join.form_iframe_title }}"
+        style="min-height:520px;"
       ></iframe>
     </div>
     <p style="text-align:center;font-size:13px;color:var(--text-muted);margin-top:16px;">
       {{ t.join.form_fallback }}
       <a href="https://tally.so/r/BzagEQ" target="_blank" rel="noopener noreferrer">{{ t.join.form_open_directly }}</a>
     </p>
-    <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
+    <script>
+      (function(){
+        var TALLY_URL = "https://tally.so/widgets/embed.js";
+        var iframe = document.getElementById("tally-iframe");
+        var baseSrc = "https://tally.so/embed/BzagEQ?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&theme=dark";
+        // Fallback: if the Tally widget script fails to load within 4 seconds,
+        // load the form directly via src attribute
+        var fallbackTimer = setTimeout(function(){
+          if(iframe && !iframe.src){
+            iframe.src = baseSrc;
+          }
+        }, 4000);
+        if(typeof Tally !== "undefined"){
+          clearTimeout(fallbackTimer);
+          Tally.loadEmbeds();
+        } else {
+          var s = document.createElement("script");
+          s.src = TALLY_URL;
+          s.onload = function(){
+            clearTimeout(fallbackTimer);
+            if(window.Tally) Tally.loadEmbeds();
+          };
+          s.onerror = function(){
+            // Script blocked or failed — load directly
+            clearTimeout(fallbackTimer);
+            if(iframe){
+              iframe.src = baseSrc;
+            }
+          };
+          document.body.appendChild(s);
+        }
+      })();
+    </script>
   </div>
 </section>
 
