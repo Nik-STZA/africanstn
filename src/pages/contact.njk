@@ -1,33 +1,38 @@
 ---
 layout: base.njk
-pageTitle: Contact
 navActive: contact
-permalink: /contact/
+pagination:
+  data: languages.list
+  size: 1
+  alias: lang
+permalink: "{% if lang == 'en' %}/contact/index.html{% else %}/{{ lang }}/contact/index.html{% endif %}"
 ---
+{% set t = i18n[lang] %}
+{% set langPrefix = "" if lang == "en" else "/" + lang %}
 
 <section class="circuit-bg--subtle page-hero" aria-labelledby="page-title">
   <div class="container">
     <div class="hero-inner" style="min-height:unset;padding:40px 0 32px;">
-      <span class="eyebrow">Get in touch</span>
-      <h1 class="hero-title" id="page-title" style="font-size:clamp(28px,4.5vw,48px);">Contact Us</h1>
-      <p class="hero-sub" style="font-size:17px;">For service enquiries, partnership discussions, or general questions about the African sports technology ecosystem.</p>
+      <span class="eyebrow">{{ t.contact.hero_eyebrow }}</span>
+      <h1 class="hero-title" id="page-title" style="font-size:clamp(28px,4.5vw,48px);">{{ t.contact.hero_heading }}</h1>
+      <p class="hero-sub" style="font-size:17px;">{{ t.contact.hero_subheading }}</p>
     </div>
   </div>
 </section>
 
-<section class="section section--dark" aria-label="Contact details">
+<section class="section section--dark" aria-label="{{ t.contact.details_heading }}">
   <div class="container">
     <div class="grid-2 reveal" style="gap:48px;align-items:start;">
       <div>
-        <span class="eyebrow">Contact details</span>
-        <h2 class="section-title section-title--white" style="font-size:26px;margin-bottom:32px;">AfricanSTN &amp; the STZA Group</h2>
+        <span class="eyebrow">{{ t.contact.details_eyebrow }}</span>
+        <h2 class="section-title section-title--white" style="font-size:26px;margin-bottom:32px;">{{ t.contact.details_heading }}</h2>
 
         <div class="contact-detail">
           <div class="contact-detail-icon" aria-hidden="true">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
           </div>
           <div>
-            <div class="contact-detail-label">Website</div>
+            <div class="contact-detail-label">{{ t.contact.label_website }}</div>
             <div class="contact-detail-value"><a href="https://africanstn.com">africanstn.com</a></div>
           </div>
         </div>
@@ -37,10 +42,10 @@ permalink: /contact/
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.8" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           </div>
           <div>
-            <div class="contact-detail-label">South Africa — Operating entity</div>
+            <div class="contact-detail-label">{{ t.contact.label_sa_entity }}</div>
             <div class="contact-detail-value">
-              African Sports Technology Network (Pty) Ltd<br>
-              <span style="font-size:12px;color:rgba(255,255,255,0.4);">POPIA Reg. 2026-002350</span>
+              {{ t.contact.sa_entity_value }}<br>
+              <span style="font-size:12px;color:rgba(255,255,255,0.4);">{{ t.contact.sa_entity_meta }}</span>
             </div>
           </div>
         </div>
@@ -50,35 +55,35 @@ permalink: /contact/
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.8" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           </div>
           <div>
-            <div class="contact-detail-label">United Kingdom — Parent company</div>
+            <div class="contact-detail-label">{{ t.contact.label_uk_entity }}</div>
             <div class="contact-detail-value">
-              Sports Tech Africa Limited<br>
-              <span style="font-size:12px;color:rgba(255,255,255,0.4);">Companies House No. 16850337 · ICO No. C1880558 · <a href="https://stza.io" target="_blank" rel="noopener noreferrer">stza.io</a></span>
+              {{ t.contact.uk_entity_value }}<br>
+              <span style="font-size:12px;color:rgba(255,255,255,0.4);">{{ t.contact.uk_entity_meta }} · <a href="https://stza.io" target="_blank" rel="noopener noreferrer">stza.io</a></span>
             </div>
           </div>
         </div>
 
         <div style="margin-top:32px;">
-          <a href="/join/" class="btn btn-primary" style="margin-right:12px;">Register interest</a>
-          <a href="/services/" class="btn btn-outline">Services</a>
+          <a href="{{ langPrefix }}/join/" class="btn btn-primary" style="margin-right:12px;">{{ t.contact.register_interest_btn }}</a>
+          <a href="{{ langPrefix }}/services/" class="btn btn-outline">{{ t.contact.services_btn }}</a>
         </div>
       </div>
 
       <div style="display:flex;flex-direction:column;gap:14px;">
         <div class="card card--dark">
-          <h3>POPIA representation enquiries</h3>
-          <p>For questions about POPIA compliance or the local representative service.</p>
-          <a href="/services/" class="card-link">Service details →</a>
+          <h3>{{ t.contact.card1_title }}</h3>
+          <p>{{ t.contact.card1_body }}</p>
+          <a href="{{ langPrefix }}/services/" class="card-link">{{ t.contact.card1_link }}</a>
         </div>
         <div class="card card--dark">
-          <h3>Directory &amp; market intelligence</h3>
-          <p>For directory registration or early access to market intelligence.</p>
-          <a href="/join/" class="card-link">Register interest →</a>
+          <h3>{{ t.contact.card2_title }}</h3>
+          <p>{{ t.contact.card2_body }}</p>
+          <a href="{{ langPrefix }}/join/" class="card-link">{{ t.contact.card2_link }}</a>
         </div>
         <div class="card card--dark">
-          <h3>Partnership &amp; commercial</h3>
-          <p>For partnership discussions or commercial arrangements - use the registration form and note your interest.</p>
-          <a href="/join/" class="card-link">Get in touch →</a>
+          <h3>{{ t.contact.card3_title }}</h3>
+          <p>{{ t.contact.card3_body }}</p>
+          <a href="{{ langPrefix }}/join/" class="card-link">{{ t.contact.card3_link }}</a>
         </div>
       </div>
     </div>

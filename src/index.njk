@@ -1,8 +1,14 @@
 ---
 layout: base.njk
-pageTitle: Home
 navActive: home
+pagination:
+  data: languages.list
+  size: 1
+  alias: lang
+permalink: "{% if lang == 'en' %}/index.html{% else %}/{{ lang }}/index.html{% endif %}"
 ---
+{% set t = i18n[lang] %}
+{% set langPrefix = "" if lang == "en" else "/" + lang %}
 
 <section class="hero circuit-bg section--circuit" aria-labelledby="hero-title" style="position:relative;">
   <div class="hero-inner">
@@ -11,11 +17,11 @@ navActive: home
            alt="African Sports Technology Network"
            style="width:520px;max-width:90%;height:220px;object-fit:cover;object-position:center 45%;display:block;margin:0 auto;mix-blend-mode:screen;">
     </div>
-    <h1 class="hero-title" id="hero-title">{{ home.hero_headline }}</h1>
-    <p class="hero-sub">{{ home.hero_subheadline }}</p>
+    <h1 class="hero-title" id="hero-title">{{ t.home.hero_headline }}</h1>
+    <p class="hero-sub">{{ t.home.hero_subheadline }}</p>
     <div class="hero-actions">
-      <a href="/join/" class="btn btn-primary">{{ home.hero_cta_primary }}</a>
-      <a href="/services/" class="btn btn-outline">{{ home.hero_cta_secondary }}</a>
+      <a href="{{ langPrefix }}/join/" class="btn btn-primary">{{ t.home.hero_cta_primary }}</a>
+      <a href="{{ langPrefix }}/services/" class="btn btn-outline">{{ t.home.hero_cta_secondary }}</a>
     </div>
   </div>
 </section>
@@ -23,28 +29,28 @@ navActive: home
 <section class="section section--white">
   <div class="container">
     <div class="section-header section-header--center reveal">
-      <span class="eyebrow">What we do</span>
-      <h2 class="section-title">{{ home.what_we_do_heading }}</h2>
+      <span class="eyebrow">{{ t.home.what_eyebrow }}</span>
+      <h2 class="section-title">{{ t.home.what_we_do_heading }}</h2>
       <div class="section-divider section-divider--center"></div>
     </div>
     <div class="grid-3">
       <div class="card card--gold-top reveal">
         <div class="card-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-        <h3>{{ home.card1_title }}</h3>
-        <p>{{ home.card1_body }}</p>
-        <a href="/services/" class="card-link">Learn more →</a>
+        <h3>{{ t.home.card1_title }}</h3>
+        <p>{{ t.home.card1_body }}</p>
+        <a href="{{ langPrefix }}/services/" class="card-link">{{ t.home.learn_more }}</a>
       </div>
       <div class="card card--gold-top reveal">
         <div class="card-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-        <h3>{{ home.card2_title }}</h3>
-        <p>{{ home.card2_body }}</p>
-        <a href="/services/" class="card-link">Learn more →</a>
+        <h3>{{ t.home.card2_title }}</h3>
+        <p>{{ t.home.card2_body }}</p>
+        <a href="{{ langPrefix }}/services/" class="card-link">{{ t.home.learn_more }}</a>
       </div>
       <div class="card card--gold-top reveal">
         <div class="card-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-        <h3>{{ home.card3_title }}</h3>
-        <p>{{ home.card3_body }}</p>
-        <a href="/ecosystem/" class="card-link">Learn more →</a>
+        <h3>{{ t.home.card3_title }}</h3>
+        <p>{{ t.home.card3_body }}</p>
+        <a href="{{ langPrefix }}/ecosystem/" class="card-link">{{ t.home.learn_more }}</a>
       </div>
     </div>
   </div>
@@ -53,20 +59,20 @@ navActive: home
 <section class="section section--warm">
   <div class="container">
     <div class="section-header reveal">
-      <span class="eyebrow">Services</span>
-      <h2 class="section-title">{{ home.services_preview_heading }}</h2>
+      <span class="eyebrow">{{ t.home.services_eyebrow }}</span>
+      <h2 class="section-title">{{ t.home.services_preview_heading }}</h2>
       <div class="section-divider"></div>
     </div>
     <div class="grid-2">
       <div class="card card--gold-top reveal">
-        <h3>{{ home.services_card1_title }}</h3>
-        <p>{{ home.services_card1_body }}</p>
-        <a href="/services/" class="card-link">Find out more →</a>
+        <h3>{{ t.home.services_card1_title }}</h3>
+        <p>{{ t.home.services_card1_body }}</p>
+        <a href="{{ langPrefix }}/services/" class="card-link">{{ t.home.find_out_more }}</a>
       </div>
       <div class="card card--gold-top reveal">
-        <h3>{{ home.services_card2_title }}</h3>
-        <p>{{ home.services_card2_body }}</p>
-        <a href="/join/" class="card-link">Register interest →</a>
+        <h3>{{ t.home.services_card2_title }}</h3>
+        <p>{{ t.home.services_card2_body }}</p>
+        <a href="{{ langPrefix }}/join/" class="card-link">{{ t.home.register_interest }}</a>
       </div>
     </div>
   </div>
@@ -75,12 +81,12 @@ navActive: home
 <section class="section circuit-bg section--circuit" style="position:relative;">
   <div class="container" style="text-align:center;">
     <div class="reveal">
-      <span class="eyebrow">Get involved</span>
-      <h2 class="section-title section-title--white" style="max-width:600px;margin:0 auto 16px;">{{ home.cta_heading }}</h2>
-      <p class="section-lead section-lead--dark" style="margin:0 auto 36px;max-width:580px;">{{ home.cta_body }}</p>
+      <span class="eyebrow">{{ t.home.cta_eyebrow }}</span>
+      <h2 class="section-title section-title--white" style="max-width:600px;margin:0 auto 16px;">{{ t.home.cta_heading }}</h2>
+      <p class="section-lead section-lead--dark" style="margin:0 auto 36px;max-width:580px;">{{ t.home.cta_body }}</p>
       <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-        <a href="/join/" class="btn btn-primary">Register interest</a>
-        <a href="/about/" class="btn btn-outline">About AfricanSTN</a>
+        <a href="{{ langPrefix }}/join/" class="btn btn-primary">{{ t.home.register_interest_btn }}</a>
+        <a href="{{ langPrefix }}/about/" class="btn btn-outline">{{ t.home.about_btn }}</a>
       </div>
     </div>
   </div>

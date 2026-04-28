@@ -1,0 +1,494 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy — African Sports Technology Network</title>
+  <meta name="description" content="The ecosystem platform for sports technology in Africa. Connecting international innovation with African markets.">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+
+  
+  
+
+  <!-- Google Consent Mode v2 — default to denied, updated on user choice -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'analytics_storage': 'denied',
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'functionality_storage': 'denied',
+      'personalization_storage': 'denied',
+      'security_storage': 'granted',
+      'wait_for_update': 500
+    });
+
+    // If user previously accepted, update consent and load GA
+    (function() {
+      var consent = localStorage.getItem('africanstn-consent');
+      if (consent === 'accept_all') {
+        gtag('consent', 'update', {
+          'analytics_storage': 'granted',
+          'functionality_storage': 'granted',
+          'personalization_storage': 'granted'
+        });
+        // Load GA only after consent is granted
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-TRYEETGY0L';
+        document.head.appendChild(s);
+        s.onload = function() {
+          gtag('js', new Date());
+          gtag('config', 'G-TRYEETGY0L');
+        };
+      } else if (consent === 'essentials_only') {
+        gtag('consent', 'update', {
+          'analytics_storage': 'denied',
+          'functionality_storage': 'denied',
+          'personalization_storage': 'denied'
+        });
+      }
+    })();
+  </script>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<!-- NAV -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <a href="/" class="nav-logo" aria-label="African Sports Technology Network home"
+     style="text-decoration:none;display:flex;align-items:center;flex-shrink:0;">
+    <img src="/assets/images/africanstn-logo-white.png"
+         alt="African Sports Technology Network"
+         style="height:64px;width:200px;object-fit:cover;object-position:20% center;display:block;mix-blend-mode:screen;">
+  </a>
+  <ul class="nav-links" role="list">
+    <li><a href="/" >Home</a></li>
+    <li><a href="/about/" >About</a></li>
+    <li><a href="/what-is-sports-tech/" >What is sports tech</a></li>
+    <li><a href="/services/" >Services</a></li>
+    <li><a href="/ecosystem/" >Ecosystem</a></li>
+    <li><a href="/contact/" >Contact</a></li>
+    <li><a href="/join/" class="nav-cta">Join AfricanSTN</a></li>
+  </ul>
+
+  <!-- LANGUAGE SWITCHER -->
+  <details class="lang-switcher" aria-label="Language">
+    <summary aria-haspopup="listbox" title="Language">
+      <span class="lang-switcher__globe" aria-hidden="true">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      </span>
+      <span class="lang-switcher__current">EN</span>
+      <span class="lang-switcher__caret" aria-hidden="true">▾</span>
+    </summary>
+    <ul class="lang-switcher__menu" role="listbox">
+      
+        
+        
+        
+          
+        
+        <li role="option" aria-selected="true">
+          <a href="/privacy/" lang="en" dir="ltr" class="is-active" aria-current="true">
+            <span class="lang-switcher__code" aria-hidden="true">EN</span>
+            <span class="lang-switcher__native">English</span>
+          </a>
+        </li>
+      
+        
+        
+        
+          
+        
+        <li role="option" aria-selected="false">
+          <a href="/privacy/" lang="fr" dir="ltr">
+            <span class="lang-switcher__code" aria-hidden="true">FR</span>
+            <span class="lang-switcher__native">Français</span>
+          </a>
+        </li>
+      
+        
+        
+        
+          
+        
+        <li role="option" aria-selected="false">
+          <a href="/privacy/" lang="pt" dir="ltr">
+            <span class="lang-switcher__code" aria-hidden="true">PT</span>
+            <span class="lang-switcher__native">Português</span>
+          </a>
+        </li>
+      
+        
+        
+        
+          
+        
+        <li role="option" aria-selected="false">
+          <a href="/privacy/" lang="ar" dir="rtl">
+            <span class="lang-switcher__code" aria-hidden="true">AR</span>
+            <span class="lang-switcher__native">العربية</span>
+          </a>
+        </li>
+      
+        
+        
+        
+          
+        
+        <li role="option" aria-selected="false">
+          <a href="/privacy/" lang="sw" dir="ltr">
+            <span class="lang-switcher__code" aria-hidden="true">SW</span>
+            <span class="lang-switcher__native">Kiswahili</span>
+          </a>
+        </li>
+      
+    </ul>
+  </details>
+
+  <button class="theme-toggle" aria-label="Toggle colour theme">◑ Auto</button>
+  <button class="nav-hamburger" aria-label="Open navigation menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-mobile" role="navigation" aria-label="Mobile navigation">
+  <a href="/">Home</a>
+  <a href="/about/">About</a>
+  <a href="/what-is-sports-tech/">What is sports tech</a>
+  <a href="/services/">Services</a>
+  <a href="/ecosystem/">Ecosystem</a>
+  <a href="/contact/">Contact</a>
+  <a href="/join/" style="color:#C5A059;font-weight:700;">Join AfricanSTN →</a>
+</div>
+
+
+
+
+<!-- MAIN CONTENT -->
+<main id="main-content">
+  
+<!-- Hero -->
+<section style="background:var(--surface-dark);padding:56px 5% 48px;border-bottom:1px solid rgba(197,160,89,0.2);">
+  <div class="container" style="max-width:800px;">
+    <span class="eyebrow">Legal</span>
+    <h1 style="font-size:clamp(26px,4vw,40px);font-weight:800;color:var(--text-on-dark);margin-bottom:10px;line-height:1.15;">Joint Privacy Policy</h1>
+    <p style="font-size:14px;color:rgba(255,255,255,0.45);margin:0;">UK GDPR &nbsp;·&nbsp; EU GDPR &nbsp;·&nbsp; POPIA &nbsp;·&nbsp; Last updated: March 2026</p>
+  </div>
+</section>
+
+<!-- Body -->
+<section class="section section--white">
+  <div class="container" style="max-width:800px;">
+
+    <div class="legal-meta">
+      <strong>This policy applies to both entities:</strong>
+      Sports Tech Africa Limited T/A STZA® · Registered in England &amp; Wales · Company No: 16850337 · ICO Ref: C1880558 · stza.io
+      <br>
+      African Sports Technology Network (Pty) Ltd · Registered in South Africa · Company No: 2026/020895/07 · POPIA Reg: 2026-002350 · africanstn.com
+    </div>
+
+    <div class="legal-body">
+
+      <h2>1. About this policy</h2>
+      <p>This Joint Privacy Policy applies to two related entities operating within the same group:</p>
+      <p><strong>Sports Tech Africa Limited T/A STZA®</strong></p>
+      <ul>
+        <li>Registered in England &amp; Wales, Company Number: 16850337</li>
+        <li>UK data controller registered with the Information Commissioner's Office (ICO), Reference: C1880558</li>
+        <li>Website: stza.io</li>
+      </ul>
+      <p><strong>African Sports Technology Network (Pty) Ltd ("AfricanSTN")</strong></p>
+      <ul>
+        <li>Registered in South Africa, Company Registration Number: 2026/020895/07</li>
+        <li>Responsible Party under POPIA, Information Regulator Registration: 2026-002350</li>
+        <li>Website: africanstn.com</li>
+      </ul>
+      <p>Sports Tech Africa Limited ("STZA") is the UK parent entity. African Sports Technology Network (Pty) Ltd ("AfricanSTN") is its South African operating subsidiary. Each entity is a controller/responsible party in respect of its own processing activities. Where the two entities jointly determine the purposes and means of processing (for example, shared infrastructure and group administration), they act as joint controllers/responsible parties.</p>
+      <p>This policy explains how we collect, use, store, and protect your personal information. It applies regardless of which website or platform you access. For South African data subjects, this policy should be read alongside AfricanSTN's PAIA Manual prepared in terms of Section 51 of the Promotion of Access to Information Act 2 of 2000, which is available on request from <a href="mailto:privacy@stza.io">privacy@stza.io</a>.</p>
+
+      <h2>2. Applicable law</h2>
+      <p>We process personal information in compliance with the following legal frameworks:</p>
+      <ul>
+        <li>United Kingdom General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018 — applicable to Sports Tech Africa Ltd and to data subjects in the United Kingdom.</li>
+        <li>EU General Data Protection Regulation (EU GDPR) — applicable where EU data subjects are involved.</li>
+        <li>South African Protection of Personal Information Act 4 of 2013 (POPIA) — applicable to African Sports Technology Network (Pty) Ltd and to data subjects in South Africa.</li>
+        <li>Promotion of Access to Information Act 2 of 2000 (PAIA) — governs access to information requests directed at AfricanSTN.</li>
+      </ul>
+      <p>Where the frameworks overlap, we apply the higher standard of protection.</p>
+
+      <h2>3. Information officer</h2>
+      <p>The Information Officer responsible for data protection compliance across both entities is:</p>
+      <p><strong>Nikola Mladenovic CA(SA)</strong><br>
+      Director, Sports Tech Africa Ltd &amp; African Sports Technology Network (Pty) Ltd<br>
+      Email: <a href="mailto:privacy@stza.io">privacy@stza.io</a></p>
+      <p>A Deputy Information Officer may be designated for South African operational matters as the business scales. Details will be updated in this policy when appointed.</p>
+
+      <h2>4. Information we collect</h2>
+      <h3>4.1 Information you provide directly</h3>
+      <p>You may provide personal information when you contact us, request information, subscribe to updates, join our community or membership platform, register for events, or respond to surveys. This may include:</p>
+      <ul>
+        <li>Name and surname</li>
+        <li>Email address and contact details</li>
+        <li>Company name and role</li>
+        <li>Country, province, and city</li>
+        <li>Professional interests, sector, and technology focus areas</li>
+        <li>Membership preferences and ecosystem role</li>
+        <li>Payment details (for membership or training services)</li>
+        <li>Any information shared during consultations or correspondence</li>
+      </ul>
+
+      <h3>4.2 Information collected automatically</h3>
+      <p>When you visit our websites, we may automatically collect your IP address, browser type and device information, pages visited and usage patterns, and data via cookies or similar tracking technologies (see Section 11).</p>
+
+      <h3>4.3 Community and membership platform information</h3>
+      <p>If you join our community or membership platform, we may collect additional voluntary information including profile details (biography, skills, interests), company and sector details, directory visibility preferences, training and event attendance records, and records of participation in forums or discussions. You may update or delete this information at any time.</p>
+
+      <h2>5. How and why we use your information</h2>
+      <h3>5.1 Purposes of processing by data subject category</h3>
+
+      <table class="legal-table">
+        <thead>
+          <tr>
+            <th>Data subject category</th>
+            <th>Purpose of processing</th>
+            <th>Lawful basis</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Website visitors</td><td>Website analytics, performance improvement, security monitoring</td><td>Legitimate interest (GDPR Art 6(1)(f) / POPIA S11(1)(f))</td></tr>
+          <tr><td>Enquiry contacts</td><td>Responding to enquiries, providing requested information</td><td>Consent (GDPR Art 6(1)(a)) / Legitimate interest</td></tr>
+          <tr><td>Ecosystem community contacts</td><td>Networking, partnership exploration, ecosystem development, business development</td><td>Legitimate interest (GDPR Art 6(1)(f) / POPIA S11(1)(f))</td></tr>
+          <tr><td>Members and training participants</td><td>Membership administration, training delivery, CPD tracking, event management</td><td>Contractual necessity (GDPR Art 6(1)(b) / POPIA S11(1)(b)); Consent for marketing</td></tr>
+          <tr><td>POPIA representation clients</td><td>Delivery of POPIA representation and compliance services</td><td>Contractual necessity (GDPR Art 6(1)(b) / POPIA S11(1)(b))</td></tr>
+          <tr><td>Distribution partners</td><td>Distribution partnership management, commercial relationship management</td><td>Contractual necessity / Legitimate interest</td></tr>
+          <tr><td>STZA advisory clients</td><td>Fractional FD and advisory service delivery</td><td>Contractual necessity (GDPR Art 6(1)(b))</td></tr>
+          <tr><td>Suppliers and service providers</td><td>Procurement, payment, contract management</td><td>Contractual necessity (GDPR Art 6(1)(b) / POPIA S11(1)(b))</td></tr>
+        </tbody>
+      </table>
+
+      <h3>5.2 General uses</h3>
+      <p>Across all categories, we may also use your information to maintain compliance with UK GDPR, EU GDPR, POPIA, and other applicable legislation, and to protect our legal rights and the security of our systems. We do not use your information for automated decision-making or profiling.</p>
+
+      <h2>6. Direct marketing</h2>
+      <p>We may send you marketing communications about our services, events, membership opportunities, and industry updates where you have given your consent, or where we have a legitimate interest and you have not objected.</p>
+      <p>Under POPIA Section 69, we will only send direct marketing communications by electronic means where we have obtained your prior consent. You have the right to opt out of direct marketing at any time by contacting <a href="mailto:privacy@stza.io">privacy@stza.io</a> or using the unsubscribe mechanism in any marketing communication.</p>
+      <p>Under UK GDPR and the Privacy and Electronic Communications Regulations 2003 (PECR), we rely on either your consent or the "soft opt-in" exemption (where you have an existing relationship with us and the communication relates to similar services). You may opt out at any time.</p>
+      <p>AfricanSTN maintains a direct marketing opt-out register in accordance with POPIA Section 69(3). Any person who has opted out will not be contacted for direct marketing purposes.</p>
+
+      <h2>7. Information sharing</h2>
+      <p>We do not sell or rent your personal information to third parties. We may share your information only in the following circumstances:</p>
+
+      <h3>7.1 Third-party service providers (operators/processors)</h3>
+      <p>We engage trusted third-party service providers to assist in operating our services. These providers process personal information on our behalf under written agreements that comply with GDPR Article 28 and POPIA Section 21. Current providers include:</p>
+      <ul>
+        <li>Google LLC (Google Workspace) — email, document storage, and cloud infrastructure</li>
+        <li>Notion Labs Inc. — community database hosting</li>
+        <li>Netlify Inc. — website hosting</li>
+        <li>Xero Limited — accounting and financial record-keeping</li>
+      </ul>
+      <p>We conduct due diligence on all service providers and maintain a register of operators/processors in our Data Protection Compliance Framework.</p>
+
+      <h3>7.2 Intragroup sharing</h3>
+      <p>Personal information may be shared between STZA and AfricanSTN for group administration purposes, governed by an Intragroup Data Transfer Agreement.</p>
+
+      <h3>7.3 Legal obligations</h3>
+      <p>We may disclose personal information where required to comply with applicable law, including court orders, regulatory requirements, or law enforcement requests.</p>
+
+      <h3>7.4 Protection of rights</h3>
+      <p>We may disclose personal information where necessary to protect our legal rights, your rights, or the security of our systems.</p>
+
+      <h3>7.5 With your consent</h3>
+      <p>We will obtain your prior consent before making your profile visible in community directories, sharing your information with partners or collaborators, or using your information for any purpose not described in this policy.</p>
+
+      <h2>8. International data transfers</h2>
+      <p>Because we operate across the United Kingdom and South Africa, and use service providers based in other jurisdictions (including the United States), your personal information may be transferred between countries. Such transfers are protected by the following mechanisms:</p>
+      <ul>
+        <li>Intragroup Data Transfer Agreement between STZA and AfricanSTN, providing adequate protection for transfers between the UK and South Africa.</li>
+        <li>Standard Contractual Clauses (SCCs) approved by the UK ICO or European Commission, incorporated into our agreements with Google and Notion.</li>
+        <li>Binding agreements with adequate protection provisions as required by POPIA Section 72(1)(a) for transfers of South African data subjects' information.</li>
+        <li>Adequacy assessments where the receiving country has been assessed as providing a level of protection substantially similar to POPIA.</li>
+      </ul>
+      <p>Transfer Impact Assessments are conducted for each service provider. All international transfers comply with UK GDPR, EU GDPR, and POPIA.</p>
+
+      <h2>9. Data security</h2>
+      <p>We implement appropriate technical and organisational measures to protect your personal information, including:</p>
+      <ul>
+        <li>Two-factor authentication (2FA) on all business accounts</li>
+        <li>Encryption in transit and at rest across all cloud platforms</li>
+        <li>Device encryption on all laptops and mobile devices</li>
+        <li>Strong password policy with password management tools</li>
+        <li>Access controls restricting personal information to authorised users only</li>
+        <li>Regular review of security measures and third-party access</li>
+      </ul>
+      <p>No method of digital storage or transmission is entirely secure. We follow industry best practices and will notify affected individuals and the relevant regulators in the event of a data breach as required by law.</p>
+
+      <h2>10. Data retention</h2>
+
+      <table class="legal-table">
+        <thead>
+          <tr><th>Record category</th><th>Retention period</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Website analytics data</td><td>26 months</td></tr>
+          <tr><td>Enquiry and correspondence records</td><td>3 years from last contact</td></tr>
+          <tr><td>Ecosystem community contacts</td><td>Until purpose is fulfilled or you object/opt out (reviewed annually)</td></tr>
+          <tr><td>Membership and training records</td><td>Duration of membership plus 3 years</td></tr>
+          <tr><td>Client engagement records (POPIA representation)</td><td>Duration of engagement plus 5 years</td></tr>
+          <tr><td>STZA advisory client records</td><td>Duration of engagement plus 7 years</td></tr>
+          <tr><td>Financial records</td><td>7 years from end of financial year</td></tr>
+          <tr><td>Regulatory correspondence</td><td>Retained indefinitely for compliance purposes</td></tr>
+        </tbody>
+      </table>
+
+      <p>You may request deletion of your information at any time. Please refer to Section 12 for how to exercise this right.</p>
+
+      <h2 id="cookies">11. Cookies and tracking technologies</h2>
+      <p>Cookies are small text files placed on your device when you visit a website. Our websites (stza.io and africanstn.com) are hosted on Netlify, which may set cookies on your device as part of its hosting infrastructure. We use the following categories of cookies:</p>
+      <ul>
+        <li><strong>Strictly necessary cookies</strong> — essential for the website to function (session management, security, form submission). These cannot be disabled and do not require consent. Duration: session or as required.</li>
+        <li><strong>Performance and analytics cookies</strong> — collect aggregated, anonymous information about how visitors use our websites. Duration: up to 12 months. These require your consent.</li>
+        <li><strong>Functionality cookies</strong> — remember your settings and preferences (including your colour theme preference). Duration: session or persistent. These require your consent.</li>
+      </ul>
+      <p>We do not currently use marketing or advertising cookies. If this changes, we will update this policy and obtain your consent before deploying such cookies.</p>
+      <p>You can manage cookies through your browser settings. Disabling non-essential cookies will not affect core website functionality.</p>
+      <p>A cookie consent banner is displayed on all pages of both websites. On your first visit, the banner appears at the bottom of the screen and offers two choices:</p>
+      <ul>
+        <li><strong>Accept all</strong> — enables analytics cookies (Google Analytics) and functionality cookies (such as your colour theme preference). Google Analytics will only load after you click Accept all.</li>
+        <li><strong>Essentials only</strong> — blocks all non-essential cookies and local storage usage. The site continues to function normally, but preferences such as your colour theme will not be remembered between visits.</li>
+      </ul>
+      <p>Your choice is stored in your browser's local storage and the banner will not reappear once a selection has been made. You can change your preference at any time by clearing your browser's local storage for this site.</p>
+      <p>We implement Google Consent Mode v2 to ensure that consent signals (analytics_storage, ad_storage, ad_user_data, ad_personalization, functionality_storage, and personalization_storage) are communicated to Google services. All signals default to "denied" until you grant consent via the banner.</p>
+      <p>Consent choices are logged server-side for compliance audit purposes. The audit log records the action taken (accept or essentials only), a timestamp, your country (derived from your IP address), and a truncated user agent string. No directly identifying personal information is stored in the audit log.</p>
+
+      <h2>12. Your rights</h2>
+      <h3>12.1 UK and EU data subjects (UK GDPR / EU GDPR)</h3>
+      <p>You have the right to: access your personal information (Article 15); request correction of inaccurate or incomplete data (Article 16); request erasure of your data (Article 17); object to processing, including for direct marketing purposes (Article 21); restrict processing in certain circumstances (Article 18); withdraw consent at any time, without affecting the lawfulness of prior processing; and data portability — receive a copy of your data in a structured, machine-readable format (Article 20).</p>
+
+      <h3>12.2 South African data subjects (POPIA)</h3>
+      <p>You have the right to: be notified that your personal information is being collected and the purpose thereof (Section 18); access your personal information held by us (Section 23); request correction or deletion of inaccurate or unlawfully processed information (Section 24); object to the processing of your personal information (Section 11(3)); object to direct marketing (Section 69); and submit a complaint to the Information Regulator.</p>
+      <p>Formal access requests under POPIA must be submitted using the prescribed Form 2, available from the Information Regulator's website at <a href="https://inforegulator.org.za/paia-forms/" target="_blank" rel="noopener noreferrer">inforegulator.org.za</a> or on request from <a href="mailto:privacy@stza.io">privacy@stza.io</a>.</p>
+
+      <h3>12.3 How to exercise your rights</h3>
+      <p>To exercise any of your rights, please contact us at <a href="mailto:privacy@stza.io">privacy@stza.io</a>. We will acknowledge your request within 5 business days and respond substantively within the timeframes required by applicable law (30 days under POPIA; one month under UK GDPR/EU GDPR).</p>
+
+      <h2>13. Community and membership platform</h2>
+      <p>If you join our community or membership platform: you control what information appears on your profile; you may change your visibility settings or delete your account at any time; your posts in forums or discussions may be visible to other members; we will never publish your profile externally without your explicit consent; and networking and collaboration features are opt-in only.</p>
+
+      <h2>14. Special personal information and children's data</h2>
+      <p>We do not directly collect or process special personal information (as defined in POPIA Section 26 or GDPR Article 9) or children's data through our websites or membership platform.</p>
+      <p>In the course of providing POPIA representation services, AfricanSTN may receive regulatory correspondence that references special personal information or children's data processed by its clients. Enhanced security measures and data minimisation protocols are applied to any such records.</p>
+
+      <h2>15. Complaints</h2>
+      <p>If you believe your personal information has been mishandled, please contact us first at <a href="mailto:privacy@stza.io">privacy@stza.io</a>. We will acknowledge your complaint within 5 business days and provide a substantive response within 20 business days.</p>
+      <p>If you remain dissatisfied, you have the right to lodge a complaint with the relevant supervisory authority:</p>
+      <ul>
+        <li><strong>United Kingdom:</strong> Information Commissioner's Office (ICO) — <a href="https://www.ico.org.uk" target="_blank" rel="noopener noreferrer">ico.org.uk</a></li>
+        <li><strong>South Africa:</strong> Information Regulator — <a href="https://www.inforegulator.org.za" target="_blank" rel="noopener noreferrer">inforegulator.org.za</a> · <a href="mailto:POPIAComplaints@inforegulator.org.za">POPIAComplaints@inforegulator.org.za</a></li>
+        <li><strong>European Union:</strong> Your local Data Protection Authority.</li>
+      </ul>
+
+      <h2>16. Changes to this policy</h2>
+      <p>We may update this Joint Privacy Policy from time to time. The latest version will always be posted on our websites with the updated date shown at the top of the document. Material changes will be communicated to affected individuals where practicable. Continued use of our websites or services following any update constitutes acceptance of the revised policy.</p>
+
+      <h2>17. Contact us</h2>
+      <p><strong>Sports Tech Africa Limited T/A STZA®</strong><br>
+      Registered in England &amp; Wales · Company Number: 16850337<br>
+      ICO Registration: C1880558<br>
+      Email: <a href="mailto:privacy@stza.io">privacy@stza.io</a><br>
+      Website: <a href="https://stza.io">stza.io</a></p>
+      <p><strong>African Sports Technology Network (Pty) Ltd</strong><br>
+      Registered in South Africa · Company Registration Number: 2026/020895/07<br>
+      Information Regulator Registration: 2026-002350<br>
+      208 Doonside, Leicester Road, Bedford Gardens, Gauteng, 2007<br>
+      Email: <a href="mailto:privacy@stza.io">privacy@stza.io</a><br>
+      Website: <a href="https://africanstn.com">africanstn.com</a></p>
+
+    </div><!-- end legal-body -->
+
+    <div style="margin-top:40px;padding-top:24px;border-top:1px solid var(--border);display:flex;gap:16px;flex-wrap:wrap;">
+      <a href="/terms/" style="font-size:14px;font-weight:700;color:var(--gold);">Terms of use →</a>
+      <a href="/" style="font-size:14px;color:var(--text-muted);">← Back to home</a>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/what-is-sports-tech/">What is sports tech</a></li>
+          <li><a href="/ecosystem/">Ecosystem</a></li>
+          <li><a href="/services/">Services</a></li>
+          <li><a href="/join/">Join AfricanSTN</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/privacy/">Privacy policy</a></li>
+          <li><a href="/terms/">Terms of use</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Group</h4>
+        <ul>
+          <li><a href="https://stza.io" target="_blank" rel="noopener noreferrer">stza.io</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 African Sports Technology Network (Pty) Ltd · Reg. 2026/020895/07 · POPIA Reg. 2026-002350 · South Africa</p>
+      <p>A subsidiary of Sports Tech Africa Limited · Companies House No. 16850337 · ICO No. C1880558 · United Kingdom</p>
+    </div>
+  </div>
+</footer>
+
+<!-- COOKIE CONSENT BANNER -->
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-label="Cookie consent" aria-hidden="true">
+  <div class="cookie-banner__inner">
+    <p class="cookie-banner__text">
+      We use cookies and local storage to improve your experience. Essential cookies are required for the site to function. Optional cookies help with analytics and remembering your preferences.
+      <a href="/privacy/#cookies">Learn more</a>
+    </p>
+    <div class="cookie-banner__actions">
+      <button id="cookie-accept" class="cookie-banner__btn cookie-banner__btn--accept">Accept all</button>
+      <button id="cookie-essentials" class="cookie-banner__btn cookie-banner__btn--essentials">Essentials only</button>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/js/script.js"></script>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", function(user) {
+      if (!user) {
+        window.netlifyIdentity.on("login", function() {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
+</body>
+</html>

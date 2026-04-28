@@ -1,0 +1,10 @@
+{
+  "list": ["en", "fr", "pt", "ar", "sw"],
+  "meta": {
+    "en": { "name": "English",    "native": "English",    "dir": "ltr", "html_lang": "en" },
+    "fr": { "name": "French",     "native": "Français",   "dir": "ltr", "html_lang": "fr" },
+    "pt": { "name": "Portuguese", "native": "Português",  "dir": "ltr", "html_lang": "pt" },
+    "ar": { "name": "Arabic",     "native": "العربية",     "dir": "rtl", "html_lang": "ar" },
+    "sw": { "name": "Swahili",    "native": "Kiswahili",  "dir": "ltr", "html_lang": "sw" }
+  }
+}

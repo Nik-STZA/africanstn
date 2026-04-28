@@ -1,16 +1,21 @@
 ---
 layout: base.njk
-pageTitle: Services
 navActive: services
-permalink: /services/
+pagination:
+  data: languages.list
+  size: 1
+  alias: lang
+permalink: "{% if lang == 'en' %}/services/index.html{% else %}/{{ lang }}/services/index.html{% endif %}"
 ---
+{% set t = i18n[lang] %}
+{% set langPrefix = "" if lang == "en" else "/" + lang %}
 
 <section class="circuit-bg--subtle page-hero" aria-labelledby="page-title">
   <div class="container">
     <div class="hero-inner" style="min-height:unset;padding:40px 0 32px;">
-      <span class="eyebrow">What we offer</span>
-      <h1 class="hero-title" id="page-title" style="font-size:clamp(28px,4.5vw,48px);">{{ services.hero_heading }}</h1>
-      <p class="hero-sub" style="font-size:17px;">{{ services.hero_subheading }}</p>
+      <span class="eyebrow">{{ t.services.eyebrow_what }}</span>
+      <h1 class="hero-title" id="page-title" style="font-size:clamp(28px,4.5vw,48px);">{{ t.services.hero_heading }}</h1>
+      <p class="hero-sub" style="font-size:17px;">{{ t.services.hero_subheading }}</p>
     </div>
   </div>
 </section>
@@ -19,18 +24,18 @@ permalink: /services/
   <div class="container">
     <div class="text-visual text-visual--flip reveal">
       <div>
-        <span class="eyebrow">Intelligence</span>
-        <h2 class="section-title">{{ services.intel_heading }}</h2>
+        <span class="eyebrow">{{ t.services.intel_eyebrow }}</span>
+        <h2 class="section-title">{{ t.services.intel_heading }}</h2>
         <div class="section-divider"></div>
-        <p style="font-size:15px;color:var(--text-secondary);line-height:1.8;margin-bottom:16px;">{{ services.intel_para1 }}</p>
-        <p style="font-size:15px;color:var(--text-secondary);line-height:1.8;margin-bottom:28px;">{{ services.intel_para2 }}</p>
-        <a href="/join/" class="btn btn-outline-gold">Register your interest</a>
+        <p style="font-size:15px;color:var(--text-secondary);line-height:1.8;margin-bottom:16px;">{{ t.services.intel_para1 }}</p>
+        <p style="font-size:15px;color:var(--text-secondary);line-height:1.8;margin-bottom:28px;">{{ t.services.intel_para2 }}</p>
+        <a href="{{ langPrefix }}/join/" class="btn btn-outline-gold">{{ t.services.register_interest_btn }}</a>
       </div>
       <div class="grid-2" style="gap:16px;">
-        <div class="card card--gold-top" style="padding:20px;"><h3 style="font-size:15px;">{{ services.intel_card1_title }}</h3><p>{{ services.intel_card1_body }}</p></div>
-        <div class="card card--gold-top" style="padding:20px;"><h3 style="font-size:15px;">{{ services.intel_card2_title }}</h3><p>{{ services.intel_card2_body }}</p></div>
-        <div class="card card--gold-top" style="padding:20px;"><h3 style="font-size:15px;">{{ services.intel_card3_title }}</h3><p>{{ services.intel_card3_body }}</p></div>
-        <div class="card card--gold-top" style="padding:20px;"><h3 style="font-size:15px;">{{ services.intel_card4_title }}</h3><p>{{ services.intel_card4_body }}</p></div>
+        <div class="card card--gold-top" style="padding:20px;"><h3 style="font-size:15px;">{{ t.services.intel_card1_title }}</h3><p>{{ t.services.intel_card1_body }}</p></div>
+        <div class="card card--gold-top" style="padding:20px;"><h3 style="font-size:15px;">{{ t.services.intel_card2_title }}</h3><p>{{ t.services.intel_card2_body }}</p></div>
+        <div class="card card--gold-top" style="padding:20px;"><h3 style="font-size:15px;">{{ t.services.intel_card3_title }}</h3><p>{{ t.services.intel_card3_body }}</p></div>
+        <div class="card card--gold-top" style="padding:20px;"><h3 style="font-size:15px;">{{ t.services.intel_card4_title }}</h3><p>{{ t.services.intel_card4_body }}</p></div>
       </div>
     </div>
   </div>
@@ -40,25 +45,25 @@ permalink: /services/
   <div class="container">
     <div class="text-visual reveal">
       <div>
-        <span class="eyebrow">Compliance</span>
-        <h2 class="section-title">{{ services.popia_heading }}</h2>
+        <span class="eyebrow">{{ t.services.popia_eyebrow }}</span>
+        <h2 class="section-title">{{ t.services.popia_heading }}</h2>
         <div class="section-divider"></div>
-        <p style="font-size:15px;color:var(--text-secondary);line-height:1.8;margin-bottom:16px;">{{ services.popia_para1 }}</p>
-        <p style="font-size:15px;color:var(--text-secondary);line-height:1.8;margin-bottom:28px;">{{ services.popia_para2 }}</p>
+        <p style="font-size:15px;color:var(--text-secondary);line-height:1.8;margin-bottom:16px;">{{ t.services.popia_para1 }}</p>
+        <p style="font-size:15px;color:var(--text-secondary);line-height:1.8;margin-bottom:28px;">{{ t.services.popia_para2 }}</p>
         <div class="tag-row">
-          <span class="tag">SaaS platforms</span>
-          <span class="tag">Data processors</span>
-          <span class="tag">Sports tech companies</span>
-          <span class="tag">International operators</span>
+          <span class="tag">{{ t.services.tag1 }}</span>
+          <span class="tag">{{ t.services.tag2 }}</span>
+          <span class="tag">{{ t.services.tag3 }}</span>
+          <span class="tag">{{ t.services.tag4 }}</span>
         </div>
-        <div class="notice" style="margin-top:20px;">{{ services.popia_notice }}</div>
-        <a href="/join/" class="btn btn-primary" style="margin-top:24px;">{{ services.popia_cta }}</a>
+        <div class="notice" style="margin-top:20px;">{{ t.services.popia_notice }}</div>
+        <a href="{{ langPrefix }}/join/" class="btn btn-primary" style="margin-top:24px;">{{ t.services.popia_cta }}</a>
       </div>
       <div>
-        <div class="feature-band"><div class="feature-band-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.8" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div><h4>{{ services.feature1_title }}</h4><p>{{ services.feature1_body }}</p></div></div>
-        <div class="feature-band"><div class="feature-band-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.8" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><h4>{{ services.feature2_title }}</h4><p>{{ services.feature2_body }}</p></div></div>
-        <div class="feature-band"><div class="feature-band-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.8" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><div><h4>{{ services.feature3_title }}</h4><p>{{ services.feature3_body }}</p></div></div>
-        <div class="feature-band"><div class="feature-band-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div><div><h4>{{ services.feature4_title }}</h4><p>{{ services.feature4_body }}</p></div></div>
+        <div class="feature-band"><div class="feature-band-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.8" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div><h4>{{ t.services.feature1_title }}</h4><p>{{ t.services.feature1_body }}</p></div></div>
+        <div class="feature-band"><div class="feature-band-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.8" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><h4>{{ t.services.feature2_title }}</h4><p>{{ t.services.feature2_body }}</p></div></div>
+        <div class="feature-band"><div class="feature-band-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.8" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><div><h4>{{ t.services.feature3_title }}</h4><p>{{ t.services.feature3_body }}</p></div></div>
+        <div class="feature-band"><div class="feature-band-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div><div><h4>{{ t.services.feature4_title }}</h4><p>{{ t.services.feature4_body }}</p></div></div>
       </div>
     </div>
   </div>
@@ -67,12 +72,12 @@ permalink: /services/
 <section class="section circuit-bg section--circuit">
   <div class="container" style="text-align:center;">
     <div class="reveal">
-      <span class="eyebrow">Enquire</span>
-      <h2 class="section-title section-title--white" style="max-width:560px;margin:0 auto 16px;">{{ services.cta_heading }}</h2>
-      <p class="section-lead section-lead--dark" style="margin:0 auto 36px;max-width:540px;">{{ services.cta_body }}</p>
+      <span class="eyebrow">{{ t.services.cta_eyebrow }}</span>
+      <h2 class="section-title section-title--white" style="max-width:560px;margin:0 auto 16px;">{{ t.services.cta_heading }}</h2>
+      <p class="section-lead section-lead--dark" style="margin:0 auto 36px;max-width:540px;">{{ t.services.cta_body }}</p>
       <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-        <a href="/join/" class="btn btn-primary">Register interest</a>
-        <a href="/contact/" class="btn btn-outline">Contact us directly</a>
+        <a href="{{ langPrefix }}/join/" class="btn btn-primary">{{ t.services.register_interest }}</a>
+        <a href="{{ langPrefix }}/contact/" class="btn btn-outline">{{ t.services.contact_directly }}</a>
       </div>
     </div>
   </div>

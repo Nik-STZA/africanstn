@@ -1,16 +1,21 @@
 ---
 layout: base.njk
-pageTitle: Join
 navActive: join
-permalink: /join/
+pagination:
+  data: languages.list
+  size: 1
+  alias: lang
+permalink: "{% if lang == 'en' %}/join/index.html{% else %}/{{ lang }}/join/index.html{% endif %}"
 ---
+{% set t = i18n[lang] %}
+{% set langPrefix = "" if lang == "en" else "/" + lang %}
 
 <section class="circuit-bg page-hero" aria-labelledby="page-title">
   <div class="container">
     <div class="hero-inner" style="min-height:unset;padding:40px 0 32px;">
-      <span class="eyebrow">Join the community</span>
-      <h1 class="hero-title" id="page-title" style="font-size:clamp(28px,4.5vw,48px);">Be part of Africa's sports tech ecosystem from the very beginning</h1>
-      <p class="hero-sub" style="font-size:17px;">AfricanSTN is in its early stages. Register now to become a founding community member - the first group we reach out to as the platform develops.</p>
+      <span class="eyebrow">{{ t.join.hero_eyebrow }}</span>
+      <h1 class="hero-title" id="page-title" style="font-size:clamp(28px,4.5vw,48px);">{{ t.join.hero_heading }}</h1>
+      <p class="hero-sub" style="font-size:17px;">{{ t.join.hero_subheading }}</p>
     </div>
   </div>
 </section>
@@ -20,23 +25,23 @@ permalink: /join/
   <div class="container">
     <div class="text-visual reveal">
       <div>
-        <span class="eyebrow">Early community</span>
-        <h2 class="section-title section-title--white" id="community-title">There is no cost, no commitment, and no immediate expectation</h2>
+        <span class="eyebrow">{{ t.join.community_eyebrow }}</span>
+        <h2 class="section-title section-title--white" id="community-title">{{ t.join.community_heading }}</h2>
         <div class="section-divider"></div>
-        <p style="font-size:15px;color:var(--text-dim-dark);line-height:1.85;margin-bottom:16px;">AfricanSTN is building the foundations for a network that brings together founders, sport organisations, investors, operators, and partners across Africa and global markets.</p>
-        <p style="font-size:15px;color:var(--text-dim-dark);line-height:1.85;">By joining now, you become part of the early supporter community - the first group we reach out to as the African Sports Technology Network develops.</p>
+        <p style="font-size:15px;color:var(--text-dim-dark);line-height:1.85;margin-bottom:16px;">{{ t.join.community_para1 }}</p>
+        <p style="font-size:15px;color:var(--text-dim-dark);line-height:1.85;">{{ t.join.community_para2 }}</p>
       </div>
       <div style="display:flex;flex-direction:column;gap:14px;">
         <div style="padding:20px 24px;background:rgba(197,160,89,0.07);border-radius:8px;border-left:3px solid var(--gold);">
-          <div style="font-size:12px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px;">What early membership means</div>
+          <div style="font-size:12px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px;">{{ t.join.what_membership_means }}</div>
           <ul style="list-style:none;padding:0;margin:0;">
-            <li style="font-size:14px;color:rgba(255,255,255,0.65);padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;gap:8px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;">→</span> Occasional updates as the initiative evolves</li>
-            <li style="font-size:14px;color:rgba(255,255,255,0.65);padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;gap:8px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;">→</span> Early access to insights, research, and ecosystem mapping</li>
-            <li style="font-size:14px;color:rgba(255,255,255,0.65);padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;gap:8px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;">→</span> Invitations to help shape the platform</li>
-            <li style="font-size:14px;color:rgba(255,255,255,0.65);padding:5px 0;display:flex;gap:8px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;">→</span> Future event and conversation opportunities</li>
+            <li style="font-size:14px;color:rgba(255,255,255,0.65);padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;gap:8px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;">→</span> {{ t.join.benefit1 }}</li>
+            <li style="font-size:14px;color:rgba(255,255,255,0.65);padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;gap:8px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;">→</span> {{ t.join.benefit2 }}</li>
+            <li style="font-size:14px;color:rgba(255,255,255,0.65);padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;gap:8px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;">→</span> {{ t.join.benefit3 }}</li>
+            <li style="font-size:14px;color:rgba(255,255,255,0.65);padding:5px 0;display:flex;gap:8px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;">→</span> {{ t.join.benefit4 }}</li>
           </ul>
         </div>
-        <p style="font-size:13px;color:rgba(255,255,255,0.35);font-style:italic;padding:0 4px;">AfricanSTN is building thoughtfully and progressively. We would love you to be part of the journey from the start.</p>
+        <p style="font-size:13px;color:rgba(255,255,255,0.35);font-style:italic;padding:0 4px;">{{ t.join.thoughtful_note }}</p>
       </div>
     </div>
   </div>
@@ -46,22 +51,22 @@ permalink: /join/
 <section class="section section--white" aria-labelledby="for-whom-title">
   <div class="container">
     <div class="section-header section-header--center reveal">
-      <span class="eyebrow">Who AfricanSTN is for</span>
-      <h2 class="section-title" id="for-whom-title">The platform is open to all parts of the sports tech ecosystem</h2>
+      <span class="eyebrow">{{ t.join.for_whom_eyebrow }}</span>
+      <h2 class="section-title" id="for-whom-title">{{ t.join.for_whom_heading }}</h2>
       <div class="section-divider section-divider--center"></div>
     </div>
     <div class="grid-3 reveal">
       <div class="card card--gold-top">
-        <h3>International companies</h3>
-        <p>Sports tech companies from outside Africa looking to enter, distribute, or maintain compliance in South Africa. AfricanSTN provides POPIA representation and market entry support.</p>
+        <h3>{{ t.join.audience1_title }}</h3>
+        <p>{{ t.join.audience1_body }}</p>
       </div>
       <div class="card card--gold-top">
-        <h3>African ventures</h3>
-        <p>African-founded sports tech startups and established businesses seeking visibility, partnerships, and connections within the ecosystem. Register interest in directory inclusion - AfricanSTN curates the directory and will be in touch.</p>
+        <h3>{{ t.join.audience2_title }}</h3>
+        <p>{{ t.join.audience2_body }}</p>
       </div>
       <div class="card card--gold-top">
-        <h3>Sport organisations</h3>
-        <p>Federations, leagues, clubs, and sport bodies looking to understand and procure sports technology solutions. AfricanSTN helps you navigate the landscape.</p>
+        <h3>{{ t.join.audience3_title }}</h3>
+        <p>{{ t.join.audience3_body }}</p>
       </div>
     </div>
   </div>
@@ -71,11 +76,19 @@ permalink: /join/
 <section class="section section--warm" aria-labelledby="form-title">
   <div class="container">
     <div class="section-header section-header--center reveal">
-      <span class="eyebrow">Registration</span>
-      <h2 class="section-title" id="form-title">Get in touch</h2>
+      <span class="eyebrow">{{ t.join.form_eyebrow }}</span>
+      <h2 class="section-title" id="form-title">{{ t.join.form_heading }}</h2>
       <div class="section-divider section-divider--center"></div>
-      <p class="section-lead" style="margin:0 auto 40px;">Complete the form below. AfricanSTN responds within two business days.</p>
+      <p class="section-lead" style="margin:0 auto 40px;">{{ t.join.form_lead }}</p>
     </div>
+
+    {% if lang != "en" and t.join.english_form_notice %}
+    <div class="form-language-notice reveal" role="note">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+      <p>{{ t.join.english_form_notice }}</p>
+    </div>
+    {% endif %}
+
     <!-- TALLY FORM -->
     <div class="form-wrap reveal">
       <iframe
@@ -85,12 +98,12 @@ permalink: /join/
         frameborder="0"
         marginheight="0"
         marginwidth="0"
-        title="AfricanSTN — Register interest"
+        title="{{ t.join.form_iframe_title }}"
       ></iframe>
     </div>
     <p style="text-align:center;font-size:13px;color:var(--text-muted);margin-top:16px;">
-      Form not loading?
-      <a href="https://tally.so/r/BzagEQ" target="_blank" rel="noopener noreferrer">Open directly →</a>
+      {{ t.join.form_fallback }}
+      <a href="https://tally.so/r/BzagEQ" target="_blank" rel="noopener noreferrer">{{ t.join.form_open_directly }}</a>
     </p>
     <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
   </div>
@@ -100,22 +113,22 @@ permalink: /join/
 <section class="section section--white" aria-labelledby="next-title">
   <div class="container">
     <div class="section-header reveal">
-      <span class="eyebrow">What happens next</span>
-      <h2 class="section-title" id="next-title">After you register</h2>
+      <span class="eyebrow">{{ t.join.next_eyebrow }}</span>
+      <h2 class="section-title" id="next-title">{{ t.join.next_heading }}</h2>
       <div class="section-divider"></div>
     </div>
     <div class="grid-3 reveal">
       <div class="card card--gold-top">
-        <h3 style="font-size:15px;">1 · Acknowledgement</h3>
-        <p>AfricanSTN will acknowledge your registration within two business days and confirm the next step based on your interest.</p>
+        <h3 style="font-size:15px;">{{ t.join.next1_title }}</h3>
+        <p>{{ t.join.next1_body }}</p>
       </div>
       <div class="card card--gold-top">
-        <h3 style="font-size:15px;">2 · Brief conversation</h3>
-        <p>For most enquiries, a short call or email exchange to understand your organisation and what would be most useful.</p>
+        <h3 style="font-size:15px;">{{ t.join.next2_title }}</h3>
+        <p>{{ t.join.next2_body }}</p>
       </div>
       <div class="card card--gold-top">
-        <h3 style="font-size:15px;">3 · Proposal or onboarding</h3>
-        <p>For services, AfricanSTN will provide a clear proposal. For directory enquiries, AfricanSTN will confirm whether inclusion is appropriate and discuss next steps.</p>
+        <h3 style="font-size:15px;">{{ t.join.next3_title }}</h3>
+        <p>{{ t.join.next3_body }}</p>
       </div>
     </div>
   </div>
