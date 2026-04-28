@@ -1,35 +1,3 @@
 {
-  "hero_heading": "Services",
-  "hero_subheading": "Compliance representation and market intelligence for sports tech companies operating in or entering South Africa.",
-
-  "popia_heading": "POPIA Representation",
-  "popia_para1": "The Protection of Personal Information Act (POPIA) is South Africa's primary data protection legislation. If your company collects, processes, or stores data from South African individuals, POPIA requires you to appoint a local representative in South Africa.",
-  "popia_para2": "AfricanSTN provides that representation - handling regulatory correspondence with the Information Regulator of South Africa, maintaining compliance documentation, and keeping you informed of regulatory developments that affect your operations.",
-  "popia_notice": "POPIA Reg. 2026-002350 · African Sports Technology Network (Pty) Ltd is POPIA compliant and registered with the Information Regulator of South Africa.",
-  "popia_cta": "Enquire about POPIA representation",
-
-  "feature1_title": "Local representative registration",
-  "feature1_body": "Registered as your appointed local representative with the Information Regulator of South Africa.",
-  "feature2_title": "Regulatory correspondence",
-  "feature2_body": "All communication with the Information Regulator handled, with notification of any enquiries or developments affecting your registration.",
-  "feature3_title": "Compliance documentation",
-  "feature3_body": "Maintenance of the compliance records and documentation required under POPIA.",
-  "feature4_title": "Regulatory monitoring",
-  "feature4_body": "Tracking changes to POPIA guidance and regulation, with notification of anything that affects your South African data operations.",
-
-  "intel_heading": "African sports technology market intelligence",
-  "intel_para1": "AfricanSTN is building a directory of sports technology companies operating across Africa, alongside sector research and market analysis.",
-  "intel_para2": "Registered members receive AfricanSTN's newsletter and sector intelligence reports covering African sports tech developments, funding activity, and market trends. Directory inclusion is curated - companies can register their interest and AfricanSTN will confirm inclusion.",
-
-  "intel_card1_title": "Company directory",
-  "intel_card1_body": "Sports tech companies across Africa, organised by sector, country, and stage. Directory inclusion is curated - register your interest to be considered.",
-  "intel_card2_title": "Sector intelligence",
-  "intel_card2_body": "Analysis of the African sports tech landscape, funding trends, and market developments.",
-  "intel_card3_title": "Market mapping",
-  "intel_card3_body": "Country-level analysis beginning with South Africa, expanding across the continent as the platform grows.",
-  "intel_card4_title": "Deal tracking",
-  "intel_card4_body": "Investment rounds, M&A activity, and partnership developments across the African sports tech ecosystem.",
-
-  "cta_heading": "Interested in any of these services?",
-  "cta_body": "Register your interest and AfricanSTN will be in touch within two business days to discuss what is right for your organisation."
+  "_deprecated": "This file is no longer read by site templates. All services page content has moved to src/_data/i18n/en.json (and the equivalent files for fr, pt, ar, sw). The Decap CMS now edits the i18n files directly. This file is safe to delete."
 }

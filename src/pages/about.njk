@@ -1,16 +1,21 @@
 ---
 layout: base.njk
-pageTitle: About
 navActive: about
-permalink: /about/
+pagination:
+  data: languages.list
+  size: 1
+  alias: lang
+permalink: "{% if lang == 'en' %}/about/index.html{% else %}/{{ lang }}/about/index.html{% endif %}"
 ---
+{% set t = i18n[lang] %}
+{% set langPrefix = "" if lang == "en" else "/" + lang %}
 
 <section class="circuit-bg--subtle page-hero" aria-labelledby="page-title">
   <div class="container">
     <div class="hero-inner" style="min-height:unset;padding:40px 0 32px;">
-      <span class="eyebrow">Who we are</span>
-      <h1 class="hero-title" id="page-title" style="font-size:clamp(28px,4.5vw,48px);">{{ about.hero_heading }}</h1>
-      <p class="hero-sub" style="font-size:17px;">{{ about.hero_subheading }}</p>
+      <span class="eyebrow">{{ t.about.eyebrow_who }}</span>
+      <h1 class="hero-title" id="page-title" style="font-size:clamp(28px,4.5vw,48px);">{{ t.about.hero_heading }}</h1>
+      <p class="hero-sub" style="font-size:17px;">{{ t.about.hero_subheading }}</p>
     </div>
   </div>
 </section>
@@ -19,55 +24,53 @@ permalink: /about/
   <div class="container">
     <div class="text-visual reveal">
       <div>
-        <span class="eyebrow">Our purpose</span>
-        <h2 class="section-title">{{ about.purpose_heading }}</h2>
+        <span class="eyebrow">{{ t.about.eyebrow_purpose }}</span>
+        <h2 class="section-title">{{ t.about.purpose_heading }}</h2>
         <div class="section-divider"></div>
-        <p style="font-size:15px;color:var(--text-secondary);line-height:1.85;margin-bottom:16px;">{{ about.para1 }}</p>
-        <p style="font-size:15px;color:var(--text-secondary);line-height:1.85;margin-bottom:16px;">{{ about.para2 }}</p>
-        <p style="font-size:15px;color:var(--text-secondary);line-height:1.85;margin-bottom:28px;">{{ about.para3 }}</p>
-        <a href="/join/" class="btn btn-primary">Get involved</a>
+        <p style="font-size:15px;color:var(--text-secondary);line-height:1.85;margin-bottom:16px;">{{ t.about.para1 }}</p>
+        <p style="font-size:15px;color:var(--text-secondary);line-height:1.85;margin-bottom:16px;">{{ t.about.para2 }}</p>
+        <p style="font-size:15px;color:var(--text-secondary);line-height:1.85;margin-bottom:28px;">{{ t.about.para3 }}</p>
+        <a href="{{ langPrefix }}/join/" class="btn btn-primary">{{ t.about.get_involved_btn }}</a>
       </div>
       <div style="display:flex;flex-direction:column;gap:14px;">
         <div class="feature-band">
           <div class="feature-band-icon" aria-hidden="true">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
           </div>
-          <div><h4>Connect</h4><p>Linking international sports tech companies with African market opportunities, partners, and distribution channels.</p></div>
+          <div><h4>{{ t.about.feature1_title }}</h4><p>{{ t.about.feature1_body }}</p></div>
         </div>
         <div class="feature-band">
           <div class="feature-band-icon" aria-hidden="true">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.8" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
-          <div><h4>Comply</h4><p>Acting as registered POPIA representative for foreign companies operating in South Africa.</p></div>
+          <div><h4>{{ t.about.feature2_title }}</h4><p>{{ t.about.feature2_body }}</p></div>
         </div>
         <div class="feature-band">
           <div class="feature-band-icon" aria-hidden="true">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.8" stroke-linecap="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
           </div>
-          <div><h4>Inform</h4><p>Publishing market intelligence, research, and the African sports tech company directory.</p></div>
+          <div><h4>{{ t.about.feature3_title }}</h4><p>{{ t.about.feature3_body }}</p></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-
-
 <!-- Values -->
 <section class="section section--white">
   <div class="container">
     <div class="section-header section-header--center reveal">
-      <span class="eyebrow">How we operate</span>
-      <h2 class="section-title">{{ about.values_heading }}</h2>
+      <span class="eyebrow">{{ t.about.eyebrow_how }}</span>
+      <h2 class="section-title">{{ t.about.values_heading }}</h2>
       <div class="section-divider section-divider--center"></div>
     </div>
     <div class="grid-3 reveal">
-      <div class="card card--gold-top"><h3>{{ about.value1_title }}</h3><p>{{ about.value1_body }}</p></div>
-      <div class="card card--gold-top"><h3>{{ about.value2_title }}</h3><p>{{ about.value2_body }}</p></div>
-      <div class="card card--gold-top"><h3>{{ about.value3_title }}</h3><p>{{ about.value3_body }}</p></div>
-      <div class="card card--gold-top"><h3>{{ about.value4_title }}</h3><p>{{ about.value4_body }}</p></div>
-      <div class="card card--gold-top"><h3>{{ about.value5_title }}</h3><p>{{ about.value5_body }}</p></div>
-      <div class="card card--gold-top"><h3>{{ about.value6_title }}</h3><p>{{ about.value6_body }}</p></div>
+      <div class="card card--gold-top"><h3>{{ t.about.value1_title }}</h3><p>{{ t.about.value1_body }}</p></div>
+      <div class="card card--gold-top"><h3>{{ t.about.value2_title }}</h3><p>{{ t.about.value2_body }}</p></div>
+      <div class="card card--gold-top"><h3>{{ t.about.value3_title }}</h3><p>{{ t.about.value3_body }}</p></div>
+      <div class="card card--gold-top"><h3>{{ t.about.value4_title }}</h3><p>{{ t.about.value4_body }}</p></div>
+      <div class="card card--gold-top"><h3>{{ t.about.value5_title }}</h3><p>{{ t.about.value5_body }}</p></div>
+      <div class="card card--gold-top"><h3>{{ t.about.value6_title }}</h3><p>{{ t.about.value6_body }}</p></div>
     </div>
   </div>
 </section>
@@ -75,12 +78,12 @@ permalink: /about/
 <section class="section circuit-bg--subtle">
   <div class="container" style="text-align:center;">
     <div class="reveal">
-      <span class="eyebrow">Get involved</span>
-      <h2 class="section-title section-title--white" style="max-width:540px;margin:0 auto 16px;">Be part of the African sports technology ecosystem</h2>
-      <p class="section-lead section-lead--dark" style="margin:0 auto 36px;max-width:500px;">For compliance support, market intelligence, or a partner to help navigate Africa - AfricanSTN is a good starting point.</p>
+      <span class="eyebrow">{{ t.about.cta_eyebrow }}</span>
+      <h2 class="section-title section-title--white" style="max-width:540px;margin:0 auto 16px;">{{ t.about.cta_heading }}</h2>
+      <p class="section-lead section-lead--dark" style="margin:0 auto 36px;max-width:500px;">{{ t.about.cta_body }}</p>
       <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-        <a href="/join/" class="btn btn-primary">Register interest</a>
-        <a href="/contact/" class="btn btn-outline">Contact us</a>
+        <a href="{{ langPrefix }}/join/" class="btn btn-primary">{{ t.about.register_interest }}</a>
+        <a href="{{ langPrefix }}/contact/" class="btn btn-outline">{{ t.about.contact_us }}</a>
       </div>
     </div>
   </div>

@@ -1,12 +1,28 @@
+{% set currentLang = lang or "en" %}
+{% set t = i18n[currentLang] %}
+{% set langMeta = languages.meta[currentLang] %}
+{% set isRtl = langMeta.dir == "rtl" %}
+{% set langPrefix = "" if currentLang == "en" else "/" + currentLang %}
+{% set pageSlug = navActive or "home" %}
+{% set slugMap = {"home": "", "about": "about/", "what": "what-is-sports-tech/", "services": "services/", "ecosystem": "ecosystem/", "contact": "contact/", "join": "join/", "privacy": "privacy/", "terms": "terms/"} %}
+{% set currentSlugPath = slugMap[pageSlug] %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ langMeta.html_lang }}" dir="{{ langMeta.dir }}"{% if isRtl %} class="rtl"{% endif %}>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ pageTitle }} — {{ site.site_name }}</title>
+  <title>{{ t.page_titles[pageSlug] or pageTitle }} — {{ site.site_name }}</title>
   <meta name="description" content="{{ pageDescription or site.site_description }}">
   <link rel="stylesheet" href="/assets/css/style.css">
   {% if extraCss %}<style>{{ extraCss | safe }}</style>{% endif %}
+
+  {# Hreflang alternates for SEO — skip for English-only legal pages #}
+  {% if pageSlug != "privacy" and pageSlug != "terms" %}
+    {% for code in languages.list %}
+      <link rel="alternate" hreflang="{{ languages.meta[code].html_lang }}" href="{{ site.site_url }}{% if code != 'en' %}/{{ code }}{% endif %}/{{ currentSlugPath }}">
+    {% endfor %}
+    <link rel="alternate" hreflang="x-default" href="{{ site.site_url }}/{{ currentSlugPath }}">
+  {% endif %}
 
   <!-- Google Consent Mode v2 — default to denied, updated on user choice -->
   <script>
@@ -53,39 +69,77 @@
 </head>
 <body>
 
-<a class="skip-link" href="#main-content">Skip to main content</a>
+<a class="skip-link" href="#main-content">{{ t.nav.skip_link }}</a>
 
 <!-- NAV -->
-<nav class="nav" role="navigation" aria-label="Main navigation">
-  <a href="/" class="nav-logo" aria-label="{{ site.site_name }} home"
+<nav class="nav" role="navigation" aria-label="{{ t.nav.main_nav_aria }}">
+  <a href="{{ langPrefix }}/" class="nav-logo" aria-label="{{ t.nav.logo_aria }}"
      style="text-decoration:none;display:flex;align-items:center;flex-shrink:0;">
     <img src="/assets/images/africanstn-logo-white.png"
          alt="African Sports Technology Network"
          style="height:64px;width:200px;object-fit:cover;object-position:20% center;display:block;mix-blend-mode:screen;">
   </a>
   <ul class="nav-links" role="list">
-    <li><a href="/" {% if navActive == "home" %}class="active"{% endif %}>Home</a></li>
-    <li><a href="/about/" {% if navActive == "about" %}class="active"{% endif %}>About</a></li>
-    <li><a href="/what-is-sports-tech/" {% if navActive == "what" %}class="active"{% endif %}>What is sports tech</a></li>
-    <li><a href="/services/" {% if navActive == "services" %}class="active"{% endif %}>Services</a></li>
-    <li><a href="/ecosystem/" {% if navActive == "ecosystem" %}class="active"{% endif %}>Ecosystem</a></li>
-    <li><a href="/contact/" {% if navActive == "contact" %}class="active"{% endif %}>Contact</a></li>
-    <li><a href="/join/" class="nav-cta">Join AfricanSTN</a></li>
+    <li><a href="{{ langPrefix }}/" {% if pageSlug == "home" %}class="active"{% endif %}>{{ t.nav.home }}</a></li>
+    <li><a href="{{ langPrefix }}/about/" {% if pageSlug == "about" %}class="active"{% endif %}>{{ t.nav.about }}</a></li>
+    <li><a href="{{ langPrefix }}/what-is-sports-tech/" {% if pageSlug == "what" %}class="active"{% endif %}>{{ t.nav.what }}</a></li>
+    <li><a href="{{ langPrefix }}/services/" {% if pageSlug == "services" %}class="active"{% endif %}>{{ t.nav.services }}</a></li>
+    <li><a href="{{ langPrefix }}/ecosystem/" {% if pageSlug == "ecosystem" %}class="active"{% endif %}>{{ t.nav.ecosystem }}</a></li>
+    <li><a href="{{ langPrefix }}/contact/" {% if pageSlug == "contact" %}class="active"{% endif %}>{{ t.nav.contact }}</a></li>
+    <li><a href="{{ langPrefix }}/join/" class="nav-cta">{{ t.nav.join_cta }}</a></li>
   </ul>
-  <button class="theme-toggle" aria-label="Toggle colour theme">◑ Auto</button>
-  <button class="nav-hamburger" aria-label="Open navigation menu" aria-expanded="false">
+
+  <!-- LANGUAGE SWITCHER -->
+  <details class="lang-switcher" aria-label="{{ t.meta.lang_picker_label }}">
+    <summary aria-haspopup="listbox" title="{{ t.meta.lang_picker_label }}">
+      <span class="lang-switcher__globe" aria-hidden="true">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      </span>
+      <span class="lang-switcher__current">{{ currentLang | upper }}</span>
+      <span class="lang-switcher__caret" aria-hidden="true">▾</span>
+    </summary>
+    <ul class="lang-switcher__menu" role="listbox">
+      {% for code in languages.list %}
+        {% set Lmeta = languages.meta[code] %}
+        {# Privacy/Terms exist only in English — point all languages at the English version #}
+        {% if pageSlug == "privacy" or pageSlug == "terms" %}
+          {% set targetUrl = "/" + currentSlugPath %}
+        {% else %}
+          {% set targetUrl = ("" if code == "en" else "/" + code) + "/" + currentSlugPath %}
+        {% endif %}
+        <li role="option" aria-selected="{{ 'true' if code == currentLang else 'false' }}">
+          <a href="{{ targetUrl }}" lang="{{ Lmeta.html_lang }}" dir="{{ Lmeta.dir }}"{% if code == currentLang %} class="is-active" aria-current="true"{% endif %}>
+            <span class="lang-switcher__code" aria-hidden="true">{{ code | upper }}</span>
+            <span class="lang-switcher__native">{{ Lmeta.native }}</span>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </details>
+
+  <button class="theme-toggle" aria-label="Toggle colour theme">◑ {{ t.nav.theme_toggle }}</button>
+  <button class="nav-hamburger" aria-label="{{ t.nav.open_menu_aria }}" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
-<div class="nav-mobile" role="navigation" aria-label="Mobile navigation">
-  <a href="/">Home</a>
-  <a href="/about/">About</a>
-  <a href="/what-is-sports-tech/">What is sports tech</a>
-  <a href="/services/">Services</a>
-  <a href="/ecosystem/">Ecosystem</a>
-  <a href="/contact/">Contact</a>
-  <a href="/join/" style="color:#C5A059;font-weight:700;">Join AfricanSTN →</a>
+<div class="nav-mobile" role="navigation" aria-label="{{ t.nav.mobile_nav_aria }}">
+  <a href="{{ langPrefix }}/">{{ t.nav.home }}</a>
+  <a href="{{ langPrefix }}/about/">{{ t.nav.about }}</a>
+  <a href="{{ langPrefix }}/what-is-sports-tech/">{{ t.nav.what }}</a>
+  <a href="{{ langPrefix }}/services/">{{ t.nav.services }}</a>
+  <a href="{{ langPrefix }}/ecosystem/">{{ t.nav.ecosystem }}</a>
+  <a href="{{ langPrefix }}/contact/">{{ t.nav.contact }}</a>
+  <a href="{{ langPrefix }}/join/" style="color:#C5A059;font-weight:700;">{{ t.nav.join_cta }} →</a>
 </div>
+
+{# Notice for legal pages displayed in non-English languages #}
+{% if (pageSlug == "privacy" or pageSlug == "terms") and currentLang != "en" %}
+<div class="legal-translation-notice" role="note">
+  <div class="container">
+    <p>{{ t.meta.legal_notice }}</p>
+  </div>
+</div>
+{% endif %}
 
 <!-- MAIN CONTENT -->
 <main id="main-content">
@@ -97,49 +151,48 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-col">
-        <h4>Pages</h4>
+        <h4>{{ t.footer.pages_heading }}</h4>
         <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/about/">About</a></li>
-          <li><a href="/what-is-sports-tech/">What is sports tech</a></li>
-          <li><a href="/ecosystem/">Ecosystem</a></li>
-          <li><a href="/services/">Services</a></li>
-          <li><a href="/join/">Join AfricanSTN</a></li>
-          <li><a href="/contact/">Contact</a></li>
+          <li><a href="{{ langPrefix }}/">{{ t.nav.home }}</a></li>
+          <li><a href="{{ langPrefix }}/about/">{{ t.nav.about }}</a></li>
+          <li><a href="{{ langPrefix }}/what-is-sports-tech/">{{ t.nav.what }}</a></li>
+          <li><a href="{{ langPrefix }}/ecosystem/">{{ t.nav.ecosystem }}</a></li>
+          <li><a href="{{ langPrefix }}/services/">{{ t.nav.services }}</a></li>
+          <li><a href="{{ langPrefix }}/join/">{{ t.nav.join_cta }}</a></li>
+          <li><a href="{{ langPrefix }}/contact/">{{ t.nav.contact }}</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Legal</h4>
+        <h4>{{ t.footer.legal_heading }}</h4>
         <ul>
-          <li><a href="/privacy/">Privacy policy</a></li>
-          <li><a href="/terms/">Terms of use</a></li>
+          <li><a href="/privacy/">{{ t.footer.privacy }}</a></li>
+          <li><a href="/terms/">{{ t.footer.terms }}</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Group</h4>
+        <h4>{{ t.footer.group_heading }}</h4>
         <ul>
           <li><a href="{{ site.stza_url }}" target="_blank" rel="noopener noreferrer">stza.io</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© {{ site.copyright_year }} {{ site.entity_sa }} · {{ site.reg_sa }} · {{ site.popia_reg }} · South Africa</p>
-      <p>A subsidiary of {{ site.entity_uk }} · {{ site.companies_house }} · {{ site.ico_number }} · United Kingdom</p>
+      <p>{{ t.footer.copyright_line_1 | replace("{year}", site.copyright_year) | replace("{entity_sa}", site.entity_sa) | replace("{reg_sa}", site.reg_sa) | replace("{popia_reg}", site.popia_reg) }}</p>
+      <p>{{ t.footer.copyright_line_2 | replace("{entity_uk}", site.entity_uk) | replace("{companies_house}", site.companies_house) | replace("{ico_number}", site.ico_number) }}</p>
     </div>
   </div>
 </footer>
 
 <!-- COOKIE CONSENT BANNER -->
-<div id="cookie-banner" class="cookie-banner" role="dialog" aria-label="Cookie consent" aria-hidden="true">
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-label="{{ t.cookie.title }}" aria-hidden="true">
   <div class="cookie-banner__inner">
     <p class="cookie-banner__text">
-      We use cookies and local storage to improve your experience. Essential cookies are required for the site to function.
-      Optional cookies help with analytics and remembering your preferences.
-      <a href="/privacy/#cookies">Learn more</a>
+      {{ t.cookie.text }}
+      <a href="/privacy/#cookies">{{ t.cookie.learn_more }}</a>
     </p>
     <div class="cookie-banner__actions">
-      <button id="cookie-accept" class="cookie-banner__btn cookie-banner__btn--accept">Accept all</button>
-      <button id="cookie-essentials" class="cookie-banner__btn cookie-banner__btn--essentials">Essentials only</button>
+      <button id="cookie-accept" class="cookie-banner__btn cookie-banner__btn--accept">{{ t.cookie.accept }}</button>
+      <button id="cookie-essentials" class="cookie-banner__btn cookie-banner__btn--essentials">{{ t.cookie.essentials }}</button>
     </div>
   </div>
 </div>

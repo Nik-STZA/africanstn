@@ -1114,3 +1114,253 @@ select.form-input { appearance: auto; cursor: pointer; }
     justify-content: center;
   }
 }
+
+/* ── LANGUAGE SWITCHER ── */
+.lang-switcher {
+  position: relative;
+  margin-left: 8px;
+}
+.lang-switcher > summary {
+  list-style: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 20px;
+  color: rgba(255,255,255,0.8);
+  font-size: 13px;
+  padding: 5px 12px;
+  transition: border-color var(--t), color var(--t);
+  white-space: nowrap;
+  user-select: none;
+}
+.lang-switcher > summary::-webkit-details-marker { display: none; }
+.lang-switcher > summary:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+.lang-switcher > summary:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+.lang-switcher__globe {
+  display: inline-flex;
+  align-items: center;
+}
+.lang-switcher__caret {
+  font-size: 10px;
+  opacity: 0.7;
+  transition: transform var(--t);
+}
+.lang-switcher[open] > summary .lang-switcher__caret { transform: rotate(180deg); }
+.lang-switcher[open] > summary {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+.lang-switcher__menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  min-width: 180px;
+  background: var(--surface-dark);
+  border: 1px solid var(--gold-stroke);
+  border-radius: 8px;
+  list-style: none;
+  padding: 6px;
+  margin: 0;
+  z-index: 200;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+}
+.lang-switcher__menu li { list-style: none; }
+.lang-switcher__menu a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 10px;
+  border-radius: 5px;
+  color: rgba(255,255,255,0.85);
+  font-size: 14px;
+  text-decoration: none;
+  transition: background var(--t), color var(--t);
+}
+.lang-switcher__menu a:hover {
+  background: rgba(197,160,89,0.12);
+  color: #fff;
+  text-decoration: none;
+}
+.lang-switcher__menu a.is-active {
+  color: var(--gold);
+  background: rgba(197,160,89,0.08);
+  font-weight: 600;
+}
+.lang-switcher__code {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  padding: 3px 6px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.85);
+  background: rgba(255,255,255,0.04);
+  font-family: var(--font);
+}
+.lang-switcher__menu a:hover .lang-switcher__code {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+.lang-switcher__menu a.is-active .lang-switcher__code {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #1A1C1E;
+}
+.lang-switcher__native {
+  flex: 1;
+}
+.lang-switcher__current {
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+/* Keep switcher visible on mobile (theme toggle hides; language access is essential) */
+@media (max-width: 960px) {
+  .lang-switcher { display: inline-block; }
+  .lang-switcher > summary { padding: 5px 10px; font-size: 12px; }
+  .lang-switcher__current { max-width: 80px; overflow: hidden; text-overflow: ellipsis; }
+}
+
+/* ── FORM LANGUAGE NOTICE (Join page, non-English) ── */
+.form-language-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  max-width: 720px;
+  margin: 0 auto 28px;
+  padding: 14px 18px;
+  background: rgba(197,160,89,0.08);
+  border: 1px solid var(--gold-stroke);
+  border-radius: 6px;
+  color: var(--gold);
+}
+.form-language-notice svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.form-language-notice p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--text-primary);
+}
+
+/* ── LEGAL TRANSLATION NOTICE ── */
+.legal-translation-notice {
+  background: rgba(197,160,89,0.08);
+  border-bottom: 1px solid var(--gold-stroke);
+  padding: 12px 0;
+}
+.legal-translation-notice p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-on-dark, var(--text-primary));
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* ── RTL SUPPORT (applies when <html dir="rtl">) ── */
+html.rtl { direction: rtl; }
+
+/* Numbers, codes, and Latin-script entity names should still read LTR within RTL flow */
+html.rtl .lang-switcher__english,
+html.rtl .contact-detail-value a,
+html.rtl .footer-bottom,
+html.rtl code,
+html.rtl .infographic-attr {
+  direction: ltr;
+  unicode-bidi: embed;
+}
+
+/* Eyebrow letter-spacing reads better tighter in Arabic */
+html.rtl .eyebrow {
+  letter-spacing: 0;
+}
+
+/* Card icons / feature bands flow naturally from right when dir is rtl;
+   ensure inline styles using flex don't break — feature-band uses flex by default */
+html.rtl .feature-band {
+  text-align: right;
+}
+
+/* Force LTR inside .text-visual--flip variants so the visual stays consistent */
+html.rtl .text-visual--flip {
+  direction: rtl;
+}
+
+/* Section headers default to text-align:left; flip for RTL */
+html.rtl .section-header,
+html.rtl .card,
+html.rtl .feature-band > div,
+html.rtl .contact-detail-value,
+html.rtl .contact-detail-label,
+html.rtl .legal-body,
+html.rtl .legal-meta {
+  text-align: right;
+}
+
+/* Centered headers stay centered */
+html.rtl .section-header--center,
+html.rtl .hero-inner,
+html.rtl .infographic-title,
+html.rtl .infographic-attr,
+html.rtl .footer-bottom p {
+  text-align: center;
+}
+
+/* Hero text in RTL */
+html.rtl .hero-title,
+html.rtl .hero-sub,
+html.rtl .hero-note {
+  text-align: center;
+}
+
+/* Skip link positioning */
+html.rtl .skip-link {
+  left: auto;
+  right: 6px;
+}
+
+/* Language menu opens to the left in RTL so it doesn't run off-screen */
+html.rtl .lang-switcher__menu {
+  right: auto;
+  left: 0;
+}
+
+/* Mobile nav anchors right-aligned in RTL */
+html.rtl .nav-mobile a {
+  text-align: right;
+}
+
+/* Footer columns flow naturally; ensure list item bullets sit right */
+html.rtl .footer-col ul {
+  padding-right: 0;
+}
+
+/* Buttons containing arrow chars — the translations themselves use ← for RTL where appropriate, so leave alone */
+
+/* Cookie banner reads right-to-left */
+html.rtl .cookie-banner__inner {
+  text-align: right;
+}
+html.rtl .cookie-banner__actions {
+  flex-direction: row-reverse;
+}
+
+/* Tally form iframe: keep LTR (form is in target language but Tally chrome is LTR) */
+html.rtl .form-wrap iframe {
+  direction: ltr;
+}

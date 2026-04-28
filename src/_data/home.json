@@ -1,21 +1,3 @@
 {
-  "hero_headline": "The ecosystem platform for sports technology in Africa",
-  "hero_headline_highlight": "in Africa",
-  "hero_subheadline": "Connecting African and International innovation markets. Regulatory intelligence, market insight, and industry membership.",
-  "hero_cta_primary": "Get involved",
-  "hero_cta_secondary": "Our services",
-  "what_we_do_heading": "Three ways we serve the African sports tech ecosystem",
-  "card1_title": "Market access",
-  "card1_body": "Connecting international sports tech companies with African markets - introductions, partnerships, and distribution across South Africa and the broader continent.",
-  "card2_title": "POPIA compliance",
-  "card2_body": "Acting as your registered POPIA representative in South Africa - handling regulatory correspondence, maintaining compliance documentation, and keeping you informed of changes.",
-  "card3_title": "Market intelligence",
-  "card3_body": "African sports tech market research, company directories, and sector analysis for members, partners, and investors navigating the continent.",
-  "services_preview_heading": "How AfricanSTN can help",
-  "services_card1_title": "POPIA Representation",
-  "services_card1_body": "If your company collects or processes data from South African users, POPIA requires a local representative. AfricanSTN provides registered representation - enquire for details on what is covered.",
-  "services_card2_title": "Market intelligence & directory",
-  "services_card2_body": "Register to receive AfricanSTN's newsletter and sector intelligence reports. Register your interest in directory inclusion - AfricanSTN curates the directory and will be in touch.",
-  "cta_heading": "Join the African sports technology ecosystem",
-  "cta_body": "Whether you are an international sports tech company entering Africa, an African venture looking for visibility, or an organisation that needs POPIA compliance support - AfricanSTN is your starting point."
+  "_deprecated": "This file is no longer read by site templates. All home page content has moved to src/_data/i18n/en.json (and the equivalent files for fr, pt, ar, sw). The Decap CMS now edits the i18n files directly. This file is safe to delete."
 }
