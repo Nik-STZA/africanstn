@@ -11,6 +11,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  {# ── AUTO-LANGUAGE-DETECT (must run before any rendering to avoid flash) ── #}
+  {# Silently redirects first-time visitors from / to /<lang>/ if their browser #}
+  {# language is fr/pt/ar/sw. Returning visitors and explicit /<lang>/ links are #}
+  {# never redirected. Fires a GA event so we can track international reach. #}
+  <script>
+  (function(){
+    try {
+      var SUPPORTED = ['en','fr','pt','ar','sw'];
+      var pathname = window.location.pathname;
+      var isHomepage = pathname === '/' || pathname === '/index.html' || pathname === '';
+      var hasVisited = localStorage.getItem('africanstn-visited');
+
+      if (isHomepage && '{{ currentLang }}' === 'en' && !hasVisited) {
+        var raw = (navigator.language || navigator.userLanguage || 'en');
+        var browserLang = raw.toLowerCase().split('-')[0];
+
+        if (SUPPORTED.indexOf(browserLang) > -1 && browserLang !== 'en') {
+          // Mark visited BEFORE redirect so back-button doesn't loop
+          localStorage.setItem('africanstn-visited', new Date().toISOString());
+          localStorage.setItem('africanstn-auto-redirected-to', browserLang);
+          // Pass a flag in URL so the destination can fire the GA event after consent
+          window.location.replace('/' + browserLang + '/?ar=' + encodeURIComponent(raw));
+          return;
+        }
+      }
+
+      // Mark first visit even if no redirect happens (so future visits skip the check)
+      if (!hasVisited) {
+        localStorage.setItem('africanstn-visited', new Date().toISOString());
+      }
+    } catch(e) {
+      // Private mode, disabled storage, or older browsers — fail silently, English stays
+    }
+  })();
+  </script>
+
   <title>{{ t.page_titles[pageSlug] or pageTitle }} — {{ site.site_name }}</title>
   <meta name="description" content="{{ pageDescription or site.site_description }}">
   <link rel="stylesheet" href="/assets/css/style.css">
@@ -198,6 +235,141 @@
 </div>
 
 <script src="/assets/js/script.js"></script>
+
+{# ── ANALYTICS EVENT TRACKING ── #}
+{# Fires GA events for: language auto-redirect arrivals, manual language switches, #}
+{# CTA clicks, scroll depth (50% / 100%), 30-second engagement, outbound clicks. #}
+{# All events respect Google Consent Mode v2 — they queue if consent is denied #}
+{# and fire if/when the user later accepts cookies. #}
+<script>
+(function(){
+  var CURRENT_LANG = '{{ currentLang }}';
+  var PAGE_SLUG = '{{ pageSlug }}';
+
+  function track(eventName, params) {
+    if (typeof gtag === 'function') {
+      params = params || {};
+      params.page_language = CURRENT_LANG;
+      params.page_slug = PAGE_SLUG;
+      gtag('event', eventName, params);
+    }
+  }
+
+  // 1. If we just arrived from an auto-redirect, fire the event
+  try {
+    var urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('ar')) {
+      track('language_auto_redirect', {
+        event_category: 'engagement',
+        from_language: 'en',
+        to_language: CURRENT_LANG,
+        detected_browser_lang: urlParams.get('ar')
+      });
+      // Clean the URL so the parameter doesn't persist on share/refresh
+      if (window.history && window.history.replaceState) {
+        urlParams.delete('ar');
+        var clean = window.location.pathname + (urlParams.toString() ? '?' + urlParams.toString() : '') + window.location.hash;
+        window.history.replaceState({}, document.title, clean);
+      }
+    }
+  } catch(e) {}
+
+  // 2. Manual language switch — listen for clicks inside the language switcher
+  document.addEventListener('click', function(e) {
+    var menu = e.target.closest('.lang-switcher__menu');
+    if (menu) {
+      var link = e.target.closest('a[lang]');
+      if (link) {
+        var to = link.getAttribute('lang');
+        if (to && to !== CURRENT_LANG) {
+          track('language_switch_manual', {
+            event_category: 'engagement',
+            from_language: CURRENT_LANG,
+            to_language: to
+          });
+        }
+      }
+    }
+  }, true);
+
+  // 3. CTA clicks — track every primary/secondary button and nav CTA
+  document.addEventListener('click', function(e) {
+    var btn = e.target.closest('.btn, .nav-cta, .card-link');
+    if (btn) {
+      var text = (btn.textContent || '').trim().slice(0, 60);
+      var href = btn.getAttribute('href') || '';
+      track('cta_click', {
+        event_category: 'engagement',
+        cta_text: text,
+        cta_href: href,
+        cta_class: btn.className.split(' ').slice(0, 3).join(' ')
+      });
+    }
+    // Outbound link tracking
+    var link = e.target.closest('a[href^="http"]');
+    if (link) {
+      var url = link.getAttribute('href');
+      try {
+        var dest = new URL(url);
+        if (dest.hostname && dest.hostname !== window.location.hostname) {
+          track('outbound_click', {
+            event_category: 'engagement',
+            outbound_url: url,
+            outbound_domain: dest.hostname
+          });
+        }
+      } catch(e2) {}
+    }
+  });
+
+  // 4. Scroll-depth milestones — fired once per threshold per page
+  var fired = { 50: false, 100: false };
+  function checkScroll() {
+    var scrollTop = window.scrollY || document.documentElement.scrollTop;
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    if (docHeight <= 0) return;
+    var pct = Math.round((scrollTop / docHeight) * 100);
+    if (!fired[50] && pct >= 50) {
+      fired[50] = true;
+      track('scroll_depth', { event_category: 'engagement', percent: 50 });
+    }
+    if (!fired[100] && pct >= 95) {
+      fired[100] = true;
+      track('scroll_depth', { event_category: 'engagement', percent: 100 });
+    }
+  }
+  var scrollTimer = null;
+  window.addEventListener('scroll', function() {
+    if (scrollTimer) return;
+    scrollTimer = setTimeout(function() { scrollTimer = null; checkScroll(); }, 200);
+  }, { passive: true });
+
+  // 5. Engaged time — track if user is on the page (tab focused) for 30 seconds total
+  var engagedSeconds = 0;
+  var engagedFired = false;
+  var engagedTimer = null;
+  function startEngaged() {
+    if (engagedTimer || engagedFired) return;
+    engagedTimer = setInterval(function() {
+      engagedSeconds++;
+      if (engagedSeconds >= 30 && !engagedFired) {
+        engagedFired = true;
+        track('engaged_time_30s', { event_category: 'engagement' });
+        clearInterval(engagedTimer);
+        engagedTimer = null;
+      }
+    }, 1000);
+  }
+  function stopEngaged() {
+    if (engagedTimer) { clearInterval(engagedTimer); engagedTimer = null; }
+  }
+  if (!document.hidden) startEngaged();
+  document.addEventListener('visibilitychange', function() {
+    if (document.hidden) stopEngaged(); else startEngaged();
+  });
+})();
+</script>
+
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 <script>
   if (window.netlifyIdentity) {
