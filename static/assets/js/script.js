@@ -200,15 +200,5 @@
     essentialsBtn.addEventListener('click', function () { handleConsent('essentials_only'); });
   }
 
-  /* ── TALLY FORM LOADER ── */
-  /* Loads Tally embed script once if the page has a Tally iframe */
-  if (document.querySelector('iframe[data-tally-src]')) {
-    var tallyScript = document.createElement('script');
-    tallyScript.src = 'https://tally.so/widgets/embed.js';
-    tallyScript.onload = function () {
-      if (window.Tally) window.Tally.loadEmbeds();
-    };
-    document.head.appendChild(tallyScript);
-  }
 
 }());
