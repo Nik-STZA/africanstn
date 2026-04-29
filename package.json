@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "African Sports Technology Network website",
   "scripts": {
-    "build": "npx @11ty/eleventy",
-    "start": "npx @11ty/eleventy --serve"
+    "build": "node ./node_modules/@11ty/eleventy/cmd.js",
+    "start": "node ./node_modules/@11ty/eleventy/cmd.js --serve"
   },
   "dependencies": {
     "@11ty/eleventy": "^2.0.1",
