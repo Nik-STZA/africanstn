@@ -1,7 +1,7 @@
 {
   "meta": {
     "lang_picker_label": "Idioma",
-    "legal_notice": "Os documentos jurídicos são vinculativos em inglês. As traduções são fornecidas apenas para conveniência.",
+    "legal_notice": "Esta página está disponível apenas em inglês. Os documentos jurídicos são vinculativos em inglês.",
     "view_in_english": "Ver esta página em inglês"
   },
 
@@ -25,8 +25,8 @@
     "pages_heading": "Páginas",
     "legal_heading": "Legal",
     "group_heading": "Grupo",
-    "privacy": "Política de privacidade",
-    "terms": "Termos de utilização",
+    "privacy": "Política de privacidade (em inglês)",
+    "terms": "Termos de utilização (em inglês)",
     "copyright_line_1": "© {year} {entity_sa} · {reg_sa} · {popia_reg} · África do Sul",
     "copyright_line_2": "Subsidiária da {entity_uk} · {companies_house} · {ico_number} · Reino Unido"
   },
@@ -124,10 +124,10 @@
     "intel_eyebrow": "Inteligência",
     "intel_heading": "Inteligência do mercado africano da tecnologia desportiva",
     "intel_para1": "A AfricanSTN está a construir um diretório de empresas de tecnologia desportiva que operam em toda a África, a par de investigação setorial e análise de mercado.",
-    "intel_para2": "Os membros registados recebem a newsletter da AfricanSTN e relatórios de inteligência setorial cobrindo desenvolvimentos da tecnologia desportiva africana, atividade de financiamento e tendências de mercado. A inclusão no diretório é curada — as empresas podem manifestar o seu interesse e a AfricanSTN confirmará a inclusão.",
+    "intel_para2": "Os membros registados recebem a newsletter da AfricanSTN e relatórios de inteligência setorial cobrindo desenvolvimentos da tecnologia desportiva africana, atividade de financiamento e tendências de mercado. A inclusão no diretório é avaliada caso a caso — as empresas podem manifestar o seu interesse e a AfricanSTN confirmará a inclusão.",
     "register_interest_btn": "Manifestar o seu interesse",
     "intel_card1_title": "Diretório de empresas",
-    "intel_card1_body": "Empresas de tecnologia desportiva em toda a África, organizadas por setor, país e fase. A inclusão é curada — manifeste o seu interesse para ser considerado.",
+    "intel_card1_body": "Empresas de tecnologia desportiva em toda a África, organizadas por setor, país e fase. A inclusão é selecionada — manifeste o seu interesse para ser considerado.",
     "intel_card2_title": "Inteligência setorial",
     "intel_card2_body": "Análise do panorama africano da tecnologia desportiva, das tendências de financiamento e dos desenvolvimentos de mercado.",
     "intel_card3_title": "Mapeamento de mercado",
@@ -167,7 +167,7 @@
     "directory_heading": "A construir o diretório africano da tecnologia desportiva",
     "directory_lead": "A AfricanSTN está a desenvolver um diretório vivo de empresas de tecnologia desportiva que operam em toda a África — startups, empresas estabelecidas e tudo o que está entre elas. O diretório cobre os quatro domínios tecnológicos e acompanha a atividade, financiamento e presença no mercado das empresas.",
     "card1_title": "Registe a sua empresa",
-    "card1_body": "Se a sua empresa opera em tecnologia desportiva africana — quer esteja sediada em África ou a entrar no mercado — manifeste o seu interesse. A inclusão no diretório é curada pela AfricanSTN.",
+    "card1_body": "Se a sua empresa opera em tecnologia desportiva africana — quer esteja sediada em África ou a entrar no mercado — manifeste o seu interesse. A inclusão no diretório é avaliada pela AfricanSTN.",
     "card2_title": "Acesso antecipado",
     "card2_body": "Os membros registados recebem a newsletter da AfricanSTN e relatórios de inteligência setorial cobrindo desenvolvimentos de mercado, financiamento e tendências setoriais em toda a África.",
     "card3_title": "Cobertura setorial",
@@ -211,6 +211,7 @@
     "details_eyebrow": "Dados de contacto",
     "details_heading": "AfricanSTN e o grupo STZA",
     "label_website": "Website",
+    "label_email": "E-mail",
     "label_sa_entity": "África do Sul — Entidade operacional",
     "sa_entity_value": "African Sports Technology Network (Pty) Ltd",
     "sa_entity_meta": "POPIA Reg. 2026-002350",
