@@ -89,10 +89,32 @@ permalink: "{% if lang == 'en' %}/join/index.html{% else %}/{{ lang }}/join/inde
     </div>
     {% endif %}
 
-    <!-- HUBSPOT FORM -->
+    <!-- HUBSPOT FORM (v2 inline embed — renders as real DOM so our CSS overrides apply) -->
     <div class="form-wrap reveal" style="min-height:520px;">
-      <script src="https://js-eu1.hsforms.net/forms/embed/148373686.js" defer></script>
-      <div class="hs-form-frame" data-region="eu1" data-form-id="89c776d4-6193-4ddf-8b57-42728771345b" data-portal-id="148373686"></div>
+      <div id="hubspot-join-form"></div>
+      <script charset="utf-8" type="text/javascript" src="https://js-eu1.hsforms.net/forms/embed/v2.js"></script>
+      <script>
+        if (window.hbspt) {
+          hbspt.forms.create({
+            region: "eu1",
+            portalId: "148373686",
+            formId: "89c776d4-6193-4ddf-8b57-42728771345b",
+            target: "#hubspot-join-form"
+          });
+        } else {
+          // Script not loaded yet — wait for it
+          window.addEventListener("load", function(){
+            if (window.hbspt) {
+              hbspt.forms.create({
+                region: "eu1",
+                portalId: "148373686",
+                formId: "89c776d4-6193-4ddf-8b57-42728771345b",
+                target: "#hubspot-join-form"
+              });
+            }
+          });
+        }
+      </script>
     </div>
     <p style="text-align:center;font-size:13px;color:var(--text-muted);margin-top:16px;">
       {{ t.join.form_fallback }}
