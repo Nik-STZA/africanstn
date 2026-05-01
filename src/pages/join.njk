@@ -73,7 +73,7 @@ permalink: "{% if lang == 'en' %}/join/index.html{% else %}/{{ lang }}/join/inde
 </section>
 
 <!-- Form -->
-<section class="section section--warm" aria-labelledby="form-title">
+<section class="section section--warm section--always-light" aria-labelledby="form-title">
   <div class="container">
     <div class="section-header section-header--center reveal">
       <span class="eyebrow">{{ t.join.form_eyebrow }}</span>
@@ -95,27 +95,17 @@ permalink: "{% if lang == 'en' %}/join/index.html{% else %}/{{ lang }}/join/inde
       <script charset="utf-8" type="text/javascript" src="https://js-eu1.hsforms.net/forms/embed/v2.js"></script>
       <script>
         (function(){
-          // ── Theme-aware colour application for the HubSpot form ──
-          // HubSpot ships inline !important styles on labels which beat external
-          // CSS. We override by setting our own inline styles after the form
-          // mounts, then re-apply whenever the site theme toggle changes or the
-          // system colour scheme changes.
+          // The form section is locked to light/cream styling regardless of
+          // site theme (see .section--always-light in style.css), so the form
+          // labels always need to be dark. We force this via inline JS after
+          // mount because HubSpot ships !important inline styles that beat
+          // external CSS.
 
-          function isDarkMode() {
-            var t = document.documentElement.getAttribute('data-theme');
-            if (t === 'dark') return true;
-            if (t === 'light') return false;
-            // No explicit theme (auto) — follow system preference
-            return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-          }
-
-          function applyHubSpotColours(formEl) {
+          function lockFormColours(formEl) {
             if (!formEl || !formEl.querySelectorAll) return;
-            var dark = isDarkMode();
-            var textColour = dark ? '#EAE8E3' : '#181A1C';
-            var goldColour = '#C5A059';
+            var DARK_TEXT = '#0F1113';
+            var GOLD = '#C5A059';
 
-            // All label/legend/richtext text gets theme-appropriate colour
             var textNodes = formEl.querySelectorAll(
               'label, label *, legend, legend *, .hs-field-desc, ' +
               '.hs-richtext, .hs-richtext *, ' +
@@ -123,20 +113,18 @@ permalink: "{% if lang == 'en' %}/join/index.html{% else %}/{{ lang }}/join/inde
               '.legal-consent-container, .legal-consent-container *'
             );
             for (var i = 0; i < textNodes.length; i++) {
-              textNodes[i].style.setProperty('color', textColour, 'important');
+              textNodes[i].style.setProperty('color', DARK_TEXT, 'important');
             }
 
-            // Required asterisks override back to gold
+            // Required asterisks always gold
             var asterisks = formEl.querySelectorAll('.hs-form-required');
             for (var j = 0; j < asterisks.length; j++) {
-              asterisks[j].style.setProperty('color', goldColour, 'important');
+              asterisks[j].style.setProperty('color', GOLD, 'important');
             }
           }
 
           function getFormEl(handle) {
-            // onFormReady gives us a jQuery object in v2 — unwrap to plain DOM
-            if (handle && handle[0]) return handle[0];
-            return handle;
+            return handle && handle[0] ? handle[0] : handle;
           }
 
           function setupForm() {
@@ -147,34 +135,13 @@ permalink: "{% if lang == 'en' %}/join/index.html{% else %}/{{ lang }}/join/inde
               formId: "89c776d4-6193-4ddf-8b57-42728771345b",
               target: "#hubspot-join-form",
               onFormReady: function($form) {
-                var formEl = getFormEl($form);
-                applyHubSpotColours(formEl);
-
-                // Re-apply when site theme toggle changes
-                var attrObs = new MutationObserver(function(){
-                  applyHubSpotColours(formEl);
-                });
-                attrObs.observe(document.documentElement, {
-                  attributes: true,
-                  attributeFilter: ['data-theme']
-                });
-
-                // Re-apply when system colour scheme changes (for auto mode)
-                if (window.matchMedia) {
-                  var mq = window.matchMedia('(prefers-color-scheme: dark)');
-                  if (mq.addEventListener) {
-                    mq.addEventListener('change', function(){ applyHubSpotColours(formEl); });
-                  } else if (mq.addListener) {
-                    mq.addListener(function(){ applyHubSpotColours(formEl); });
-                  }
-                }
+                lockFormColours(getFormEl($form));
               }
             });
             return true;
           }
 
           if (!setupForm()) {
-            // hbspt not loaded yet — wait for it
             window.addEventListener("load", setupForm);
           }
         })();

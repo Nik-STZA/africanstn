@@ -1365,6 +1365,40 @@ html.rtl .form-wrap iframe {
   direction: ltr;
 }
 
+/* ── LOCKED-LIGHT FORM SECTION ──────────────────────────────────────
+   Used for the Join page form section. Stays cream/dark-text regardless
+   of site theme so the HubSpot form (which doesn't theme cleanly) always
+   sits on a predictable background. CSS variables are reset inside this
+   section to their light-mode values so any descendant using var(--…)
+   also stays light. ──────────────────────────────────────────────────── */
+.section--always-light {
+  --gold:           #C5A059;
+  --gold-light:     #D4C5A9;
+  --gold-dim:       rgba(197,160,89,0.13);
+  --gold-stroke:    rgba(197,160,89,0.35);
+  --surface:        #FFFFFF;
+  --surface-warm:   #F5F0E8;
+  --text-primary:   #0F1113;
+  --text-secondary: #4A4A4A;
+  --text-muted:     #7A7875;
+  --border:         #E5E5E5;
+  --border-subtle:  rgba(229,229,229,0.6);
+
+  background: #F5F0E8 !important;
+}
+.section--always-light .eyebrow {
+  color: #C5A059 !important;
+}
+.section--always-light .section-title,
+.section--always-light .section-lead,
+.section--always-light h2,
+.section--always-light p {
+  color: #0F1113 !important;
+}
+.section--always-light .section-divider {
+  background: #C5A059 !important;
+}
+
 /* ── HUBSPOT FORM OVERRIDES ─────────────────────────────────────────
    HubSpot's free plan blocks custom form styling in their dashboard,
    so we override on the site side. Theme-aware: text colour follows
