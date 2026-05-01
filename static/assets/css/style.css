@@ -1364,3 +1364,128 @@ html.rtl .cookie-banner__actions {
 html.rtl .form-wrap iframe {
   direction: ltr;
 }
+
+/* ── HUBSPOT FORM OVERRIDES ─────────────────────────────────────────
+   HubSpot's free plan blocks custom form styling in their dashboard,
+   so we override on the site side. Theme-aware: text colour follows
+   --text-primary which adapts to light/dark mode. Form fields stay
+   white-backgrounded with dark text (standard input convention).
+   These overrides only take effect if the form renders inline; if
+   HubSpot renders inside a cross-origin iframe, they're inert (in
+   which case styling needs a paid HubSpot upgrade).
+   ─────────────────────────────────────────────────────────────────── */
+
+/* Container — let the surrounding section colour show through */
+.hs-form-frame,
+.hs-form,
+.hbspt-form,
+.hs-form-frame * {
+  background-color: transparent !important;
+}
+
+/* Field labels and rich-text descriptions — adapt to current theme */
+.hs-form label,
+.hs-form .hs-form-field > label,
+.hs-form legend,
+.hs-form .hs-richtext,
+.hs-form .hs-richtext p,
+.hs-form .hs-richtext span,
+.hs-form .hs-richtext h1,
+.hs-form .hs-richtext h2,
+.hs-form .hs-richtext h3,
+.hs-form .hs-richtext h4,
+.hs-form .hs-form-booleancheckbox-display,
+.hs-form .hs-form-booleancheckbox-display p,
+.hs-form .hs-form-booleancheckbox-display span {
+  color: var(--text-primary) !important;
+}
+
+/* Required asterisk — brand gold */
+.hs-form .hs-form-required,
+.hs-form .hs-form-required-tooltip {
+  color: var(--gold) !important;
+}
+
+/* Text inputs, textareas, selects — white background, dark text, gold border */
+.hs-form input[type="text"],
+.hs-form input[type="email"],
+.hs-form input[type="tel"],
+.hs-form input[type="number"],
+.hs-form input[type="url"],
+.hs-form textarea,
+.hs-form select {
+  background-color: #FFFFFF !important;
+  color: #181A1C !important;
+  border: 1px solid var(--gold-stroke) !important;
+  border-radius: 4px !important;
+  padding: 10px 12px !important;
+  font-family: var(--font) !important;
+  font-size: 15px !important;
+}
+
+/* Focus state — gold ring */
+.hs-form input[type="text"]:focus,
+.hs-form input[type="email"]:focus,
+.hs-form input[type="tel"]:focus,
+.hs-form input[type="number"]:focus,
+.hs-form input[type="url"]:focus,
+.hs-form textarea:focus,
+.hs-form select:focus {
+  outline: 2px solid var(--gold) !important;
+  outline-offset: 1px !important;
+  border-color: var(--gold) !important;
+}
+
+/* Placeholder text — softer grey */
+.hs-form input::placeholder,
+.hs-form textarea::placeholder {
+  color: #6B7280 !important;
+  opacity: 1 !important;
+}
+
+/* Submit button — site brand gold pill */
+.hs-form .hs-button,
+.hs-form input[type="submit"],
+.hs-form button[type="submit"] {
+  background-color: var(--gold) !important;
+  border: none !important;
+  color: #1A1C1E !important;
+  font-family: var(--font) !important;
+  font-weight: 700 !important;
+  font-size: 15px !important;
+  padding: 12px 28px !important;
+  border-radius: 5px !important;
+  cursor: pointer !important;
+  transition: background-color var(--t) !important;
+}
+.hs-form .hs-button:hover,
+.hs-form input[type="submit"]:hover,
+.hs-form button[type="submit"]:hover {
+  background-color: #d4aa64 !important;
+}
+.hs-form .hs-button:focus-visible,
+.hs-form input[type="submit"]:focus-visible,
+.hs-form button[type="submit"]:focus-visible {
+  outline: 2px solid var(--focus) !important;
+  outline-offset: 2px !important;
+}
+
+/* Validation error messages — readable red */
+.hs-form .hs-error-msg,
+.hs-form .hs-error-msgs label {
+  color: #d32f2f !important;
+  font-size: 13px !important;
+}
+
+/* Consent checkbox container spacing */
+.hs-form .legal-consent-container {
+  margin-top: 16px !important;
+  padding-top: 16px !important;
+  border-top: 1px solid var(--border-subtle, rgba(0,0,0,0.1)) !important;
+}
+.hs-form .legal-consent-container p,
+.hs-form .legal-consent-container span {
+  color: var(--text-secondary) !important;
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+}
