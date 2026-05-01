@@ -1383,26 +1383,36 @@ html.rtl .form-wrap iframe {
   background-color: transparent !important;
 }
 
-/* Field labels and rich-text descriptions — adapt to current theme */
+/* Field labels and rich-text descriptions — adapt to current theme.
+   Use a broad descendant selector so HubSpot's inner <span> elements
+   inside <label> also pick up the colour (HubSpot wraps label text in
+   spans which set their own colour via embedded styles). */
 .hs-form label,
+.hs-form label *,
 .hs-form .hs-form-field > label,
+.hs-form .hs-form-field > label *,
+.hs-form .hs-field-desc,
 .hs-form legend,
+.hs-form legend *,
 .hs-form .hs-richtext,
-.hs-form .hs-richtext p,
-.hs-form .hs-richtext span,
-.hs-form .hs-richtext h1,
-.hs-form .hs-richtext h2,
-.hs-form .hs-richtext h3,
-.hs-form .hs-richtext h4,
+.hs-form .hs-richtext *,
 .hs-form .hs-form-booleancheckbox-display,
-.hs-form .hs-form-booleancheckbox-display p,
-.hs-form .hs-form-booleancheckbox-display span {
+.hs-form .hs-form-booleancheckbox-display *,
+#hubspot-join-form label,
+#hubspot-join-form label *,
+#hubspot-join-form legend,
+#hubspot-join-form .hs-richtext,
+#hubspot-join-form .hs-richtext * {
   color: var(--text-primary) !important;
 }
 
-/* Required asterisk — brand gold */
+/* Required asterisk — brand gold (uses ID-prefixed selector to win over the
+   broad label-descendant rule above) */
 .hs-form .hs-form-required,
-.hs-form .hs-form-required-tooltip {
+.hs-form .hs-form-required-tooltip,
+#hubspot-join-form .hs-form-required,
+#hubspot-join-form label .hs-form-required,
+#hubspot-join-form label *.hs-form-required {
   color: var(--gold) !important;
 }
 
