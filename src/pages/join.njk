@@ -10,6 +10,25 @@ permalink: "{% if lang == 'en' %}/join/index.html{% else %}/{{ lang }}/join/inde
 {% set t = i18n[lang] %}
 {% set langPrefix = "" if lang == "en" else "/" + lang %}
 
+{# ── HUBSPOT FORM IDS PER LANGUAGE ──
+   Replace each entry with the language-specific form ID once you build the
+   translated form in HubSpot. Languages still pointing at the English form
+   ID will continue to show the "Please complete this form in English" notice.
+   Update shareUrl too so the "Form not loading? Open directly" link is right. #}
+{% set ENGLISH_FORM_ID = "89c776d4-6193-4ddf-8b57-42728771345b" %}
+{% set ENGLISH_SHARE_URL = "https://2gc5va.share-eu1.hsforms.com/2icd21GGTTd-LV0Jyh3E0Ww" %}
+
+{% set formConfig = {
+  "en": { "formId": "89c776d4-6193-4ddf-8b57-42728771345b", "shareUrl": ENGLISH_SHARE_URL },
+  "fr": { "formId": "3224bae7-ea03-4b45-9aaa-a880a6e3cc95", "shareUrl": ENGLISH_SHARE_URL },
+  "pt": { "formId": "6c546808-d2c6-4291-b3f6-d37b043b1c8d", "shareUrl": ENGLISH_SHARE_URL },
+  "ar": { "formId": "4e0882a3-3f73-420b-bb30-6ed8edc2406e", "shareUrl": ENGLISH_SHARE_URL },
+  "sw": { "formId": "59d69267-a182-4795-9623-fad103253d88", "shareUrl": ENGLISH_SHARE_URL }
+} %}
+
+{% set currentForm = formConfig[lang] %}
+{% set hasNativeForm = lang == "en" or currentForm.formId != ENGLISH_FORM_ID %}
+
 <section class="circuit-bg page-hero" aria-labelledby="page-title">
   <div class="container">
     <div class="hero-inner" style="min-height:unset;padding:40px 0 32px;">
@@ -82,7 +101,9 @@ permalink: "{% if lang == 'en' %}/join/index.html{% else %}/{{ lang }}/join/inde
       <p class="section-lead" style="margin:0 auto 40px;">{{ t.join.form_lead }}</p>
     </div>
 
-    {% if lang != "en" and t.join.english_form_notice %}
+    {# Show the "complete in English" notice only when this language is still
+       using the English form (i.e., a translated form hasn't been built yet) #}
+    {% if not hasNativeForm and t.join.english_form_notice %}
     <div class="form-language-notice reveal" role="note">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
       <p>{{ t.join.english_form_notice }}</p>
@@ -132,7 +153,7 @@ permalink: "{% if lang == 'en' %}/join/index.html{% else %}/{{ lang }}/join/inde
             hbspt.forms.create({
               region: "eu1",
               portalId: "148373686",
-              formId: "89c776d4-6193-4ddf-8b57-42728771345b",
+              formId: "{{ currentForm.formId }}",
               target: "#hubspot-join-form",
               onFormReady: function($form) {
                 lockFormColours(getFormEl($form));
@@ -149,7 +170,7 @@ permalink: "{% if lang == 'en' %}/join/index.html{% else %}/{{ lang }}/join/inde
     </div>
     <p style="text-align:center;font-size:13px;color:var(--text-muted);margin-top:16px;">
       {{ t.join.form_fallback }}
-      <a href="https://2gc5va.share-eu1.hsforms.com/2icd21GGTTd-LV0Jyh3E0Ww" target="_blank" rel="noopener noreferrer">{{ t.join.form_open_directly }}</a>
+      <a href="{{ currentForm.shareUrl }}" target="_blank" rel="noopener noreferrer">{{ t.join.form_open_directly }}</a>
     </p>
   </div>
 </section>
