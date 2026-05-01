@@ -1365,6 +1365,13 @@ html.rtl .form-wrap iframe {
   direction: ltr;
 }
 
+/* Arrow bullets (→) in lists: flip horizontally in RTL so they point with the
+   reading direction (← visually) instead of away from the text. */
+html.rtl .arrow-bullet {
+  display: inline-block;
+  transform: scaleX(-1);
+}
+
 /* ── LOCKED-LIGHT FORM SECTION ──────────────────────────────────────
    Used for the Join page form section. Stays cream/dark-text regardless
    of site theme so the HubSpot form (which doesn't theme cleanly) always
