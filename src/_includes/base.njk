@@ -308,6 +308,18 @@
         cta_class: btn.className.split(' ').slice(0, 3).join(' ')
       });
     }
+    // Report / file download tracking
+    var dl = e.target.closest('a[download]');
+    if (dl) {
+      var dlHref = dl.getAttribute('href') || '';
+      var parts = dlHref.split('/');
+      track('file_download', {
+        event_category: 'engagement',
+        file_name: parts[parts.length - 1] || dlHref,
+        file_url: dlHref,
+        link_text: (dl.textContent || '').trim().slice(0, 60)
+      });
+    }
     // Outbound link tracking
     var link = e.target.closest('a[href^="http"]');
     if (link) {
