@@ -12,6 +12,7 @@
     "services": "Services",
     "ecosystem": "Ecosystem",
     "contact": "Contact",
+    "insights": "Industry insights",
     "join_cta": "Join AfricanSTN",
     "logo_aria": "African Sports Technology Network home",
     "main_nav_aria": "Main navigation",
@@ -48,7 +49,8 @@
     "contact": "Contact",
     "join": "Join",
     "privacy": "Privacy",
-    "terms": "Terms"
+    "terms": "Terms",
+    "insights": "Industry Insights"
   },
 
   "home": {
@@ -268,6 +270,28 @@
     "next2_body": "For most enquiries, a short call or email exchange to understand your organisation and what would be most useful.",
     "next3_title": "3 · Proposal or onboarding",
     "next3_body": "For services, AfricanSTN will provide a clear proposal. For directory enquiries, AfricanSTN will confirm whether inclusion is appropriate and discuss next steps."
+  },
+
+  "insights": {
+    "hero_eyebrow": "Knowledge",
+    "hero_heading": "Industry insights",
+    "hero_subheading": "News, reports, and case studies from the African sports technology landscape.",
+    "news_eyebrow": "Latest",
+    "news_heading": "News",
+    "news_empty": "No news articles yet. Check back soon.",
+    "reports_eyebrow": "Research",
+    "reports_heading": "Industry reports",
+    "reports_empty": "No reports published yet. Check back soon.",
+    "cases_eyebrow": "Impact",
+    "cases_heading": "Case studies",
+    "cases_empty": "No case studies published yet. Check back soon.",
+    "read_more": "Read more →",
+    "download_report": "Download report →",
+    "cta_eyebrow": "Stay informed",
+    "cta_heading": "Get AfricanSTN insights delivered",
+    "cta_body": "Register to receive AfricanSTN's newsletter and sector intelligence reports covering African sports tech developments, funding activity, and market trends.",
+    "register_interest": "Register interest",
+    "contact_us": "Contact us"
   },
 
   "what": {
