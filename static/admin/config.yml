@@ -26,6 +26,7 @@ _field_groups:
     - { label: "What is sports tech",    name: "what",               widget: "string" }
     - { label: "Services",               name: "services",           widget: "string" }
     - { label: "Ecosystem",              name: "ecosystem",          widget: "string" }
+    - { label: "Industry insights",      name: "insights",           widget: "string" }
     - { label: "Contact",                name: "contact",            widget: "string" }
     - { label: "Join CTA",               name: "join_cta",           widget: "string" }
     - { label: "Logo aria-label",        name: "logo_aria",          widget: "string" }
@@ -61,6 +62,7 @@ _field_groups:
     - { label: "Join",       name: "join",       widget: "string" }
     - { label: "Privacy",    name: "privacy",    widget: "string" }
     - { label: "Terms",      name: "terms",      widget: "string" }
+    - { label: "Insights",   name: "insights",   widget: "string" }
 
   home_fields: &home_fields
     - { label: "Hero headline",            name: "hero_headline",          widget: "string" }
@@ -341,6 +343,27 @@ _field_groups:
     - { label: "Ecosystem button",         name: "ecosystem_btn",          widget: "string" }
     - { label: "Register button",          name: "register_btn",           widget: "string" }
 
+  insights_fields: &insights_fields
+    - { label: "Hero — eyebrow",           name: "hero_eyebrow",           widget: "string" }
+    - { label: "Hero heading",             name: "hero_heading",           widget: "string" }
+    - { label: "Hero sub-heading",         name: "hero_subheading",        widget: "text"   }
+    - { label: "News — eyebrow",           name: "news_eyebrow",           widget: "string" }
+    - { label: "News heading",             name: "news_heading",           widget: "string" }
+    - { label: "News empty text",          name: "news_empty",             widget: "string" }
+    - { label: "Reports — eyebrow",        name: "reports_eyebrow",        widget: "string" }
+    - { label: "Reports heading",          name: "reports_heading",        widget: "string" }
+    - { label: "Reports empty text",       name: "reports_empty",          widget: "string" }
+    - { label: "Cases — eyebrow",          name: "cases_eyebrow",          widget: "string" }
+    - { label: "Cases heading",            name: "cases_heading",          widget: "string" }
+    - { label: "Cases empty text",         name: "cases_empty",            widget: "string" }
+    - { label: "Read more link",           name: "read_more",              widget: "string" }
+    - { label: "Download report link",    name: "download_report",         widget: "string" }
+    - { label: "CTA eyebrow",              name: "cta_eyebrow",            widget: "string" }
+    - { label: "CTA heading",              name: "cta_heading",            widget: "string" }
+    - { label: "CTA body",                 name: "cta_body",               widget: "text"   }
+    - { label: "Register interest button", name: "register_interest",      widget: "string" }
+    - { label: "Contact us button",        name: "contact_us",             widget: "string" }
+
 # Reusable field set: all 12 sections of a language file in display order.
 # Used identically in each language collection below.
 _lang_file_fields: &lang_file_fields
@@ -389,6 +412,11 @@ _lang_file_fields: &lang_file_fields
     widget: "object"
     collapsed: true
     fields: *ecosystem_fields
+  - label: "Industry insights page"
+    name: "insights"
+    widget: "object"
+    collapsed: true
+    fields: *insights_fields
   - label: "Contact page"
     name: "contact"
     widget: "object"
@@ -520,5 +548,6 @@ collections:
       - label: "Category"
         name: "category"
         widget: "select"
-        options: ["News","Insight","Research","Ecosystem","Compliance","Event"]
+        options: ["News","Industry report","Case study","Insight","Research","Ecosystem","Compliance","Event"]
       - { label: "Cover image", name: "cover", widget: "image", required: false }
+      - { label: "Downloadable file", name: "download", widget: "file", required: false, hint: "PDF or other file for download (e.g. industry reports)" }

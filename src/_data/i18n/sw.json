@@ -12,6 +12,7 @@
     "services": "Huduma",
     "ecosystem": "Mfumo ikolojia",
     "contact": "Wasiliana",
+    "insights": "Maarifa ya sekta",
     "join_cta": "Jiunge na AfricanSTN",
     "logo_aria": "Mwanzo — African Sports Technology Network",
     "main_nav_aria": "Urambazaji mkuu",
@@ -48,7 +49,8 @@
     "contact": "Wasiliana",
     "join": "Jiunge",
     "privacy": "Faragha",
-    "terms": "Masharti"
+    "terms": "Masharti",
+    "insights": "Maarifa ya sekta"
   },
 
   "home": {
@@ -268,6 +270,28 @@
     "next2_body": "Kwa maswali mengi, simu fupi au kubadilishana barua pepe kuelewa shirika lako na kile kingekuwa cha manufaa zaidi.",
     "next3_title": "3 · Pendekezo au kuanzishwa",
     "next3_body": "Kwa huduma, AfricanSTN itatoa pendekezo wazi. Kwa maswali ya mwongozo, AfricanSTN itathibitisha iwapo kujumuishwa kunafaa na kujadili hatua zinazofuata."
+  },
+
+  "insights": {
+    "hero_eyebrow": "Maarifa",
+    "hero_heading": "Maarifa ya sekta",
+    "hero_subheading": "Habari, ripoti, na masomo ya kisa kutoka mandhari ya teknolojia ya michezo barani Afrika.",
+    "news_eyebrow": "Habari za hivi karibuni",
+    "news_heading": "Habari",
+    "news_empty": "Hakuna makala ya habari bado. Rudi hivi karibuni.",
+    "reports_eyebrow": "Utafiti",
+    "reports_heading": "Ripoti za sekta",
+    "reports_empty": "Hakuna ripoti zilizochapishwa bado. Rudi hivi karibuni.",
+    "cases_eyebrow": "Athari",
+    "cases_heading": "Masomo ya kisa",
+    "cases_empty": "Hakuna masomo ya kisa yaliyochapishwa bado. Rudi hivi karibuni.",
+    "read_more": "Soma zaidi →",
+    "download_report": "Pakua ripoti →",
+    "cta_eyebrow": "Baki na habari",
+    "cta_heading": "Pokea maarifa ya AfricanSTN",
+    "cta_body": "Jisajili upokee jarida la AfricanSTN na ripoti za maarifa ya sekta zinazoshughulikia maendeleo ya teknolojia ya michezo ya Kiafrika, shughuli za ufadhili, na mienendo ya soko.",
+    "register_interest": "Sajili nia",
+    "contact_us": "Wasiliana nasi"
   },
 
   "what": {

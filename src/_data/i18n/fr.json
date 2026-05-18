@@ -12,6 +12,7 @@
     "services": "Services",
     "ecosystem": "Écosystème",
     "contact": "Contact",
+    "insights": "Perspectives sectorielles",
     "join_cta": "Rejoindre AfricanSTN",
     "logo_aria": "Accueil — African Sports Technology Network",
     "main_nav_aria": "Navigation principale",
@@ -48,7 +49,8 @@
     "contact": "Contact",
     "join": "Rejoindre",
     "privacy": "Confidentialité",
-    "terms": "Conditions"
+    "terms": "Conditions",
+    "insights": "Perspectives sectorielles"
   },
 
   "home": {
@@ -268,6 +270,28 @@
     "next2_body": "Pour la plupart des demandes, un court appel ou un échange par courriel pour comprendre votre organisation et ce qui vous serait le plus utile.",
     "next3_title": "3 · Proposition ou onboarding",
     "next3_body": "Pour les services, AfricanSTN fournira une proposition claire. Pour les demandes d'annuaire, AfricanSTN confirmera si l'inclusion est appropriée et discutera des étapes suivantes."
+  },
+
+  "insights": {
+    "hero_eyebrow": "Connaissances",
+    "hero_heading": "Perspectives sectorielles",
+    "hero_subheading": "Actualités, rapports et études de cas du paysage de la technologie du sport en Afrique.",
+    "news_eyebrow": "Dernières nouvelles",
+    "news_heading": "Actualités",
+    "news_empty": "Aucun article pour le moment. Revenez bientôt.",
+    "reports_eyebrow": "Recherche",
+    "reports_heading": "Rapports sectoriels",
+    "reports_empty": "Aucun rapport publié pour le moment. Revenez bientôt.",
+    "cases_eyebrow": "Impact",
+    "cases_heading": "Études de cas",
+    "cases_empty": "Aucune étude de cas publiée pour le moment. Revenez bientôt.",
+    "read_more": "Lire la suite →",
+    "download_report": "Télécharger le rapport →",
+    "cta_eyebrow": "Restez informé",
+    "cta_heading": "Recevez les analyses d'AfricanSTN",
+    "cta_body": "Inscrivez-vous pour recevoir la newsletter d'AfricanSTN et les rapports d'intelligence sectorielle couvrant les évolutions de la technologie du sport africaine, l'activité de financement et les tendances de marché.",
+    "register_interest": "Manifester son intérêt",
+    "contact_us": "Nous contacter"
   },
 
   "what": {

@@ -12,6 +12,7 @@
     "services": "Serviços",
     "ecosystem": "Ecossistema",
     "contact": "Contacto",
+    "insights": "Perspetivas do setor",
     "join_cta": "Aderir à AfricanSTN",
     "logo_aria": "Início — African Sports Technology Network",
     "main_nav_aria": "Navegação principal",
@@ -48,7 +49,8 @@
     "contact": "Contacto",
     "join": "Aderir",
     "privacy": "Privacidade",
-    "terms": "Termos"
+    "terms": "Termos",
+    "insights": "Perspetivas do setor"
   },
 
   "home": {
@@ -268,6 +270,28 @@
     "next2_body": "Para a maioria dos pedidos, uma chamada curta ou troca de e-mail para compreender a sua organização e o que seria mais útil.",
     "next3_title": "3 · Proposta ou onboarding",
     "next3_body": "Para serviços, a AfricanSTN apresentará uma proposta clara. Para pedidos de diretório, a AfricanSTN confirmará se a inclusão é apropriada e discutirá os passos seguintes."
+  },
+
+  "insights": {
+    "hero_eyebrow": "Conhecimento",
+    "hero_heading": "Perspetivas do setor",
+    "hero_subheading": "Notícias, relatórios e estudos de caso do panorama da tecnologia desportiva em África.",
+    "news_eyebrow": "Mais recentes",
+    "news_heading": "Notícias",
+    "news_empty": "Ainda não há artigos de notícias. Volte em breve.",
+    "reports_eyebrow": "Investigação",
+    "reports_heading": "Relatórios do setor",
+    "reports_empty": "Ainda não foram publicados relatórios. Volte em breve.",
+    "cases_eyebrow": "Impacto",
+    "cases_heading": "Estudos de caso",
+    "cases_empty": "Ainda não foram publicados estudos de caso. Volte em breve.",
+    "read_more": "Ler mais →",
+    "download_report": "Descarregar relatório →",
+    "cta_eyebrow": "Mantenha-se informado",
+    "cta_heading": "Receba as análises da AfricanSTN",
+    "cta_body": "Inscreva-se para receber a newsletter da AfricanSTN e relatórios de inteligência setorial cobrindo desenvolvimentos da tecnologia desportiva africana, atividade de financiamento e tendências de mercado.",
+    "register_interest": "Manifestar interesse",
+    "contact_us": "Contacte-nos"
   },
 
   "what": {
