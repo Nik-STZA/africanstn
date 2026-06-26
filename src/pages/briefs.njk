@@ -1,8 +1,14 @@
 ---
 layout: base.njk
 navActive: insights
-pageTitle: Weekly Intelligence Briefs
-permalink: /insights/briefs/index.html
+pagination:
+  data: languages.list
+  size: 1
+  alias: lang
+permalink: "{% if lang == 'en' %}/insights/briefs/index.html{% else %}/{{ lang }}/insights/briefs/index.html{% endif %}"
+eleventyComputed:
+  pageTitle: "{{ i18n[lang].briefs.hero_heading }}"
+  langSwitchPath: "insights/briefs/"
 extraCss: |
   .briefs-list { display: grid; gap: 20px; margin-top: 32px; }
   .brief-card {
@@ -49,39 +55,47 @@ extraCss: |
   .brief-card__cta { margin-top: 16px; font-size: 14px; font-weight: 600; color: var(--gold); }
   .briefs-empty { color: var(--text-muted); font-size: 15px; margin-top: 16px; }
 ---
-{% set t = i18n["en"] %}
+{% set t = i18n[lang] %}
+{% set langPrefix = "" if lang == "en" else "/" + lang %}
 
 <section class="circuit-bg--subtle page-hero" aria-labelledby="page-title">
   <div class="container">
     <div class="hero-inner" style="min-height:unset;padding:40px 0 32px;">
-      <span class="eyebrow">Insights</span>
-      <h1 class="hero-title" id="page-title" style="font-size:clamp(28px,4.5vw,48px);">Weekly Intelligence Briefs</h1>
-      <p class="hero-sub" style="font-size:17px;">Our regular intelligence briefs on the African sports technology ecosystem — published weekly.</p>
+      <span class="eyebrow">{{ t.briefs.hero_eyebrow }}</span>
+      <h1 class="hero-title" id="page-title" style="font-size:clamp(28px,4.5vw,48px);">{{ t.briefs.hero_heading }}</h1>
+      <p class="hero-sub" style="font-size:17px;">{{ t.briefs.hero_subheading }}</p>
     </div>
   </div>
 </section>
 
 <section class="section section--white" aria-labelledby="briefs-heading">
   <div class="container">
-    <span class="eyebrow">Briefings</span>
-    <h2 class="section-title" id="briefs-heading">All briefs</h2>
+    <span class="eyebrow">{{ t.briefs.list_eyebrow }}</span>
+    <h2 class="section-title" id="briefs-heading">{{ t.briefs.list_heading }}</h2>
     <div class="section-divider"></div>
 
-    {% if briefs.length > 0 %}
+    {% set langBriefs = [] %}
+    {% for brief in briefs %}
+      {% if brief.lang == lang %}
+        {% set langBriefs = (langBriefs.push(brief), langBriefs) %}
+      {% endif %}
+    {% endfor %}
+
+    {% if langBriefs.length > 0 %}
       <div class="briefs-list">
-        {% for brief in briefs %}
-          <a class="brief-card" href="/insights/briefs/{{ brief.date }}/">
-            <h3 class="brief-card__title">{{ brief.title }}</h3>
+        {% for brief in langBriefs %}
+          <a class="brief-card" href="{{ langPrefix }}/insights/briefs/{{ brief.date }}/">
+            <h3 class="brief-card__title">{{ t.briefs.title_prefix }} {{ brief.publishedHuman }}</h3>
             <div class="brief-card__meta">
-              <span class="brief-card__count">{{ brief.itemCount }} item{% if brief.itemCount != 1 %}s{% endif %}</span>
-              <span>Published {{ brief.publishedHuman }}</span>
+              <span class="brief-card__count">{% if brief.itemCount == 1 %}{{ t.briefs.item_count_one | replace("{n}", brief.itemCount) }}{% else %}{{ t.briefs.item_count_other | replace("{n}", brief.itemCount) }}{% endif %}</span>
+              <span>{{ t.briefs.published }} {{ brief.publishedHuman }}</span>
             </div>
-            <div class="brief-card__cta">Read the brief →</div>
+            <div class="brief-card__cta">{{ t.briefs.read_cta }}</div>
           </a>
         {% endfor %}
       </div>
     {% else %}
-      <p class="briefs-empty">No briefs have been published yet. Please check back soon.</p>
+      <p class="briefs-empty">{{ t.briefs.empty }}</p>
     {% endif %}
   </div>
 </section>

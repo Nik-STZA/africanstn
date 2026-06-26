@@ -362,5 +362,23 @@
     "cta_body": "AfricanSTN cartographie l'écosystème africain de la technologie du sport — entreprises, marchés, financement et intelligence sectorielle. Si votre organisation fait partie de cet espace, manifestez votre intérêt.",
     "ecosystem_btn": "Écosystème africain →",
     "register_btn": "Manifester son intérêt"
+  },
+
+  "briefs": {
+    "hero_eyebrow": "Veille",
+    "hero_heading": "Bulletins de veille hebdomadaires",
+    "hero_subheading": "Nos bulletins de veille réguliers sur l'écosystème africain de la technologie du sport — publiés chaque semaine.",
+    "list_eyebrow": "Bulletins",
+    "list_heading": "Tous les bulletins",
+    "empty": "Aucun bulletin n'a encore été publié. Revenez bientôt.",
+    "published": "Publié le",
+    "read_cta": "Lire le bulletin →",
+    "back": "← Retour à tous les bulletins",
+    "title_prefix": "Bulletin de veille hebdomadaire — sem. du",
+    "item_count_one": "{n} élément",
+    "item_count_other": "{n} éléments",
+    "download_text": "Téléchargez notre rapport phare — L'état du sport en Afrique, Édition 1.",
+    "download_btn": "Télécharger le rapport",
+    "translation_notice": "Ce bulletin est présenté dans sa version originale en anglais ; une version traduite n'est pas encore disponible."
   }
 }

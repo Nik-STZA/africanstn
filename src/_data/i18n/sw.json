@@ -362,5 +362,23 @@
     "cta_body": "AfricanSTN inapanga ramani ya mfumo ikolojia wa teknolojia ya michezo barani Afrika — kampuni, masoko, ufadhili, na maarifa ya sekta. Iwapo shirika lako ni sehemu ya nafasi hii, sajili nia yako.",
     "ecosystem_btn": "Mfumo ikolojia wa Kiafrika →",
     "register_btn": "Sajili nia"
+  },
+
+  "briefs": {
+    "hero_eyebrow": "Maarifa",
+    "hero_heading": "Taarifa za kijasusi za wiki",
+    "hero_subheading": "Taarifa zetu za kawaida za kijasusi kuhusu mfumo ikolojia wa teknolojia ya michezo barani Afrika — huchapishwa kila wiki.",
+    "list_eyebrow": "Taarifa",
+    "list_heading": "Taarifa zote",
+    "empty": "Bado hakuna taarifa zilizochapishwa. Tafadhali rudi hivi karibuni.",
+    "published": "Ilichapishwa",
+    "read_cta": "Soma taarifa →",
+    "back": "← Rudi kwa taarifa zote",
+    "title_prefix": "Taarifa ya Kijasusi ya Wiki — wiki inayoishia",
+    "item_count_one": "kipengele {n}",
+    "item_count_other": "vipengele {n}",
+    "download_text": "Pakua ripoti yetu kuu — Hali ya Michezo Barani Afrika, Toleo la 1.",
+    "download_btn": "Pakua ripoti",
+    "translation_notice": "Taarifa hii imeonyeshwa katika Kiingereza chake asili; toleo lililotafsiriwa bado halipatikani."
   }
 }

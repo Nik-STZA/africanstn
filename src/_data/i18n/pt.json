@@ -362,5 +362,23 @@
     "cta_body": "A AfricanSTN mapeia o ecossistema africano da tecnologia desportiva — empresas, mercados, financiamento e inteligência setorial. Se a sua organização faz parte deste espaço, manifeste o seu interesse.",
     "ecosystem_btn": "Ecossistema africano →",
     "register_btn": "Manifestar interesse"
+  },
+
+  "briefs": {
+    "hero_eyebrow": "Análises",
+    "hero_heading": "Boletins de inteligência semanais",
+    "hero_subheading": "Os nossos boletins de inteligência regulares sobre o ecossistema africano da tecnologia desportiva — publicados semanalmente.",
+    "list_eyebrow": "Boletins",
+    "list_heading": "Todos os boletins",
+    "empty": "Ainda não foram publicados boletins. Volte em breve.",
+    "published": "Publicado a",
+    "read_cta": "Ler o boletim →",
+    "back": "← Voltar a todos os boletins",
+    "title_prefix": "Boletim de inteligência semanal — sem. de",
+    "item_count_one": "{n} item",
+    "item_count_other": "{n} itens",
+    "download_text": "Descarregue o nosso relatório de referência — O Estado do Desporto em África, Edição 1.",
+    "download_btn": "Descarregar o relatório",
+    "translation_notice": "Este boletim é apresentado na sua versão original em inglês; ainda não está disponível uma versão traduzida."
   }
 }
