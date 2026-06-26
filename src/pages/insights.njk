@@ -16,6 +16,9 @@ permalink: "{% if lang == 'en' %}/insights/index.html{% else %}/{{ lang }}/insig
       <span class="eyebrow">{{ t.insights.hero_eyebrow }}</span>
       <h1 class="hero-title" id="page-title" style="font-size:clamp(28px,4.5vw,48px);">{{ t.insights.hero_heading }}</h1>
       <p class="hero-sub" style="font-size:17px;">{{ t.insights.hero_subheading }}</p>
+      {% if lang == "en" %}
+      <p style="margin-top:18px;"><a href="/insights/briefs/" class="btn btn-primary">View weekly intelligence briefs →</a></p>
+      {% endif %}
     </div>
   </div>
 </section>

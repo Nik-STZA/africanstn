@@ -1,4 +1,14 @@
+const markdownIt = require("markdown-it");
+
 module.exports = function(eleventyConfig) {
+  // Render a markdown string to HTML (used for the Supabase-sourced weekly
+  // briefs). html:false keeps any raw HTML in the source from being injected.
+  const md = markdownIt({ html: false, linkify: true, typographer: true });
+  eleventyConfig.addFilter("markdownify", function(value) {
+    if (!value) return "";
+    return md.render(value);
+  });
+
   // Copy static assets directly to output
   // Copy contents of static/ directly to site root
   // so /static/assets/css/ becomes /assets/css/
