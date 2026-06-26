@@ -41,6 +41,38 @@
     });
   }
 
+  /* ── INSIGHTS NAV DROPDOWN (desktop) ── */
+  /* Hover and keyboard focus are handled in CSS (:hover / :focus-within).
+     This adds click/tap support: on touch devices the first tap opens the
+     menu instead of following the link; clicking outside or Escape closes it. */
+  var dropdown = document.querySelector('.nav-dropdown');
+  if (dropdown) {
+    var dropToggle = dropdown.querySelector('.nav-dropdown__toggle');
+    if (dropToggle) {
+      dropToggle.addEventListener('click', function (e) {
+        var canHover = window.matchMedia('(hover: hover)').matches;
+        if (!canHover && !dropdown.classList.contains('open')) {
+          /* No-hover device: first tap reveals the menu rather than navigating */
+          e.preventDefault();
+          dropdown.classList.add('open');
+          dropToggle.setAttribute('aria-expanded', 'true');
+        }
+      });
+    }
+    document.addEventListener('click', function (e) {
+      if (!dropdown.contains(e.target)) {
+        dropdown.classList.remove('open');
+        if (dropToggle) dropToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        dropdown.classList.remove('open');
+        if (dropToggle) dropToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
   /* ── ACTIVE NAV LINK ── */
   var path = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-links a, .nav-mobile a').forEach(function (a) {

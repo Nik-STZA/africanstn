@@ -16,9 +16,6 @@ permalink: "{% if lang == 'en' %}/insights/index.html{% else %}/{{ lang }}/insig
       <span class="eyebrow">{{ t.insights.hero_eyebrow }}</span>
       <h1 class="hero-title" id="page-title" style="font-size:clamp(28px,4.5vw,48px);">{{ t.insights.hero_heading }}</h1>
       <p class="hero-sub" style="font-size:17px;">{{ t.insights.hero_subheading }}</p>
-      {% if lang == "en" %}
-      <p style="margin-top:18px;"><a href="/insights/briefs/" class="btn btn-primary">View weekly intelligence briefs →</a></p>
-      {% endif %}
     </div>
   </div>
 </section>
@@ -41,10 +38,11 @@ permalink: "{% if lang == 'en' %}/insights/index.html{% else %}/{{ lang }}/insig
       {% if newsItems.length > 0 %}
         <div class="grid-2" style="gap:24px;margin-top:32px;">
           {% for post in newsItems %}
+            {% set loc = post.i18n[lang] or {} %}
             <article class="card card--gold-top" style="padding:24px;">
               <p style="font-size:12px;color:var(--text-muted);margin-bottom:8px;">{{ post.date }}</p>
-              <h3 style="font-size:16px;margin-bottom:10px;">{{ post.title }}</h3>
-              <p>{{ post.excerpt }}</p>
+              <h3 style="font-size:16px;margin-bottom:10px;">{{ loc.title or post.title }}</h3>
+              <p>{{ loc.excerpt or post.excerpt }}</p>
             </article>
           {% endfor %}
         </div>
@@ -56,7 +54,7 @@ permalink: "{% if lang == 'en' %}/insights/index.html{% else %}/{{ lang }}/insig
 </section>
 
 {# ── INDUSTRY REPORTS ── #}
-<section class="section section--white" aria-labelledby="reports-heading">
+<section class="section section--white" id="reports" aria-labelledby="reports-heading">
   <div class="container">
     <div class="reveal">
       <span class="eyebrow">{{ t.insights.reports_eyebrow }}</span>
@@ -73,10 +71,11 @@ permalink: "{% if lang == 'en' %}/insights/index.html{% else %}/{{ lang }}/insig
       {% if reportItems.length > 0 %}
         <div class="grid-2" style="gap:24px;margin-top:32px;">
           {% for post in reportItems %}
+            {% set loc = post.i18n[lang] or {} %}
             <article class="card card--gold-top" style="padding:24px;">
               <p style="font-size:12px;color:var(--text-muted);margin-bottom:8px;">{{ post.date }}</p>
-              <h3 style="font-size:16px;margin-bottom:10px;">{{ post.title }}</h3>
-              <p>{{ post.excerpt }}</p>
+              <h3 style="font-size:16px;margin-bottom:10px;">{{ loc.title or post.title }}</h3>
+              <p>{{ loc.excerpt or post.excerpt }}</p>
               {% if post.download %}
                 <a href="{{ post.download }}" download target="_blank" rel="noopener" style="display:inline-block;margin-top:12px;font-size:14px;font-weight:600;color:var(--accent-gold);">{{ t.insights.download_report }}</a>
               {% endif %}
@@ -108,10 +107,11 @@ permalink: "{% if lang == 'en' %}/insights/index.html{% else %}/{{ lang }}/insig
       {% if caseItems.length > 0 %}
         <div class="grid-2" style="gap:24px;margin-top:32px;">
           {% for post in caseItems %}
+            {% set loc = post.i18n[lang] or {} %}
             <article class="card card--gold-top" style="padding:24px;">
               <p style="font-size:12px;color:var(--text-muted);margin-bottom:8px;">{{ post.date }}</p>
-              <h3 style="font-size:16px;margin-bottom:10px;">{{ post.title }}</h3>
-              <p>{{ post.excerpt }}</p>
+              <h3 style="font-size:16px;margin-bottom:10px;">{{ loc.title or post.title }}</h3>
+              <p>{{ loc.excerpt or post.excerpt }}</p>
             </article>
           {% endfor %}
         </div>
