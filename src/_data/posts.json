@@ -5,7 +5,25 @@
     "slug": "africanstn-launches",
     "excerpt": "African Sports Technology Network (AfricanSTN) is now live. Here is what we are building and why.",
     "body": "AfricanSTN is the ecosystem platform for sports technology in Africa. We are in our early stages, building the foundations for a network that brings together founders, sport organisations, investors, operators, and partners across the region.\n\nBy joining now, you become part of our early supporter community - the first group we reach out to as the platform develops.",
-    "category": "News"
+    "category": "News",
+    "i18n": {
+      "fr": {
+        "title": "AfricanSTN se lance — bâtir l'écosystème africain de la sport tech",
+        "excerpt": "Le African Sports Technology Network (AfricanSTN) est désormais en ligne. Voici ce que nous construisons et pourquoi."
+      },
+      "pt": {
+        "title": "A AfricanSTN é lançada — a construir o ecossistema africano de tecnologia desportiva",
+        "excerpt": "A African Sports Technology Network (AfricanSTN) já está online. Eis o que estamos a construir e porquê."
+      },
+      "ar": {
+        "title": "إطلاق AfricanSTN — بناء منظومة تكنولوجيا الرياضة في أفريقيا",
+        "excerpt": "شبكة تكنولوجيا الرياضة الأفريقية (AfricanSTN) متاحة الآن. إليكم ما نبنيه ولماذا."
+      },
+      "sw": {
+        "title": "AfricanSTN yazinduliwa — kujenga mfumo wa teknolojia ya michezo barani Afrika",
+        "excerpt": "Mtandao wa Teknolojia ya Michezo wa Afrika (AfricanSTN) sasa upo mtandaoni. Haya ndiyo tunayojenga na kwa nini."
+      }
+    }
   },
   {
     "title": "The State of Sport in Africa — Edition 1",
@@ -14,6 +32,24 @@
     "excerpt": "The first edition of AfricanSTN's flagship report examining the current state of sport across the African continent — covering governance, infrastructure, commercial development, and the role of technology in shaping the future of African sport.",
     "body": "## The State of Sport in Africa — Edition 1\n\nThis is the first edition of AfricanSTN's flagship report on the state of sport across the African continent.\n\nThe report provides a comprehensive overview of the African sport landscape, examining the key factors shaping sport development, commercialisation, and technology adoption across the region.\n\nDownload the full report using the link below.",
     "category": "Industry report",
-    "download": "/assets/reports/The-State-of-Sport-in-Africa-Edition-1.pdf"
+    "download": "/assets/reports/The-State-of-Sport-in-Africa-Edition-1.pdf",
+    "i18n": {
+      "fr": {
+        "title": "L'état du sport en Afrique — Édition 1",
+        "excerpt": "La première édition du rapport phare d'AfricanSTN examinant l'état actuel du sport sur le continent africain — gouvernance, infrastructures, développement commercial et rôle de la technologie dans l'avenir du sport africain."
+      },
+      "pt": {
+        "title": "O Estado do Desporto em África — Edição 1",
+        "excerpt": "A primeira edição do relatório de referência da AfricanSTN que analisa o estado atual do desporto no continente africano — abrangendo governação, infraestruturas, desenvolvimento comercial e o papel da tecnologia na definição do futuro do desporto africano."
+      },
+      "ar": {
+        "title": "حالة الرياضة في أفريقيا — الإصدار الأول",
+        "excerpt": "الإصدار الأول من التقرير الرئيسي لـ AfricanSTN الذي يستعرض الوضع الراهن للرياضة في القارة الأفريقية — ويشمل الحوكمة والبنية التحتية والتطور التجاري ودور التكنولوجيا في تشكيل مستقبل الرياضة الأفريقية."
+      },
+      "sw": {
+        "title": "Hali ya Michezo Barani Afrika — Toleo la Kwanza",
+        "excerpt": "Toleo la kwanza la ripoti kuu ya AfricanSTN inayochunguza hali ya sasa ya michezo katika bara la Afrika — ikishughulikia utawala, miundombinu, maendeleo ya kibiashara, na nafasi ya teknolojia katika kuunda mustakabali wa michezo ya Afrika."
+      }
+    }
   }
 ]

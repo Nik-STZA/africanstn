@@ -122,7 +122,15 @@
     <li><a href="{{ langPrefix }}/what-is-sports-tech/" {% if pageSlug == "what" %}class="active"{% endif %}>{{ t.nav.what }}</a></li>
     <li><a href="{{ langPrefix }}/services/" {% if pageSlug == "services" %}class="active"{% endif %}>{{ t.nav.services }}</a></li>
     <li><a href="{{ langPrefix }}/ecosystem/" {% if pageSlug == "ecosystem" %}class="active"{% endif %}>{{ t.nav.ecosystem }}</a></li>
-    <li><a href="{{ langPrefix }}/insights/" {% if pageSlug == "insights" %}class="active"{% endif %}>{{ t.nav.insights }}</a></li>
+    <li class="nav-dropdown">
+      <a href="{{ langPrefix }}/insights/" class="nav-dropdown__toggle {% if pageSlug == 'insights' %}active{% endif %}" aria-haspopup="true" aria-expanded="false">
+        {{ t.nav.insights }}<span class="nav-dropdown__caret" aria-hidden="true">▾</span>
+      </a>
+      <ul class="nav-dropdown__menu" role="menu">
+        <li role="none"><a role="menuitem" href="{{ langPrefix }}/insights/briefs/">{{ t.nav.insights_briefs }}</a></li>
+        <li role="none"><a role="menuitem" href="{{ langPrefix }}/insights/#reports">{{ t.nav.insights_report }}</a></li>
+      </ul>
+    </li>
     <li><a href="{{ langPrefix }}/contact/" {% if pageSlug == "contact" %}class="active"{% endif %}>{{ t.nav.contact }}</a></li>
     <li><a href="{{ langPrefix }}/join/" class="nav-cta">{{ t.nav.join_cta }}</a></li>
   </ul>
@@ -166,7 +174,12 @@
   <a href="{{ langPrefix }}/what-is-sports-tech/">{{ t.nav.what }}</a>
   <a href="{{ langPrefix }}/services/">{{ t.nav.services }}</a>
   <a href="{{ langPrefix }}/ecosystem/">{{ t.nav.ecosystem }}</a>
-  <a href="{{ langPrefix }}/insights/">{{ t.nav.insights }}</a>
+  <details class="nav-mobile__group">
+    <summary>{{ t.nav.insights }}<span class="nav-mobile__caret" aria-hidden="true">▾</span></summary>
+    <a href="{{ langPrefix }}/insights/">{{ t.nav.insights }}</a>
+    <a href="{{ langPrefix }}/insights/briefs/">{{ t.nav.insights_briefs }}</a>
+    <a href="{{ langPrefix }}/insights/#reports">{{ t.nav.insights_report }}</a>
+  </details>
   <a href="{{ langPrefix }}/contact/">{{ t.nav.contact }}</a>
   <a href="{{ langPrefix }}/join/" style="color:#C5A059;font-weight:700;">{{ t.nav.join_cta }} →</a>
 </div>
