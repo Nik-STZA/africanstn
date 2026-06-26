@@ -362,5 +362,23 @@
     "cta_body": "AfricanSTN maps the African sports technology ecosystem - companies, markets, funding, and sector intelligence. If your organisation is part of the space, register your interest.",
     "ecosystem_btn": "African ecosystem →",
     "register_btn": "Register interest"
+  },
+
+  "briefs": {
+    "hero_eyebrow": "Insights",
+    "hero_heading": "Weekly Intelligence Briefs",
+    "hero_subheading": "Our regular intelligence briefs on the African sports technology ecosystem — published weekly.",
+    "list_eyebrow": "Briefings",
+    "list_heading": "All briefs",
+    "empty": "No briefs have been published yet. Please check back soon.",
+    "published": "Published",
+    "read_cta": "Read the brief →",
+    "back": "← Back to all briefs",
+    "title_prefix": "Weekly Intelligence Brief — w/e",
+    "item_count_one": "{n} item",
+    "item_count_other": "{n} items",
+    "download_text": "Download our flagship report — The State of Sport in Africa, Edition 1.",
+    "download_btn": "Download the report",
+    "translation_notice": "This brief is shown in its original English; a translated version is not yet available."
   }
 }

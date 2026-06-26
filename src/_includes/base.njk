@@ -6,6 +6,9 @@
 {% set pageSlug = navActive or "home" %}
 {% set slugMap = {"home": "", "about": "about/", "what": "what-is-sports-tech/", "services": "services/", "ecosystem": "ecosystem/", "insights": "insights/", "contact": "contact/", "join": "join/", "privacy": "privacy/", "terms": "terms/"} %}
 {% set currentSlugPath = slugMap[pageSlug] %}
+{# Pages with sub-paths (e.g. individual briefs) can override the path used by #}
+{# the language switcher and hreflang tags so switching stays on the same page. #}
+{% set switchPath = langSwitchPath or currentSlugPath %}
 <!DOCTYPE html>
 <html lang="{{ langMeta.html_lang }}" dir="{{ langMeta.dir }}"{% if isRtl %} class="rtl"{% endif %}>
 <head>
@@ -56,9 +59,9 @@
   {# Hreflang alternates for SEO — skip for English-only legal pages #}
   {% if pageSlug != "privacy" and pageSlug != "terms" %}
     {% for code in languages.list %}
-      <link rel="alternate" hreflang="{{ languages.meta[code].html_lang }}" href="{{ site.site_url }}{% if code != 'en' %}/{{ code }}{% endif %}/{{ currentSlugPath }}">
+      <link rel="alternate" hreflang="{{ languages.meta[code].html_lang }}" href="{{ site.site_url }}{% if code != 'en' %}/{{ code }}{% endif %}/{{ switchPath }}">
     {% endfor %}
-    <link rel="alternate" hreflang="x-default" href="{{ site.site_url }}/{{ currentSlugPath }}">
+    <link rel="alternate" hreflang="x-default" href="{{ site.site_url }}/{{ switchPath }}">
   {% endif %}
 
   <!-- Google Consent Mode v2 — default to denied, updated on user choice -->
@@ -151,7 +154,7 @@
         {% if pageSlug == "privacy" or pageSlug == "terms" %}
           {% set targetUrl = "/" + currentSlugPath %}
         {% else %}
-          {% set targetUrl = ("" if code == "en" else "/" + code) + "/" + currentSlugPath %}
+          {% set targetUrl = ("" if code == "en" else "/" + code) + "/" + switchPath %}
         {% endif %}
         <li role="option" aria-selected="{{ 'true' if code == currentLang else 'false' }}">
           <a href="{{ targetUrl }}" lang="{{ Lmeta.html_lang }}" dir="{{ Lmeta.dir }}"{% if code == currentLang %} class="is-active" aria-current="true"{% endif %}>

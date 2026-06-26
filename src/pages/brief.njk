@@ -5,9 +5,11 @@ pagination:
   data: briefs
   size: 1
   alias: brief
-permalink: "/insights/briefs/{{ brief.date }}/index.html"
+permalink: "{% if brief.lang == 'en' %}/insights/briefs/{{ brief.date }}/index.html{% else %}/{{ brief.lang }}/insights/briefs/{{ brief.date }}/index.html{% endif %}"
 eleventyComputed:
-  pageTitle: "{{ brief.title }}"
+  lang: "{{ brief.lang }}"
+  pageTitle: "{{ i18n[brief.lang].briefs.title_prefix }} {{ brief.publishedHuman }}"
+  langSwitchPath: "insights/briefs/{{ brief.date }}/"
 extraCss: |
   .brief-wrap { max-width: 800px; margin: 0 auto; }
   .brief-back {
@@ -65,29 +67,38 @@ extraCss: |
     display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between;
   }
   .brief-download__text { color: var(--text-muted); font-size: 14px; max-width: 420px; }
+  .brief-translation-notice {
+    background: var(--surface-warm); border: 1px solid var(--border); border-radius: 8px;
+    padding: 12px 16px; margin-bottom: 24px; font-size: 13px; color: var(--text-muted);
+  }
 ---
-{% set t = i18n["en"] %}
+{% set t = i18n[brief.lang] %}
+{% set langPrefix = "" if brief.lang == "en" else "/" + brief.lang %}
 
 <section class="section section--white">
   <div class="container">
     <div class="brief-wrap">
-      <a class="brief-back" href="/insights/briefs/">← Back to all briefs</a>
+      <a class="brief-back" href="{{ langPrefix }}/insights/briefs/">{{ t.briefs.back }}</a>
 
       <header class="brief-header">
-        <h1>{{ brief.title }}</h1>
+        <h1>{{ t.briefs.title_prefix }} {{ brief.publishedHuman }}</h1>
         <div class="brief-header__meta">
-          <span class="brief-header__count">{{ brief.itemCount }} item{% if brief.itemCount != 1 %}s{% endif %}</span>
-          <span>Published {{ brief.publishedHuman }}</span>
+          <span class="brief-header__count">{% if brief.itemCount == 1 %}{{ t.briefs.item_count_one | replace("{n}", brief.itemCount) }}{% else %}{{ t.briefs.item_count_other | replace("{n}", brief.itemCount) }}{% endif %}</span>
+          <span>{{ t.briefs.published }} {{ brief.publishedHuman }}</span>
         </div>
       </header>
+
+      {% if not brief.translated and brief.lang != "en" %}
+        <p class="brief-translation-notice" role="note">{{ t.briefs.translation_notice }}</p>
+      {% endif %}
 
       <div class="brief-content">
         {{ brief.markdown | markdownify | safe }}
       </div>
 
       <div class="brief-download">
-        <p class="brief-download__text">Download our flagship report — The State of Sport in Africa, Edition 1.</p>
-        <a class="btn btn-primary" href="https://africanstn.com/assets/reports/The-State-of-Sport-in-Africa-Edition-1.pdf" download target="_blank" rel="noopener">Download the report</a>
+        <p class="brief-download__text">{{ t.briefs.download_text }}</p>
+        <a class="btn btn-primary" href="https://africanstn.com/assets/reports/The-State-of-Sport-in-Africa-Edition-1.pdf" download target="_blank" rel="noopener">{{ t.briefs.download_btn }}</a>
       </div>
     </div>
   </div>
