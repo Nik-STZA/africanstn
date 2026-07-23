@@ -79,34 +79,32 @@ function cacheKey(id, lang, hash) {
 // a warning) if Supabase is not configured or unreachable so callers degrade
 // gracefully. This HTTP call works in both the build and at runtime.
 async function fetchSourceBriefs() {
-  const url = process.env.SUPABASE_URL;
-  const key = process.env.SUPABASE_ANON_KEY;
+  // The weekly_reports table moved from Supabase to Cloud SQL; briefs are now
+  // served by the STZA OS Cloud Run API. Env: CLOUD_RUN_API_URL (defaults to
+  // the production API) + CLOUD_RUN_API_KEY (the X-API-Key shared secret).
+  const base =
+    (process.env.CLOUD_RUN_API_URL ||
+      "https://africastn-api-782190795609.europe-west1.run.app").replace(/\/$/, "");
+  const key = process.env.CLOUD_RUN_API_KEY;
 
-  if (!url || !key) {
-    console.warn(
-      "[briefs] SUPABASE_URL / SUPABASE_ANON_KEY not set — no briefs available."
-    );
+  if (!key) {
+    console.warn("[briefs] CLOUD_RUN_API_KEY not set — no briefs available.");
     return [];
   }
 
-  const endpoint =
-    `${url.replace(/\/$/, "")}/rest/v1/weekly_reports` +
-    `?select=id,report_markdown,item_count,created_at&order=created_at.desc`;
+  const endpoint = `${base}/api/content/briefs?full=1`;
 
   let rows = [];
   try {
     const res = await fetch(endpoint, {
-      headers: {
-        apikey: key,
-        Authorization: `Bearer ${key}`,
-        Accept: "application/json",
-      },
+      headers: { "X-API-Key": key, Accept: "application/json" },
     });
     if (!res.ok) {
-      console.warn(`[briefs] Supabase responded ${res.status} — no briefs available.`);
+      console.warn(`[briefs] API responded ${res.status} — no briefs available.`);
       return [];
     }
-    rows = await res.json();
+    const body = await res.json();
+    rows = Array.isArray(body.data) ? body.data : [];
   } catch (err) {
     console.warn(`[briefs] Failed to fetch briefs (${err.message}) — no briefs available.`);
     return [];
