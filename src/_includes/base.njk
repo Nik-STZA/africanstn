@@ -4,7 +4,7 @@
 {% set isRtl = langMeta.dir == "rtl" %}
 {% set langPrefix = "" if currentLang == "en" else "/" + currentLang %}
 {% set pageSlug = navActive or "home" %}
-{% set slugMap = {"home": "", "about": "about/", "what": "what-is-sports-tech/", "services": "services/", "ecosystem": "ecosystem/", "insights": "insights/", "contact": "contact/", "join": "join/", "privacy": "privacy/", "terms": "terms/"} %}
+{% set slugMap = {"home": "", "about": "about/", "what": "what-is-sports-tech/", "services": "services/", "ecosystem": "ecosystem/", "insights": "insights/", "contact": "contact/", "join": "join/", "privacy": "privacy/", "terms": "terms/", "community-terms": "community-terms/"} %}
 {% set currentSlugPath = slugMap[pageSlug] %}
 {# Pages with sub-paths (e.g. individual briefs) can override the path used by #}
 {# the language switcher and hreflang tags so switching stays on the same page. #}
@@ -57,7 +57,7 @@
   {% if extraCss %}<style>{{ extraCss | safe }}</style>{% endif %}
 
   {# Hreflang alternates for SEO — skip for English-only legal pages #}
-  {% if pageSlug != "privacy" and pageSlug != "terms" %}
+  {% if pageSlug != "privacy" and pageSlug != "terms" and pageSlug != "community-terms" %}
     {% for code in languages.list %}
       <link rel="alternate" hreflang="{{ languages.meta[code].html_lang }}" href="{{ site.site_url }}{% if code != 'en' %}/{{ code }}{% endif %}/{{ switchPath }}">
     {% endfor %}
@@ -151,7 +151,7 @@
       {% for code in languages.list %}
         {% set Lmeta = languages.meta[code] %}
         {# Privacy/Terms exist only in English — point all languages at the English version #}
-        {% if pageSlug == "privacy" or pageSlug == "terms" %}
+        {% if pageSlug == "privacy" or pageSlug == "terms" or pageSlug == "community-terms" %}
           {% set targetUrl = "/" + currentSlugPath %}
         {% else %}
           {% set targetUrl = ("" if code == "en" else "/" + code) + "/" + switchPath %}
@@ -188,7 +188,7 @@
 </div>
 
 {# Notice for legal pages displayed in non-English languages #}
-{% if (pageSlug == "privacy" or pageSlug == "terms") and currentLang != "en" %}
+{% if (pageSlug == "privacy" or pageSlug == "terms" or pageSlug == "community-terms") and currentLang != "en" %}
 <div class="legal-translation-notice" role="note">
   <div class="container">
     <p>{{ t.meta.legal_notice }}</p>
@@ -223,6 +223,7 @@
         <ul>
           <li><a href="/privacy/">{{ t.footer.privacy }}</a></li>
           <li><a href="/terms/">{{ t.footer.terms }}</a></li>
+          <li><a href="/community-terms/">Community terms</a></li>
         </ul>
       </div>
       <div class="footer-col">
