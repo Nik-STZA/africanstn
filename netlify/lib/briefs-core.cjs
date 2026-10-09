@@ -110,10 +110,16 @@ async function fetchSourceBriefs() {
     return [];
   }
 
+  // An edition is a row with a week_ending (migration 026): the Thursday that
+  // closes its Friday-to-Thursday week, unique per week. Rows without one are
+  // superseded re-runs and are not published. Until the API returns the field,
+  // fall back to the old rule - latest row per created_at date.
+  const hasWeekEnding = rows.some((r) => r.week_ending);
   const seen = new Set();
   const sourceBriefs = [];
   for (const row of rows) {
-    const date = isoDate(row.created_at);
+    if (hasWeekEnding && !row.week_ending) continue;
+    const date = hasWeekEnding ? isoDate(row.week_ending) : isoDate(row.created_at);
     if (!date || seen.has(date)) continue;
     seen.add(date);
 
@@ -122,7 +128,7 @@ async function fetchSourceBriefs() {
       id: row.id,
       date, // URL slug, e.g. "2026-06-25"
       itemCount: row.item_count,
-      iso: row.created_at,
+      iso: hasWeekEnding ? `${date}T00:00:00Z` : row.created_at,
       markdown,
       hash: contentHash(markdown),
     });
