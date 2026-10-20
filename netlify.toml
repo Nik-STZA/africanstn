@@ -9,6 +9,12 @@
 [[plugins]]
   package = "@netlify/plugin-sitemap"
 
+# Edition 2 vanity URL with UTM tracking
+[[redirects]]
+  from = "/edition2"
+  to = "/insights/?utm_source=linkedin&utm_medium=social&utm_campaign=edition2_launch#reports"
+  status = 302
+
 # Redirect /admin to the CMS
 [[redirects]]
   from = "/admin"
