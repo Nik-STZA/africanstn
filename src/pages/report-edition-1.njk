@@ -1,0 +1,73 @@
+---
+layout: base.njk
+navActive: reports
+pagination:
+  data: languages.list
+  size: 1
+  alias: lang
+permalink: "{% if lang == 'en' %}/reports/edition-1/index.html{% else %}/{{ lang }}/reports/edition-1/index.html{% endif %}"
+---
+{% set t = i18n[lang] %}
+{% set langPrefix = "" if lang == "en" else "/" + lang %}
+{% set report = null %}
+{% for post in posts %}
+  {% if post.slug == "state-of-sport-in-africa-edition-1" %}
+    {% set report = post %}
+  {% endif %}
+{% endfor %}
+{% set loc = report.i18n[lang] or {} %}
+
+<section class="circuit-bg--subtle page-hero" aria-labelledby="page-title">
+  <div class="container">
+    <div class="hero-inner" style="min-height:unset;padding:40px 0 32px;">
+      <a href="{{ langPrefix }}/reports/" style="font-size:13px;color:var(--text-muted);text-decoration:none;">{{ t.reports.back_to_reports }}</a>
+      <h1 class="hero-title" id="page-title" style="font-size:clamp(24px,4vw,40px);margin-top:12px;">{{ loc.title or report.title }}</h1>
+      <p class="hero-sub" style="font-size:17px;">{{ loc.excerpt or report.excerpt }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--white">
+  <div class="container">
+    <div class="text-visual reveal" style="align-items:flex-start;">
+
+      {# ── LEFT: about + download ── #}
+      <div>
+        <span class="eyebrow">{{ t.reports.about_heading }}</span>
+        <h2 class="section-title">{{ loc.title or report.title }}</h2>
+        <div class="section-divider"></div>
+        <p style="font-size:15px;color:var(--text-secondary);line-height:1.85;margin-bottom:16px;">
+          The first edition of AfricanSTN's flagship report examining the current state of sport across the African continent, covering governance, infrastructure, commercial development, and the role of technology in shaping the future of African sport.
+        </p>
+        <p style="font-size:13px;color:var(--text-muted);margin-bottom:24px;">Published: {{ report.date }}</p>
+
+        {% if report.download %}
+          <a href="{{ report.download }}" download target="_blank" rel="noopener" class="btn btn-primary">{{ t.reports.download_cta }} →</a>
+        {% endif %}
+      </div>
+
+      {# ── RIGHT: cover image ── #}
+      <div style="flex-shrink:0;">
+        {% if report.image %}
+          <img src="{{ report.image }}" alt="{{ loc.title or report.title }}" style="width:100%;max-width:380px;border-radius:8px;box-shadow:0 8px 32px rgba(0,0,0,.12);" loading="lazy">
+        {% endif %}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{# ── CTA ── #}
+<section class="section circuit-bg section--circuit">
+  <div class="container" style="text-align:center;">
+    <div class="reveal">
+      <span class="eyebrow">{{ t.reports.cta_eyebrow }}</span>
+      <h2 class="section-title section-title--white" style="max-width:560px;margin:0 auto 16px;">{{ t.reports.cta_heading }}</h2>
+      <p class="section-lead section-lead--dark" style="margin:0 auto 36px;max-width:540px;">{{ t.reports.cta_body }}</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+        <a href="{{ langPrefix }}/join/" class="btn btn-primary">{{ t.reports.register_interest }}</a>
+        <a href="{{ langPrefix }}/contact/" class="btn btn-outline">{{ t.reports.contact_us }}</a>
+      </div>
+    </div>
+  </div>
+</section>

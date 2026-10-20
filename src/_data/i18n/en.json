@@ -52,7 +52,8 @@
     "join": "Join",
     "privacy": "Privacy",
     "terms": "Terms",
-    "insights": "Industry Insights"
+    "insights": "Industry Insights",
+    "reports": "Research Reports"
   },
 
   "home": {
@@ -292,6 +293,26 @@
     "cta_eyebrow": "Stay informed",
     "cta_heading": "Get AfricanSTN insights delivered",
     "cta_body": "Register to receive AfricanSTN's newsletter and sector intelligence reports covering African sports tech developments, funding activity, and market trends.",
+    "register_interest": "Register interest",
+    "contact_us": "Contact us"
+  },
+
+  "reports": {
+    "hero_eyebrow": "Research",
+    "hero_heading": "Research reports",
+    "hero_subheading": "The State of Sport in Africa report series — tracking the African sports technology ecosystem from the ground up.",
+    "latest_eyebrow": "Latest edition",
+    "all_editions_heading": "All editions",
+    "download_report": "Download report (PDF) →",
+    "view_report": "View report page →",
+    "back_to_reports": "← All reports",
+    "about_heading": "About this report",
+    "key_figures_heading": "Key figures",
+    "download_heading": "Download",
+    "download_cta": "Download the full report",
+    "cta_eyebrow": "Stay informed",
+    "cta_heading": "Get notified when the next edition drops",
+    "cta_body": "Register to receive AfricanSTN's research reports, sector intelligence, and ecosystem updates.",
     "register_interest": "Register interest",
     "contact_us": "Contact us"
   },

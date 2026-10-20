@@ -4,7 +4,7 @@
 {% set isRtl = langMeta.dir == "rtl" %}
 {% set langPrefix = "" if currentLang == "en" else "/" + currentLang %}
 {% set pageSlug = navActive or "home" %}
-{% set slugMap = {"home": "", "about": "about/", "what": "what-is-sports-tech/", "services": "services/", "ecosystem": "ecosystem/", "insights": "insights/", "contact": "contact/", "join": "join/", "privacy": "privacy/", "terms": "terms/", "community-terms": "community-terms/"} %}
+{% set slugMap = {"home": "", "about": "about/", "what": "what-is-sports-tech/", "services": "services/", "ecosystem": "ecosystem/", "insights": "insights/", "reports": "reports/", "contact": "contact/", "join": "join/", "privacy": "privacy/", "terms": "terms/", "community-terms": "community-terms/"} %}
 {% set currentSlugPath = slugMap[pageSlug] %}
 {# Pages with sub-paths (e.g. individual briefs) can override the path used by #}
 {# the language switcher and hreflang tags so switching stays on the same page. #}
@@ -131,6 +131,7 @@
       </a>
       <ul class="nav-dropdown__menu" role="menu">
         <li role="none"><a role="menuitem" href="{{ langPrefix }}/insights/briefs/">{{ t.nav.insights_briefs }}</a></li>
+        <li role="none"><a role="menuitem" href="{{ langPrefix }}/reports/">{{ t.page_titles.reports }}</a></li>
         <li role="none"><a role="menuitem" href="{{ langPrefix }}/insights/#reports">{{ t.nav.insights_report }}</a></li>
       </ul>
     </li>
@@ -181,6 +182,7 @@
     <summary>{{ t.nav.insights }}<span class="nav-mobile__caret" aria-hidden="true">▾</span></summary>
     <a href="{{ langPrefix }}/insights/">{{ t.nav.insights }}</a>
     <a href="{{ langPrefix }}/insights/briefs/">{{ t.nav.insights_briefs }}</a>
+    <a href="{{ langPrefix }}/reports/">{{ t.page_titles.reports }}</a>
     <a href="{{ langPrefix }}/insights/#reports">{{ t.nav.insights_report }}</a>
   </details>
   <a href="{{ langPrefix }}/contact/">{{ t.nav.contact }}</a>

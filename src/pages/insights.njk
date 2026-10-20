@@ -80,9 +80,12 @@ permalink: "{% if lang == 'en' %}/insights/index.html{% else %}/{{ lang }}/insig
               <p style="font-size:12px;color:var(--text-muted);margin-bottom:8px;">{{ post.date }}</p>
               <h3 style="font-size:16px;margin-bottom:10px;">{{ loc.title or post.title }}</h3>
               <p>{{ loc.excerpt or post.excerpt }}</p>
-              {% if post.download %}
-                <a href="{{ post.download }}" download target="_blank" rel="noopener" style="display:inline-block;margin-top:12px;font-size:14px;font-weight:600;color:var(--accent-gold);">{{ t.insights.download_report }}</a>
-              {% endif %}
+              <div style="display:flex;gap:16px;align-items:center;margin-top:12px;flex-wrap:wrap;">
+                <a href="{{ langPrefix }}/reports/{{ post.slug | replace('state-of-sport-in-africa-', '') }}/" style="font-size:14px;font-weight:600;color:var(--accent-gold);">{{ t.reports.view_report }}</a>
+                {% if post.download %}
+                  <a href="{{ post.download }}" download target="_blank" rel="noopener" style="font-size:14px;font-weight:600;color:var(--text-muted);">{{ t.insights.download_report }}</a>
+                {% endif %}
+              </div>
               </div>
             </article>
           {% endfor %}
