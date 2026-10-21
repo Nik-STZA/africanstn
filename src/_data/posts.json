@@ -54,29 +54,29 @@
     }
   },
   {
-    "title": "The State of Sport in Africa: Edition 2",
+    "title": "The State of African Sports Technology: Edition 2",
     "date": "2026-10-20",
     "slug": "state-of-sport-in-africa-edition-2",
     "excerpt": "The second edition of AfricanSTN's flagship report, now tracking over 7,000 organisations and 95 sports tech startups across 56 African countries, with deep dives into emerging verticals, exemplar companies, ecosystem support structures, and lessons from cessation analysis.",
-    "body": "## The State of Sport in Africa: Edition 2\n\nThe second edition of AfricanSTN's flagship report on sports technology across the African continent.\n\nBuilding on Edition 1, this report expands the AfricanSTN registry to over 7,000 organisations spanning 56 countries and 81 sports. It profiles the 95 identified sports tech startups, examines the ecosystem support landscape, and draws lessons from companies that have ceased operations.\n\nDownload the full report using the link below.",
+    "body": "## The State of African Sports Technology: Edition 2\n\nThe second edition of AfricanSTN's flagship report on sports technology across the African continent.\n\nBuilding on Edition 1, this report expands the AfricanSTN registry to over 7,000 organisations spanning 56 countries and 81 sports. It profiles the 95 identified sports tech startups, examines the ecosystem support landscape, and draws lessons from companies that have ceased operations.\n\nDownload the full report using the link below.",
     "category": "Industry report",
     "image": "/assets/reports/covers/edition2-cover.jpg",
     "download": "/assets/reports/The-State-of-Sport-in-Africa-Edition-2.pdf",
     "i18n": {
       "fr": {
-        "title": "L'état du sport en Afrique: Édition 2",
+        "title": "L'état de la technologie sportive africaine: Édition 2",
         "excerpt": "La deuxième édition du rapport phare d'AfricanSTN, suivant désormais plus de 7 000 organisations et 95 startups sport tech à travers 56 pays africains, avec des analyses approfondies des verticales émergentes, des entreprises exemplaires et des structures de soutien à l'écosystème."
       },
       "pt": {
-        "title": "O Estado do Desporto em África: Edição 2",
+        "title": "O Estado da Tecnologia Desportiva Africana: Edição 2",
         "excerpt": "A segunda edição do relatório de referência da AfricanSTN, acompanhando agora mais de 7 000 organizações e 95 startups de tecnologia desportiva em 56 países africanos, com análises aprofundadas de verticais emergentes, empresas exemplares e estruturas de apoio ao ecossistema."
       },
       "ar": {
-        "title": "حالة الرياضة في أفريقيا: الإصدار الثاني",
+        "title": "حالة تكنولوجيا الرياضة الأفريقية: الإصدار الثاني",
         "excerpt": "الإصدار الثاني من التقرير الرئيسي لـ AfricanSTN, يتتبع الآن أكثر من 7000 مؤسسة و95 شركة ناشئة في مجال تكنولوجيا الرياضة عبر 56 دولة أفريقية، مع تحليلات معمقة للقطاعات الناشئة والشركات النموذجية وهياكل دعم المنظومة."
       },
       "sw": {
-        "title": "Hali ya Michezo Barani Afrika: Toleo la Pili",
+        "title": "Hali ya Teknolojia ya Michezo ya Afrika: Toleo la Pili",
         "excerpt": "Toleo la pili la ripoti kuu ya AfricanSTN, sasa inafuatilia zaidi ya mashirika 7,000 na makampuni chipukizi 95 ya teknolojia ya michezo katika nchi 56 za Afrika, ikiwa na uchambuzi wa kina wa sekta zinazojitokeza, makampuni bora, na miundo ya msaada wa mfumo."
       }
     }
