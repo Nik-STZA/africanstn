@@ -20,3 +20,332 @@
   from = "/admin"
   to = "/admin/index.html"
   status = 200
+
+# Withdrawn weekly briefs (20 November 2026): 9 with fewer than three items and
+# 4 that duplicated or overlapped a kept brief. Each old URL points to the
+# nearest kept brief. Mirrors weekly_reports.redirect_to (astn-information-system
+# migrations 070-071). Not forced, so a page that still exists is served as is.
+[[redirects]]
+  from = "/insights/briefs/2026-03-28/"
+  to = "/insights/briefs/2026-04-01/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/insights/briefs/2026-03-28/"
+  to = "/fr/insights/briefs/2026-04-01/"
+  status = 301
+
+[[redirects]]
+  from = "/pt/insights/briefs/2026-03-28/"
+  to = "/pt/insights/briefs/2026-04-01/"
+  status = 301
+
+[[redirects]]
+  from = "/ar/insights/briefs/2026-03-28/"
+  to = "/ar/insights/briefs/2026-04-01/"
+  status = 301
+
+[[redirects]]
+  from = "/sw/insights/briefs/2026-03-28/"
+  to = "/sw/insights/briefs/2026-04-01/"
+  status = 301
+
+[[redirects]]
+  from = "/insights/briefs/2026-03-29/"
+  to = "/insights/briefs/2026-04-01/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/insights/briefs/2026-03-29/"
+  to = "/fr/insights/briefs/2026-04-01/"
+  status = 301
+
+[[redirects]]
+  from = "/pt/insights/briefs/2026-03-29/"
+  to = "/pt/insights/briefs/2026-04-01/"
+  status = 301
+
+[[redirects]]
+  from = "/ar/insights/briefs/2026-03-29/"
+  to = "/ar/insights/briefs/2026-04-01/"
+  status = 301
+
+[[redirects]]
+  from = "/sw/insights/briefs/2026-03-29/"
+  to = "/sw/insights/briefs/2026-04-01/"
+  status = 301
+
+[[redirects]]
+  from = "/insights/briefs/2026-04-06/"
+  to = "/insights/briefs/2026-04-09/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/insights/briefs/2026-04-06/"
+  to = "/fr/insights/briefs/2026-04-09/"
+  status = 301
+
+[[redirects]]
+  from = "/pt/insights/briefs/2026-04-06/"
+  to = "/pt/insights/briefs/2026-04-09/"
+  status = 301
+
+[[redirects]]
+  from = "/ar/insights/briefs/2026-04-06/"
+  to = "/ar/insights/briefs/2026-04-09/"
+  status = 301
+
+[[redirects]]
+  from = "/sw/insights/briefs/2026-04-06/"
+  to = "/sw/insights/briefs/2026-04-09/"
+  status = 301
+
+[[redirects]]
+  from = "/insights/briefs/2026-04-07/"
+  to = "/insights/briefs/2026-04-09/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/insights/briefs/2026-04-07/"
+  to = "/fr/insights/briefs/2026-04-09/"
+  status = 301
+
+[[redirects]]
+  from = "/pt/insights/briefs/2026-04-07/"
+  to = "/pt/insights/briefs/2026-04-09/"
+  status = 301
+
+[[redirects]]
+  from = "/ar/insights/briefs/2026-04-07/"
+  to = "/ar/insights/briefs/2026-04-09/"
+  status = 301
+
+[[redirects]]
+  from = "/sw/insights/briefs/2026-04-07/"
+  to = "/sw/insights/briefs/2026-04-09/"
+  status = 301
+
+[[redirects]]
+  from = "/insights/briefs/2026-04-23/"
+  to = "/insights/briefs/2026-04-22/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/insights/briefs/2026-04-23/"
+  to = "/fr/insights/briefs/2026-04-22/"
+  status = 301
+
+[[redirects]]
+  from = "/pt/insights/briefs/2026-04-23/"
+  to = "/pt/insights/briefs/2026-04-22/"
+  status = 301
+
+[[redirects]]
+  from = "/ar/insights/briefs/2026-04-23/"
+  to = "/ar/insights/briefs/2026-04-22/"
+  status = 301
+
+[[redirects]]
+  from = "/sw/insights/briefs/2026-04-23/"
+  to = "/sw/insights/briefs/2026-04-22/"
+  status = 301
+
+[[redirects]]
+  from = "/insights/briefs/2026-04-30/"
+  to = "/insights/briefs/2026-04-29/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/insights/briefs/2026-04-30/"
+  to = "/fr/insights/briefs/2026-04-29/"
+  status = 301
+
+[[redirects]]
+  from = "/pt/insights/briefs/2026-04-30/"
+  to = "/pt/insights/briefs/2026-04-29/"
+  status = 301
+
+[[redirects]]
+  from = "/ar/insights/briefs/2026-04-30/"
+  to = "/ar/insights/briefs/2026-04-29/"
+  status = 301
+
+[[redirects]]
+  from = "/sw/insights/briefs/2026-04-30/"
+  to = "/sw/insights/briefs/2026-04-29/"
+  status = 301
+
+[[redirects]]
+  from = "/insights/briefs/2026-06-01/"
+  to = "/insights/briefs/2026-05-28/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/insights/briefs/2026-06-01/"
+  to = "/fr/insights/briefs/2026-05-28/"
+  status = 301
+
+[[redirects]]
+  from = "/pt/insights/briefs/2026-06-01/"
+  to = "/pt/insights/briefs/2026-05-28/"
+  status = 301
+
+[[redirects]]
+  from = "/ar/insights/briefs/2026-06-01/"
+  to = "/ar/insights/briefs/2026-05-28/"
+  status = 301
+
+[[redirects]]
+  from = "/sw/insights/briefs/2026-06-01/"
+  to = "/sw/insights/briefs/2026-05-28/"
+  status = 301
+
+[[redirects]]
+  from = "/insights/briefs/2026-07-30/"
+  to = "/insights/briefs/2026-07-23/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/insights/briefs/2026-07-30/"
+  to = "/fr/insights/briefs/2026-07-23/"
+  status = 301
+
+[[redirects]]
+  from = "/pt/insights/briefs/2026-07-30/"
+  to = "/pt/insights/briefs/2026-07-23/"
+  status = 301
+
+[[redirects]]
+  from = "/ar/insights/briefs/2026-07-30/"
+  to = "/ar/insights/briefs/2026-07-23/"
+  status = 301
+
+[[redirects]]
+  from = "/sw/insights/briefs/2026-07-30/"
+  to = "/sw/insights/briefs/2026-07-23/"
+  status = 301
+
+[[redirects]]
+  from = "/insights/briefs/2026-08-06/"
+  to = "/insights/briefs/2026-08-13/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/insights/briefs/2026-08-06/"
+  to = "/fr/insights/briefs/2026-08-13/"
+  status = 301
+
+[[redirects]]
+  from = "/pt/insights/briefs/2026-08-06/"
+  to = "/pt/insights/briefs/2026-08-13/"
+  status = 301
+
+[[redirects]]
+  from = "/ar/insights/briefs/2026-08-06/"
+  to = "/ar/insights/briefs/2026-08-13/"
+  status = 301
+
+[[redirects]]
+  from = "/sw/insights/briefs/2026-08-06/"
+  to = "/sw/insights/briefs/2026-08-13/"
+  status = 301
+
+[[redirects]]
+  from = "/insights/briefs/2026-08-20/"
+  to = "/insights/briefs/2026-08-23/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/insights/briefs/2026-08-20/"
+  to = "/fr/insights/briefs/2026-08-23/"
+  status = 301
+
+[[redirects]]
+  from = "/pt/insights/briefs/2026-08-20/"
+  to = "/pt/insights/briefs/2026-08-23/"
+  status = 301
+
+[[redirects]]
+  from = "/ar/insights/briefs/2026-08-20/"
+  to = "/ar/insights/briefs/2026-08-23/"
+  status = 301
+
+[[redirects]]
+  from = "/sw/insights/briefs/2026-08-20/"
+  to = "/sw/insights/briefs/2026-08-23/"
+  status = 301
+
+[[redirects]]
+  from = "/insights/briefs/2026-09-10/"
+  to = "/insights/briefs/2026-09-03/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/insights/briefs/2026-09-10/"
+  to = "/fr/insights/briefs/2026-09-03/"
+  status = 301
+
+[[redirects]]
+  from = "/pt/insights/briefs/2026-09-10/"
+  to = "/pt/insights/briefs/2026-09-03/"
+  status = 301
+
+[[redirects]]
+  from = "/ar/insights/briefs/2026-09-10/"
+  to = "/ar/insights/briefs/2026-09-03/"
+  status = 301
+
+[[redirects]]
+  from = "/sw/insights/briefs/2026-09-10/"
+  to = "/sw/insights/briefs/2026-09-03/"
+  status = 301
+
+[[redirects]]
+  from = "/insights/briefs/2026-09-17/"
+  to = "/insights/briefs/2026-09-20/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/insights/briefs/2026-09-17/"
+  to = "/fr/insights/briefs/2026-09-20/"
+  status = 301
+
+[[redirects]]
+  from = "/pt/insights/briefs/2026-09-17/"
+  to = "/pt/insights/briefs/2026-09-20/"
+  status = 301
+
+[[redirects]]
+  from = "/ar/insights/briefs/2026-09-17/"
+  to = "/ar/insights/briefs/2026-09-20/"
+  status = 301
+
+[[redirects]]
+  from = "/sw/insights/briefs/2026-09-17/"
+  to = "/sw/insights/briefs/2026-09-20/"
+  status = 301
+
+[[redirects]]
+  from = "/insights/briefs/2026-10-05/"
+  to = "/insights/briefs/2026-10-08/"
+  status = 301
+
+[[redirects]]
+  from = "/fr/insights/briefs/2026-10-05/"
+  to = "/fr/insights/briefs/2026-10-08/"
+  status = 301
+
+[[redirects]]
+  from = "/pt/insights/briefs/2026-10-05/"
+  to = "/pt/insights/briefs/2026-10-08/"
+  status = 301
+
+[[redirects]]
+  from = "/ar/insights/briefs/2026-10-05/"
+  to = "/ar/insights/briefs/2026-10-08/"
+  status = 301
+
+[[redirects]]
+  from = "/sw/insights/briefs/2026-10-05/"
+  to = "/sw/insights/briefs/2026-10-08/"
+  status = 301
