@@ -39,66 +39,14 @@ permalink: "{% if lang == 'en' %}/join/index.html{% else %}/{{ lang }}/join/inde
   </div>
 </section>
 
-<!-- Early community -->
-<section class="section section--dark" aria-labelledby="community-title">
-  <div class="container">
-    <div class="text-visual reveal">
-      <div>
-        <span class="eyebrow">{{ t.join.community_eyebrow }}</span>
-        <h2 class="section-title section-title--white" id="community-title">{{ t.join.community_heading }}</h2>
-        <div class="section-divider"></div>
-        <p style="font-size:15px;color:var(--text-dim-dark);line-height:1.85;margin-bottom:16px;">{{ t.join.community_para1 }}</p>
-        <p style="font-size:15px;color:var(--text-dim-dark);line-height:1.85;">{{ t.join.community_para2 }}</p>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:14px;">
-        <div style="padding:20px 24px;background:rgba(197,160,89,0.07);border-radius:8px;border-left:3px solid var(--gold);">
-          <div style="font-size:12px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px;">{{ t.join.what_membership_means }}</div>
-          <ul style="list-style:none;padding:0;margin:0;">
-            <li style="font-size:14px;color:rgba(255,255,255,0.65);padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;gap:8px;align-items:flex-start;"><span class="arrow-bullet" style="color:var(--gold);flex-shrink:0;">→</span> {{ t.join.benefit1 }}</li>
-            <li style="font-size:14px;color:rgba(255,255,255,0.65);padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;gap:8px;align-items:flex-start;"><span class="arrow-bullet" style="color:var(--gold);flex-shrink:0;">→</span> {{ t.join.benefit2 }}</li>
-            <li style="font-size:14px;color:rgba(255,255,255,0.65);padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;gap:8px;align-items:flex-start;"><span class="arrow-bullet" style="color:var(--gold);flex-shrink:0;">→</span> {{ t.join.benefit3 }}</li>
-            <li style="font-size:14px;color:rgba(255,255,255,0.65);padding:5px 0;display:flex;gap:8px;align-items:flex-start;"><span class="arrow-bullet" style="color:var(--gold);flex-shrink:0;">→</span> {{ t.join.benefit4 }}</li>
-          </ul>
-        </div>
-        <p style="font-size:13px;color:rgba(255,255,255,0.35);font-style:italic;padding:0 4px;">{{ t.join.thoughtful_note }}</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Who it's for -->
-<section class="section section--white" aria-labelledby="for-whom-title">
-  <div class="container">
-    <div class="section-header section-header--center reveal">
-      <span class="eyebrow">{{ t.join.for_whom_eyebrow }}</span>
-      <h2 class="section-title" id="for-whom-title">{{ t.join.for_whom_heading }}</h2>
-      <div class="section-divider section-divider--center"></div>
-    </div>
-    <div class="grid-3 reveal">
-      <div class="card card--gold-top">
-        <h3>{{ t.join.audience1_title }}</h3>
-        <p>{{ t.join.audience1_body }}</p>
-      </div>
-      <div class="card card--gold-top">
-        <h3>{{ t.join.audience2_title }}</h3>
-        <p>{{ t.join.audience2_body }}</p>
-      </div>
-      <div class="card card--gold-top">
-        <h3>{{ t.join.audience3_title }}</h3>
-        <p>{{ t.join.audience3_body }}</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- Form -->
-<section class="section section--warm section--always-light" aria-labelledby="form-title">
+<section class="section section--warm section--always-light join-form-section" aria-labelledby="form-title">
   <div class="container">
     <div class="section-header section-header--center reveal">
       <span class="eyebrow">{{ t.join.form_eyebrow }}</span>
       <h2 class="section-title" id="form-title">{{ t.join.form_heading }}</h2>
       <div class="section-divider section-divider--center"></div>
-      <p class="section-lead" style="margin:0 auto 40px;">{{ t.join.form_lead }}</p>
+      <p class="section-lead" style="margin:0 auto 28px;">{{ t.join.form_lead }}</p>
     </div>
 
     {# Show the "complete in English" notice only when this language is still
@@ -110,8 +58,10 @@ permalink: "{% if lang == 'en' %}/join/index.html{% else %}/{{ lang }}/join/inde
     </div>
     {% endif %}
 
+    <div class="join-layout">
+      <div class="join-form">
     <!-- HUBSPOT FORM (v2 inline embed — renders as real DOM so our CSS overrides apply) -->
-    <div class="reveal" style="min-height:520px;max-width:680px;margin:0 auto;">
+    <div style="min-height:520px;">
       <div id="hubspot-join-form"></div>
       <script charset="utf-8" type="text/javascript" src="https://js-eu1.hsforms.net/forms/embed/v2.js"></script>
       <script>
@@ -168,10 +118,64 @@ permalink: "{% if lang == 'en' %}/join/index.html{% else %}/{{ lang }}/join/inde
         })();
       </script>
     </div>
-    <p style="text-align:center;font-size:13px;color:var(--text-muted);margin-top:16px;">
+    <p style="font-size:13px;color:var(--text-muted);margin-top:16px;">
       {{ t.join.form_fallback }}
       <a href="{{ currentForm.shareUrl }}" target="_blank" rel="noopener noreferrer">{{ t.join.form_open_directly }}</a>
     </p>
+      </div>
+      <aside class="join-aside">
+        <div style="padding:20px 24px;background:rgba(197,160,89,0.10);border-radius:8px;border-left:3px solid var(--gold);">
+          <div style="font-size:12px;font-weight:700;color:#8a6a2c;text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px;">{{ t.join.what_membership_means }}</div>
+          <ul style="list-style:none;padding:0;margin:0;">
+            <li style="font-size:14px;color:var(--text-secondary);padding:5px 0;border-bottom:1px solid rgba(15,17,19,0.08);display:flex;gap:8px;align-items:flex-start;"><span class="arrow-bullet" style="color:var(--gold);flex-shrink:0;">→</span> {{ t.join.benefit1 }}</li>
+            <li style="font-size:14px;color:var(--text-secondary);padding:5px 0;border-bottom:1px solid rgba(15,17,19,0.08);display:flex;gap:8px;align-items:flex-start;"><span class="arrow-bullet" style="color:var(--gold);flex-shrink:0;">→</span> {{ t.join.benefit2 }}</li>
+            <li style="font-size:14px;color:var(--text-secondary);padding:5px 0;border-bottom:1px solid rgba(15,17,19,0.08);display:flex;gap:8px;align-items:flex-start;"><span class="arrow-bullet" style="color:var(--gold);flex-shrink:0;">→</span> {{ t.join.benefit3 }}</li>
+            <li style="font-size:14px;color:var(--text-secondary);padding:5px 0;display:flex;gap:8px;align-items:flex-start;"><span class="arrow-bullet" style="color:var(--gold);flex-shrink:0;">→</span> {{ t.join.benefit4 }}</li>
+          </ul>
+        </div>
+        <p style="font-size:13px;color:var(--text-muted);font-style:italic;padding:0 4px;">{{ t.join.thoughtful_note }}</p>
+      </aside>
+    </div>
   </div>
 </section>
 
+<!-- Early community -->
+<section class="section section--dark" aria-labelledby="community-title">
+  <div class="container">
+    <div class="reveal" style="max-width:720px;">
+      <div>
+        <span class="eyebrow">{{ t.join.community_eyebrow }}</span>
+        <h2 class="section-title section-title--white" id="community-title">{{ t.join.community_heading }}</h2>
+        <div class="section-divider"></div>
+        <p style="font-size:15px;color:var(--text-dim-dark);line-height:1.85;margin-bottom:16px;">{{ t.join.community_para1 }}</p>
+        <p style="font-size:15px;color:var(--text-dim-dark);line-height:1.85;">{{ t.join.community_para2 }}</p>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- Who it's for -->
+<section class="section section--white" aria-labelledby="for-whom-title">
+  <div class="container">
+    <div class="section-header section-header--center reveal">
+      <span class="eyebrow">{{ t.join.for_whom_eyebrow }}</span>
+      <h2 class="section-title" id="for-whom-title">{{ t.join.for_whom_heading }}</h2>
+      <div class="section-divider section-divider--center"></div>
+    </div>
+    <div class="grid-3 reveal">
+      <div class="card card--gold-top">
+        <h3>{{ t.join.audience1_title }}</h3>
+        <p>{{ t.join.audience1_body }}</p>
+      </div>
+      <div class="card card--gold-top">
+        <h3>{{ t.join.audience2_title }}</h3>
+        <p>{{ t.join.audience2_body }}</p>
+      </div>
+      <div class="card card--gold-top">
+        <h3>{{ t.join.audience3_title }}</h3>
+        <p>{{ t.join.audience3_body }}</p>
+      </div>
+    </div>
+  </div>
+</section>

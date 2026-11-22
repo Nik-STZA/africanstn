@@ -1631,3 +1631,19 @@ html.rtl .arrow-bullet {
   font-size: 13px !important;
   line-height: 1.5 !important;
 }
+
+/* ── JOIN PAGE: form first, benefits beside it ── */
+.join-form-section { padding-top: 48px; }
+.join-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 40px;
+  align-items: start;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.join-aside { display: flex; flex-direction: column; gap: 14px; position: sticky; top: 96px; }
+@media (max-width: 900px) {
+  .join-layout { grid-template-columns: 1fr; gap: 28px; }
+  .join-aside { position: static; }
+}
