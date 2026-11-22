@@ -8,6 +8,7 @@ pagination:
 permalink: "{% if lang == 'en' %}/insights/briefs/index.html{% else %}/{{ lang }}/insights/briefs/index.html{% endif %}"
 eleventyComputed:
   pageTitle: "{{ i18n[lang].briefs.hero_heading }}"
+  pageDescription: "{{ (i18n[lang].briefs.hero_subheading or i18n.en.briefs.hero_subheading) | safe }}"
   langSwitchPath: "insights/briefs/"
 extraCss: |
   .briefs-list { display: grid; gap: 20px; margin-top: 32px; }

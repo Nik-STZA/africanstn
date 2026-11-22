@@ -6,6 +6,10 @@ pagination:
   size: 1
   alias: lang
 permalink: "{% if lang == 'en' %}/reports/edition-2/index.html{% else %}/{{ lang }}/reports/edition-2/index.html{% endif %}"
+eleventyComputed:
+  pageTitle: "{{ posts | reportField('state-of-sport-in-africa-edition-2', lang, 'title') | safe }}"
+  pageDescription: "{{ posts | reportField('state-of-sport-in-africa-edition-2', lang, 'excerpt') | safe }}"
+  langSwitchPath: "reports/edition-2/"
 ---
 {% set t = i18n[lang] %}
 {% set langPrefix = "" if lang == "en" else "/" + lang %}

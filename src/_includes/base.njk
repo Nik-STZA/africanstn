@@ -51,8 +51,48 @@
   })();
   </script>
 
-  <title>{{ t.page_titles[pageSlug] or pageTitle }} — {{ site.site_name }}</title>
-  <meta name="description" content="{{ pageDescription or site.site_description }}">
+  {# A page's own title (a brief, a report) wins over the generic section title, #}
+  {# so every brief and report gets a title of its own in search results. #}
+  {# Falls back to the English section title where a translation is missing. #}
+  {% set en = i18n.en %}
+  {% set metaTitle = (pageTitle or t.page_titles[pageSlug] or en.page_titles[pageSlug] or site.site_short) + " — " + site.site_name %}
+  {# Each section page reuses its translated hero line as its description; pages #}
+  {# with content of their own (briefs, reports) set pageDescription instead. #}
+  {% set descMap = {
+    "home": t.home.hero_subheadline or en.home.hero_subheadline,
+    "about": t.about.hero_subheading or en.about.hero_subheading,
+    "what": t.what.hero_sub or en.what.hero_sub,
+    "services": t.services.hero_subheading or en.services.hero_subheading,
+    "ecosystem": t.ecosystem.hero_subheading or en.ecosystem.hero_subheading,
+    "contact": t.contact.hero_subheading or en.contact.hero_subheading,
+    "join": t.join.hero_subheading or en.join.hero_subheading,
+    "insights": t.insights.hero_subheading or en.insights.hero_subheading,
+    "reports": t.reports.hero_subheading or en.reports.hero_subheading
+  } %}
+  {% set metaDesc = (pageDescription or descMap[pageSlug] or site.site_description) | striptags | truncate(158) %}
+  {% set canonicalUrl = site.site_url + page.url %}
+  <title>{{ metaTitle }}</title>
+  <meta name="description" content="{{ metaDesc }}">
+  <link rel="canonical" href="{{ canonicalUrl }}">
+
+  {# Share previews (LinkedIn, WhatsApp, X) #}
+  <meta property="og:site_name" content="{{ site.site_name }}">
+  <meta property="og:type" content="{{ ogType or 'website' }}">
+  <meta property="og:title" content="{{ metaTitle }}">
+  <meta property="og:description" content="{{ metaDesc }}">
+  <meta property="og:url" content="{{ canonicalUrl }}">
+  <meta property="og:image" content="{{ site.site_url }}/assets/images/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{{ site.site_name }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ metaTitle }}">
+  <meta name="twitter:description" content="{{ metaDesc }}">
+  <meta name="twitter:image" content="{{ site.site_url }}/assets/images/og-default.png">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
   <link rel="stylesheet" href="/assets/css/style.css">
   {% if extraCss %}<style>{{ extraCss | safe }}</style>{% endif %}
 
