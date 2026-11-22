@@ -56,6 +56,7 @@
   {# Falls back to the English section title where a translation is missing. #}
   {% set en = i18n.en %}
   {% set metaTitle = (pageTitle or t.page_titles[pageSlug] or en.page_titles[pageSlug] or site.site_short) + " — " + site.site_name %}
+  {% if pageSlug == "home" and not pageTitle %}{% set metaTitle = site.site_short + " — " + (t.home.hero_headline or en.home.hero_headline) %}{% endif %}
   {# Each section page reuses its translated hero line as its description; pages #}
   {# with content of their own (briefs, reports) set pageDescription instead. #}
   {% set descMap = {
