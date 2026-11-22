@@ -9,7 +9,9 @@ permalink: "{% if brief.lang == 'en' %}/insights/briefs/{{ brief.date }}/index.h
 eleventyComputed:
   lang: "{{ brief.lang }}"
   pageTitle: "{{ i18n[brief.lang].briefs.title_prefix }} {{ brief.publishedHuman }}"
+  pageDescription: "{{ brief.markdown | briefExcerpt | safe }}"
   langSwitchPath: "insights/briefs/{{ brief.date }}/"
+ogType: article
 extraCss: |
   .brief-wrap { max-width: 800px; margin: 0 auto; }
   .brief-back {

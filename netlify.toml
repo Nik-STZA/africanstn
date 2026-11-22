@@ -5,9 +5,29 @@
 [build.environment]
   NODE_VERSION = "18"
 
-# Enable Netlify Identity for CMS login
+# Sitemap: list the final URLs (with the trailing slash the site serves, so
+# Google is not sent through a redirect for every page) and leave out the CMS.
 [[plugins]]
   package = "@netlify/plugin-sitemap"
+
+  [plugins.inputs]
+    trailingSlash = true
+    exclude = [
+      "./_site/admin/**",
+      "./_site/admin/index.html"
+    ]
+
+# Keep the CMS out of search results
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+# Browsers ask for /favicon.ico by default
+[[redirects]]
+  from = "/favicon.ico"
+  to = "/assets/images/favicon-32.png"
+  status = 200
 
 # Edition 2 vanity URL with UTM tracking
 [[redirects]]

@@ -9,6 +9,31 @@ module.exports = function(eleventyConfig) {
     return md.render(value);
   });
 
+  // Plain-text opening of a brief, used as its meta description. Drops
+  // headings and rules, keeps link text, removes markdown markers.
+  eleventyConfig.addFilter("briefExcerpt", function(value) {
+    if (!value) return "";
+    return value
+      .split("\n")
+      .filter(line => !/^\s*(#|---|\*\*\*|___)/.test(line))
+      .map(line => line.replace(/^\s*([-+*]|\d+\.)\s+/, ""))
+      .join(" ")
+      .replace(/!\[[^\]]*\]\([^)]*\)/g, "")
+      .replace(/\[([^\]]+)\]\([^)]*\)/g, "$1")
+      .replace(/[*_`>]/g, "")
+      .replace(/\s+/g, " ")
+      .trim()
+      .slice(0, 300);
+  });
+
+  // One field of a report post in the given language, falling back to English.
+  eleventyConfig.addFilter("reportField", function(posts, slug, lang, field) {
+    const post = (posts || []).find(p => p.slug === slug);
+    if (!post) return "";
+    const loc = (post.i18n && post.i18n[lang]) || {};
+    return String(loc[field] || post[field] || "");
+  });
+
   // Copy static assets directly to output
   // Copy contents of static/ directly to site root
   // so /static/assets/css/ becomes /assets/css/
