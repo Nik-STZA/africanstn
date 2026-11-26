@@ -24,14 +24,12 @@ permalink: "{% if lang == 'en' %}/index.html{% else %}/{{ lang }}/index.html{% e
       <a href="{{ langPrefix }}/services/" class="btn btn-outline">{{ t.home.hero_cta_secondary }}</a>
     </div>
   </div>
-  {# ── Sports Tech Nation ambassador ── #}
+  {# ── Ecosystem band: Sports Tech Nation ambassador + Sporting Founders member, one row ── #}
   {% set p = t.partners or i18n.en.partners %}
-  <aside class="stn-band" aria-label="{{ p.stn_title }}">
-    <div class="container stn-band-inner">
-      <a href="https://www.sportstechnation.com/" target="_blank" rel="noopener" class="stn-logo-link"><img src="/assets/images/partners/sports-tech-nation.png" alt="Sports Tech Nation" width="122" height="32" class="stn-logo"></a>
-      <span class="stn-badge">{{ p.stn_label }}</span>
-      <p>{{ p.stn_text }}</p>
-      <a href="https://www.sportstechnation.com/" target="_blank" rel="noopener">{{ p.stn_link }}</a>
+  <aside class="stn-band eco-band" aria-label="{{ p.band_label }}">
+    <div class="container eco-band-inner">
+      <a href="https://www.sportstechnation.com/" target="_blank" rel="noopener" class="eco-item"><img src="/assets/images/partners/sports-tech-nation.png" alt="Sports Tech Nation" width="122" height="32" class="eco-logo"><span>{{ p.stn_band }}</span></a>
+      <a href="https://www.sportingfounders.com/" target="_blank" rel="noopener" class="eco-item"><img src="/assets/images/partners/sporting-founders.png" alt="Sporting Founders" width="32" height="32" class="eco-logo eco-logo--sf"><span>{{ p.sf_band }}</span></a>
     </div>
   </aside>
 </section>

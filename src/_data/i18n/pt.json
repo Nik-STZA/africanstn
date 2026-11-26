@@ -369,9 +369,16 @@
     "translation_notice": "Este boletim é apresentado na sua versão original em inglês; ainda não está disponível uma versão traduzida."
   },
   "partners": {
+    "band_label": "Ecossistema",
     "stn_label": "Embaixador",
     "stn_title": "Embaixador da Sports Tech Nation",
     "stn_text": "A AfricanSTN é embaixadora da Sports Tech Nation, a cimeira global de inovação desportiva.",
-    "stn_link": "Visitar a Sports Tech Nation →"
+    "stn_link": "Visitar a Sports Tech Nation →",
+    "sf_label": "Membro",
+    "sf_title": "Membro da Sporting Founders",
+    "sf_text": "O nosso fundador, Nik Mladenovic, é membro da Sporting Founders, a comunidade global e gratuita de fundadores que constroem empresas no desporto.",
+    "sf_link": "Visitar a Sporting Founders →",
+    "stn_band": "A AfricanSTN é embaixadora da Sports Tech Nation",
+    "sf_band": "O nosso fundador é membro da Sporting Founders"
   }
 }

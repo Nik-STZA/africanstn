@@ -404,9 +404,16 @@
   },
 
   "partners": {
+    "band_label": "Ecosystem",
     "stn_label": "Ambassador",
     "stn_title": "Sports Tech Nation ambassador",
     "stn_text": "AfricanSTN is an ambassador for Sports Tech Nation, the global sports innovation summit.",
-    "stn_link": "Visit Sports Tech Nation →"
+    "stn_link": "Visit Sports Tech Nation →",
+    "sf_label": "Member",
+    "sf_title": "Sporting Founders member",
+    "sf_text": "Our founder, Nik Mladenovic, is a member of Sporting Founders, the free global community for founders building in sport.",
+    "sf_link": "Visit Sporting Founders →",
+    "stn_band": "AfricanSTN is a Sports Tech Nation ambassador",
+    "sf_band": "Our founder is a Sporting Founders member"
   }
 }
