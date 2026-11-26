@@ -1659,3 +1659,30 @@ html.rtl .arrow-bullet {
 .stn-logo { height: 32px; width: auto; display: block; }
 .stn-logo-chip { display: inline-flex; line-height: 0; background: #0F1113; border-radius: 6px; padding: 8px 10px; margin-bottom: 10px; }
 .stn-logo-chip img { height: 28px; width: auto; display: block; }
+
+/* Homepage hero with the ambassador band pinned to its bottom edge, sized so
+   nav (74px) + hero + band fit in the first screen. */
+.hero.hero--with-band {
+  flex-direction: column;
+  align-items: stretch;
+  min-height: calc(100vh - 74px);
+  min-height: calc(100svh - 74px);
+  padding: 48px 0 0;
+}
+.hero--with-band .hero-inner { margin: auto; padding: 0 5% 32px; }
+.hero--with-band .stn-band { position: relative; z-index: 1; background: rgba(15,17,19,0.85); }
+@media (max-width: 720px) {
+  .hero.hero--with-band { padding-top: 32px; }
+}
+/* Hero logo scales with screen height so the band stays in the first screen */
+.home-hero-logo { margin: 0 auto clamp(8px, 3vh, 36px); }
+.home-hero-logo img { height: clamp(96px, 22vh, 220px); }
+@media (max-width: 720px) {
+  .hero--with-band .hero-inner { padding-bottom: 20px; }
+  .hero--with-band .hero-title { margin-bottom: 12px; }
+  .stn-band { padding: 12px 0; }
+  .stn-band-inner { gap: 8px 12px; }
+  .stn-band p { font-size: 13px; line-height: 1.45; flex-basis: 100%; order: 3; }
+  .stn-band a:not(.stn-logo-link) { order: 2; font-size: 13px; }
+  .stn-logo { height: 26px; }
+}
