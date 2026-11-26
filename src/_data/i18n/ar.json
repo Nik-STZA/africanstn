@@ -369,9 +369,16 @@
     "translation_notice": "تُعرض هذه النشرة بنسختها الإنجليزية الأصلية؛ النسخة المترجمة غير متوفرة بعد."
   },
   "partners": {
+    "band_label": "المنظومة",
     "stn_label": "سفير",
     "stn_title": "سفير Sports Tech Nation",
     "stn_text": "AfricanSTN سفيرة لـ Sports Tech Nation، القمة العالمية للابتكار الرياضي.",
-    "stn_link": "زيارة Sports Tech Nation ←"
+    "stn_link": "زيارة Sports Tech Nation ←",
+    "sf_label": "عضو",
+    "sf_title": "عضو في Sporting Founders",
+    "sf_text": "مؤسسنا، نيك ملادينوفيتش، عضو في Sporting Founders، المجتمع العالمي المجاني للمؤسسين الذين يبنون شركات في مجال الرياضة.",
+    "sf_link": "زيارة Sporting Founders ←",
+    "stn_band": "AfricanSTN سفيرة لـ Sports Tech Nation",
+    "sf_band": "مؤسسنا عضو في Sporting Founders"
   }
 }

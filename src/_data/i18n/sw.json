@@ -369,9 +369,16 @@
     "translation_notice": "Taarifa hii imeonyeshwa katika Kiingereza chake asili; toleo lililotafsiriwa bado halipatikani."
   },
   "partners": {
+    "band_label": "Mfumo wa ikolojia",
     "stn_label": "Balozi",
     "stn_title": "Balozi wa Sports Tech Nation",
     "stn_text": "AfricanSTN ni balozi wa Sports Tech Nation, mkutano wa kimataifa wa ubunifu wa michezo.",
-    "stn_link": "Tembelea Sports Tech Nation →"
+    "stn_link": "Tembelea Sports Tech Nation →",
+    "sf_label": "Mwanachama",
+    "sf_title": "Mwanachama wa Sporting Founders",
+    "sf_text": "Mwanzilishi wetu, Nik Mladenovic, ni mwanachama wa Sporting Founders, jumuiya ya kimataifa isiyo na malipo kwa waanzilishi wanaojenga kampuni katika michezo.",
+    "sf_link": "Tembelea Sporting Founders →",
+    "stn_band": "AfricanSTN ni balozi wa Sports Tech Nation",
+    "sf_band": "Mwanzilishi wetu ni mwanachama wa Sporting Founders"
   }
 }
