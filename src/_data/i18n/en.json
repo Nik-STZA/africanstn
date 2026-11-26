@@ -420,6 +420,16 @@
   },
 
   "conv": {
+    "hero_sub": "Market access, POPIA compliance representation and market intelligence for sports tech companies operating in or entering South Africa and the wider continent.",
+    "ma_heading": "Market access across Africa",
+    "ma_item1_title": "Introductions",
+    "ma_item1_body": "To the sport organisations, operators and investors that fit your product.",
+    "ma_item2_title": "Partnerships",
+    "ma_item2_body": "Finding local partners to pilot, resell or deliver alongside you.",
+    "ma_item3_title": "Distribution",
+    "ma_item3_body": "Routes to market in South Africa first, then across the continent.",
+    "ma_cta": "Discuss market access",
+    "ma_subject": "Market access enquiry",
     "popia_subject": "POPIA representation enquiry",
     "popia_email_note": "Or email us at",
     "how_eyebrow": "How it works",

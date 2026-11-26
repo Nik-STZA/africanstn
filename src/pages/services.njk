@@ -16,12 +16,32 @@ permalink: "{% if lang == 'en' %}/services/index.html{% else %}/{{ lang }}/servi
     <div class="hero-inner" style="min-height:unset;padding:40px 0 32px;">
       <span class="eyebrow">{{ t.services.eyebrow_what }}</span>
       <h1 class="hero-title" id="page-title" style="font-size:clamp(28px,4.5vw,48px);">{{ t.services.hero_heading }}</h1>
-      <p class="hero-sub" style="font-size:17px;">{{ t.services.hero_subheading }}</p>
+      <p class="hero-sub" style="font-size:17px;">{{ c.hero_sub }}</p>
     </div>
   </div>
 </section>
 
 {% include "partials/proof-strip.njk" %}
+
+<!-- Market access -->
+<section class="section section--white" aria-labelledby="ma-title">
+  <div class="container">
+    <div class="text-visual reveal" style="align-items:flex-start;">
+      <div>
+        <span class="eyebrow">{{ t.home.card1_title }}</span>
+        <h2 class="section-title" id="ma-title">{{ c.ma_heading }}</h2>
+        <div class="section-divider"></div>
+        <p style="font-size:15px;color:var(--text-secondary);line-height:1.8;margin-bottom:28px;">{{ t.home.card1_body }}</p>
+        <a href="mailto:hello@stza.io?subject={{ c.ma_subject | urlencode }}" class="btn btn-primary">{{ c.ma_cta }}</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <div class="feature-band"><div class="feature-band-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div><h4>{{ c.ma_item1_title }}</h4><p>{{ c.ma_item1_body }}</p></div></div>
+        <div class="feature-band"><div class="feature-band-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></div><div><h4>{{ c.ma_item2_title }}</h4><p>{{ c.ma_item2_body }}</p></div></div>
+        <div class="feature-band"><div class="feature-band-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><div><h4>{{ c.ma_item3_title }}</h4><p>{{ c.ma_item3_body }}</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="section section--warm">
   <div class="container">
