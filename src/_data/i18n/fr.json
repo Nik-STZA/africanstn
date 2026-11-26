@@ -367,5 +367,11 @@
     "download_text": "Téléchargez notre rapport phare, L'état de la technologie sportive africaine, Édition 2.",
     "download_btn": "Télécharger le rapport",
     "translation_notice": "Ce bulletin est présenté dans sa version originale en anglais ; une version traduite n'est pas encore disponible."
+  },
+  "partners": {
+    "stn_label": "Ambassadeur",
+    "stn_title": "Ambassadeur de Sports Tech Nation",
+    "stn_text": "AfricanSTN est ambassadeur de Sports Tech Nation, le sommet mondial de l'innovation sportive.",
+    "stn_link": "Découvrir Sports Tech Nation →"
   }
 }

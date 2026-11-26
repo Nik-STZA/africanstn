@@ -401,5 +401,12 @@
     "download_text": "Download our flagship report: The State of African Sports Technology, Edition 2.",
     "download_btn": "Download the report",
     "translation_notice": "This brief is shown in its original English; a translated version is not yet available."
+  },
+
+  "partners": {
+    "stn_label": "Ambassador",
+    "stn_title": "Sports Tech Nation ambassador",
+    "stn_text": "AfricanSTN is an ambassador for Sports Tech Nation, the global sports innovation summit.",
+    "stn_link": "Visit Sports Tech Nation →"
   }
 }

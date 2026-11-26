@@ -367,5 +367,11 @@
     "download_text": "Descarregue o nosso relatório de referência, O Estado da Tecnologia Desportiva Africana, Edição 2.",
     "download_btn": "Descarregar o relatório",
     "translation_notice": "Este boletim é apresentado na sua versão original em inglês; ainda não está disponível uma versão traduzida."
+  },
+  "partners": {
+    "stn_label": "Embaixador",
+    "stn_title": "Embaixador da Sports Tech Nation",
+    "stn_text": "A AfricanSTN é embaixadora da Sports Tech Nation, a cimeira global de inovação desportiva.",
+    "stn_link": "Visitar a Sports Tech Nation →"
   }
 }

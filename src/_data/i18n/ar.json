@@ -367,5 +367,11 @@
     "download_text": "نزّل تقريرنا الرئيسي, حالة تكنولوجيا الرياضة الأفريقية، الإصدار الثاني.",
     "download_btn": "تنزيل التقرير",
     "translation_notice": "تُعرض هذه النشرة بنسختها الإنجليزية الأصلية؛ النسخة المترجمة غير متوفرة بعد."
+  },
+  "partners": {
+    "stn_label": "سفير",
+    "stn_title": "سفير Sports Tech Nation",
+    "stn_text": "AfricanSTN سفيرة لـ Sports Tech Nation، القمة العالمية للابتكار الرياضي.",
+    "stn_link": "زيارة Sports Tech Nation ←"
   }
 }

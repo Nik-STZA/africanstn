@@ -26,6 +26,17 @@ permalink: "{% if lang == 'en' %}/index.html{% else %}/{{ lang }}/index.html{% e
   </div>
 </section>
 
+{# ── Sports Tech Nation ambassador ── #}
+{% set p = t.partners or i18n.en.partners %}
+<section class="stn-band" aria-label="{{ p.stn_title }}">
+  <div class="container stn-band-inner">
+    <a href="https://www.sportstechnation.com/" target="_blank" rel="noopener" class="stn-logo-link"><img src="/assets/images/partners/sports-tech-nation.png" alt="Sports Tech Nation" width="122" height="32" class="stn-logo"></a>
+    <span class="stn-badge">{{ p.stn_label }}</span>
+    <p>{{ p.stn_text }}</p>
+    <a href="https://www.sportstechnation.com/" target="_blank" rel="noopener">{{ p.stn_link }}</a>
+  </div>
+</section>
+
 <section class="section section--white">
   <div class="container">
     <div class="section-header section-header--center reveal">
