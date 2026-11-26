@@ -41,6 +41,32 @@
     });
   }
 
+  /* ── NAV FIT ── */
+  /* Menu labels differ in length by language (French needs ~200px more than
+     English), so a fixed breakpoint can't tell when the links will fit.
+     Switch to the hamburger whenever the full nav would overflow. */
+  var navBar = document.querySelector('.nav');
+  if (navBar) {
+    var fitNav = function () {
+      navBar.classList.remove('nav--collapsed');
+      if (navBar.scrollWidth > navBar.clientWidth + 1) {
+        navBar.classList.add('nav--collapsed');
+      } else if (mobileNav) {
+        mobileNav.classList.remove('open');
+        if (hamburger) hamburger.setAttribute('aria-expanded', 'false');
+      }
+    };
+    var fitQueued = false;
+    window.addEventListener('resize', function () {
+      if (fitQueued) return;
+      fitQueued = true;
+      requestAnimationFrame(function () { fitQueued = false; fitNav(); });
+    });
+    fitNav();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitNav);
+    window.addEventListener('load', fitNav);
+  }
+
   /* ── INSIGHTS NAV DROPDOWN (desktop) ── */
   /* Hover and keyboard focus are handled in CSS (:hover / :focus-within).
      This adds click/tap support: on touch devices the first tap opens the
