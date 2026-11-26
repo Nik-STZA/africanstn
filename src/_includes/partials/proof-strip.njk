@@ -1,0 +1,15 @@
+{# Headline figures from The State of African Sports Technology: Edition 2.
+   Update these when a new edition is published. #}
+{% set c = t.conv or i18n.en.conv %}
+<aside class="proof-strip" aria-label="{{ c.proof_label }}">
+  <div class="container proof-strip__inner">
+    <span class="proof-strip__label">{{ c.proof_label }}</span>
+    <ul class="proof-strip__figures" role="list">
+      <li><strong>7,000+</strong> {{ c.proof_orgs }}</li>
+      <li><strong>95</strong> {{ c.proof_startups }}</li>
+      <li><strong>54</strong> {{ c.proof_countries }}</li>
+      <li><strong>81</strong> {{ c.proof_sports }}</li>
+    </ul>
+    <a href="{{ langPrefix }}/reports/edition-2/" class="proof-strip__link">{{ c.proof_link }}</a>
+  </div>
+</aside>

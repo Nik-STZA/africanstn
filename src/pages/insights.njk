@@ -21,6 +21,21 @@ permalink: "{% if lang == 'en' %}/insights/index.html{% else %}/{{ lang }}/insig
 </section>
 
 {# ── NEWS ── #}
+{% set c = t.conv or i18n.en.conv %}
+<section class="section section--white" aria-labelledby="formats-heading" style="padding-bottom:24px;">
+  <div class="container">
+    <h2 class="section-title" id="formats-heading" style="font-size:22px;text-align:center;margin-bottom:24px;">{{ c.formats_heading }}</h2>
+    <div class="grid-2">
+      <a href="{{ langPrefix }}/insights/briefs/" class="card card--gold-top format-card">
+        <h3>{{ c.fmt1_title }}</h3><p>{{ c.fmt1_body }}</p><span class="card-link">{{ c.fmt1_link }}</span>
+      </a>
+      <a href="{{ langPrefix }}/reports/" class="card card--gold-top format-card">
+        <h3>{{ c.fmt2_title }}</h3><p>{{ c.fmt2_body }}</p><span class="card-link">{{ c.fmt2_link }}</span>
+      </a>
+    </div>
+  </div>
+</section>
+
 <section class="section section--warm" aria-labelledby="news-heading">
   <div class="container">
     <div class="reveal">

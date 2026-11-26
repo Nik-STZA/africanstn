@@ -9,6 +9,7 @@ permalink: "{% if lang == 'en' %}/ecosystem/index.html{% else %}/{{ lang }}/ecos
 ---
 {% set t = i18n[lang] %}
 {% set langPrefix = "" if lang == "en" else "/" + lang %}
+{% set c = t.conv or i18n.en.conv %}
 
 <section class="circuit-bg--subtle page-hero" aria-labelledby="page-title">
   <div class="container">
@@ -21,6 +22,8 @@ permalink: "{% if lang == 'en' %}/ecosystem/index.html{% else %}/{{ lang }}/ecos
 </section>
 
 <!-- Directory status -->
+{% include "partials/proof-strip.njk" %}
+
 <section class="section section--white" aria-labelledby="directory-title">
   <div class="container">
     <div class="section-header reveal">
@@ -33,12 +36,12 @@ permalink: "{% if lang == 'en' %}/ecosystem/index.html{% else %}/{{ lang }}/ecos
       <div class="card card--gold-top reveal" style="display:flex;flex-direction:column;">
         <h3>{{ t.ecosystem.card1_title }}</h3>
         <p>{{ t.ecosystem.card1_body }}</p>
-        <a href="{{ langPrefix }}/join/" class="card-link" style="margin-top:auto;">{{ t.ecosystem.register_interest }}</a>
+        <a href="{{ langPrefix }}/join/" class="card-link" style="margin-top:auto;">{{ c.eco_submit }}</a>
       </div>
       <div class="card card--gold-top reveal" style="display:flex;flex-direction:column;">
         <h3>{{ t.ecosystem.card2_title }}</h3>
         <p>{{ t.ecosystem.card2_body }}</p>
-        <a href="{{ langPrefix }}/join/" class="card-link" style="margin-top:auto;">{{ t.ecosystem.register_interest }}</a>
+        <a href="{{ langPrefix }}/insights/briefs/" class="card-link" style="margin-top:auto;">{{ c.eco_briefs }}</a>
       </div>
       <div class="card card--gold-top reveal" style="display:flex;flex-direction:column;">
         <h3>{{ t.ecosystem.card3_title }}</h3>

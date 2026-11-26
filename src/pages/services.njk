@@ -9,6 +9,7 @@ permalink: "{% if lang == 'en' %}/services/index.html{% else %}/{{ lang }}/servi
 ---
 {% set t = i18n[lang] %}
 {% set langPrefix = "" if lang == "en" else "/" + lang %}
+{% set c = t.conv or i18n.en.conv %}
 
 <section class="circuit-bg--subtle page-hero" aria-labelledby="page-title">
   <div class="container">
@@ -20,6 +21,8 @@ permalink: "{% if lang == 'en' %}/services/index.html{% else %}/{{ lang }}/servi
   </div>
 </section>
 
+{% include "partials/proof-strip.njk" %}
+
 <section class="section section--warm">
   <div class="container">
     <div class="text-visual text-visual--flip reveal">
@@ -29,7 +32,7 @@ permalink: "{% if lang == 'en' %}/services/index.html{% else %}/{{ lang }}/servi
         <div class="section-divider"></div>
         <p style="font-size:15px;color:var(--text-secondary);line-height:1.8;margin-bottom:16px;">{{ t.services.intel_para1 }}</p>
         <p style="font-size:15px;color:var(--text-secondary);line-height:1.8;margin-bottom:28px;">{{ t.services.intel_para2 }}</p>
-        <a href="{{ langPrefix }}/join/" class="btn btn-outline-gold">{{ t.services.register_interest_btn }}</a>
+        <a href="{{ langPrefix }}/join/" class="btn btn-outline-gold">{{ c.intel_cta }}</a>
       </div>
       <div class="grid-2" style="gap:16px;">
         <div class="card card--gold-top" style="padding:20px;"><h3 style="font-size:15px;">{{ t.services.intel_card1_title }}</h3><p>{{ t.services.intel_card1_body }}</p></div>
@@ -57,7 +60,8 @@ permalink: "{% if lang == 'en' %}/services/index.html{% else %}/{{ lang }}/servi
           <span class="tag">{{ t.services.tag4 }}</span>
         </div>
         <div class="notice" style="margin-top:20px;">{{ t.services.popia_notice }}</div>
-        <a href="{{ langPrefix }}/join/" class="btn btn-primary" style="margin-top:24px;">{{ t.services.popia_cta }}</a>
+        <a href="mailto:hello@stza.io?subject={{ c.popia_subject | urlencode }}" class="btn btn-primary" style="margin-top:24px;">{{ t.services.popia_cta }}</a>
+        <p style="font-size:13px;color:var(--text-muted);margin-top:10px;">{{ c.popia_email_note }} <a href="mailto:hello@stza.io">hello@stza.io</a></p>
       </div>
       <div>
         <div class="feature-band"><div class="feature-band-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.8" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div><h4>{{ t.services.feature1_title }}</h4><p>{{ t.services.feature1_body }}</p></div></div>
@@ -69,6 +73,25 @@ permalink: "{% if lang == 'en' %}/services/index.html{% else %}/{{ lang }}/servi
   </div>
 </section>
 
+<!-- POPIA: how it works -->
+<section class="section section--warm" aria-labelledby="how-title">
+  <div class="container">
+    <div class="section-header section-header--center reveal">
+      <span class="eyebrow">{{ c.how_eyebrow }}</span>
+      <h2 class="section-title" id="how-title">{{ c.how_heading }}</h2>
+      <div class="section-divider section-divider--center"></div>
+    </div>
+    <ol class="how-steps reveal" role="list">
+      <li class="card card--gold-top"><span class="how-steps__num" aria-hidden="true">1</span><h3>{{ c.step1_title }}</h3><p>{{ c.step1_body }}</p></li>
+      <li class="card card--gold-top"><span class="how-steps__num" aria-hidden="true">2</span><h3>{{ c.step2_title }}</h3><p>{{ c.step2_body }}</p></li>
+      <li class="card card--gold-top"><span class="how-steps__num" aria-hidden="true">3</span><h3>{{ c.step3_title }}</h3><p>{{ c.step3_body }}</p></li>
+    </ol>
+    <div style="text-align:center;margin-top:32px;">
+      <a href="mailto:hello@stza.io?subject={{ c.popia_subject | urlencode }}" class="btn btn-primary">{{ c.cta_popia_btn }}</a>
+    </div>
+  </div>
+</section>
+
 <section class="section circuit-bg section--circuit">
   <div class="container" style="text-align:center;">
     <div class="reveal">
@@ -76,8 +99,8 @@ permalink: "{% if lang == 'en' %}/services/index.html{% else %}/{{ lang }}/servi
       <h2 class="section-title section-title--white" style="max-width:560px;margin:0 auto 16px;">{{ t.services.cta_heading }}</h2>
       <p class="section-lead section-lead--dark" style="margin:0 auto 36px;max-width:540px;">{{ t.services.cta_body }}</p>
       <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-        <a href="{{ langPrefix }}/join/" class="btn btn-primary">{{ t.services.register_interest }}</a>
-        <a href="{{ langPrefix }}/contact/" class="btn btn-outline">{{ t.services.contact_directly }}</a>
+        <a href="mailto:hello@stza.io?subject={{ c.popia_subject | urlencode }}" class="btn btn-primary">{{ c.cta_popia_btn }}</a>
+        <a href="{{ langPrefix }}/join/" class="btn btn-outline">{{ c.intel_cta }}</a>
       </div>
     </div>
   </div>
