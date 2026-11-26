@@ -51,6 +51,13 @@ permalink: "{% if lang == 'en' %}/about/index.html{% else %}/{{ lang }}/about/in
           </div>
           <div><h4>{{ t.about.feature3_title }}</h4><p>{{ t.about.feature3_body }}</p></div>
         </div>
+        {% set p = t.partners or i18n.en.partners %}
+        <div class="feature-band">
+          <div class="feature-band-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M8.2 13.4 7 22l5-3 5 3-1.2-8.6"/></svg>
+          </div>
+          <div><h4>{{ p.stn_title }}</h4><p>{{ p.stn_text }} <a href="https://www.sportstechnation.com/" target="_blank" rel="noopener">{{ p.stn_link }}</a></p></div>
+        </div>
       </div>
     </div>
   </div>
