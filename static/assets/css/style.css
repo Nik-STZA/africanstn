@@ -1709,3 +1709,16 @@ html.rtl .arrow-bullet {
 }
 .eco-code { font-size: 11px; font-weight: 700; letter-spacing: .06em; color: #0F1113; background: #C5A059; border-radius: 999px; padding: 3px 9px; white-space: nowrap; }
 @media (max-width: 720px) { .eco-code { font-size: 10px; padding: 2px 7px; } }
+
+/* ── NAV FIT (mid widths) ──
+   Tighter link spacing between tablet and wide desktop, and a collapsed
+   state (set by script.js when the links still don't fit) that shows the
+   hamburger instead of letting the page scroll sideways. */
+@media (min-width: 961px) and (max-width: 1440px) {
+  .nav-links a { padding: 8px 9px; font-size: 13.5px; }
+  .nav-cta { padding: 8px 14px !important; margin-left: 2px; }
+  .theme-toggle { margin-left: 4px; padding: 5px 10px; }
+}
+.nav.nav--collapsed .nav-links,
+.nav.nav--collapsed .theme-toggle { display: none; }
+.nav.nav--collapsed .nav-hamburger { display: flex; }
