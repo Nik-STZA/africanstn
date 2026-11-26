@@ -10,12 +10,12 @@ permalink: "{% if lang == 'en' %}/index.html{% else %}/{{ lang }}/index.html{% e
 {% set t = i18n[lang] %}
 {% set langPrefix = "" if lang == "en" else "/" + lang %}
 
-<section class="hero circuit-bg section--circuit" aria-labelledby="hero-title" style="position:relative;">
+<section class="hero hero--with-band circuit-bg section--circuit" aria-labelledby="hero-title" style="position:relative;">
   <div class="hero-inner">
-    <div style="margin:0 auto 36px;text-align:center;">
+    <div class="home-hero-logo" style="text-align:center;">
       <img src="/assets/images/africanstn-logo-white.png"
            alt="African Sports Technology Network"
-           style="width:520px;max-width:90%;height:220px;object-fit:cover;object-position:center 45%;display:block;margin:0 auto;mix-blend-mode:screen;">
+           style="width:520px;max-width:90%;object-fit:cover;object-position:center 45%;display:block;margin:0 auto;mix-blend-mode:screen;">
     </div>
     <h1 class="hero-title" id="hero-title">{{ t.home.hero_headline }}</h1>
     <p class="hero-sub">{{ t.home.hero_subheadline }}</p>
@@ -24,17 +24,16 @@ permalink: "{% if lang == 'en' %}/index.html{% else %}/{{ lang }}/index.html{% e
       <a href="{{ langPrefix }}/services/" class="btn btn-outline">{{ t.home.hero_cta_secondary }}</a>
     </div>
   </div>
-</section>
-
-{# ── Sports Tech Nation ambassador ── #}
-{% set p = t.partners or i18n.en.partners %}
-<section class="stn-band" aria-label="{{ p.stn_title }}">
-  <div class="container stn-band-inner">
-    <a href="https://www.sportstechnation.com/" target="_blank" rel="noopener" class="stn-logo-link"><img src="/assets/images/partners/sports-tech-nation.png" alt="Sports Tech Nation" width="122" height="32" class="stn-logo"></a>
-    <span class="stn-badge">{{ p.stn_label }}</span>
-    <p>{{ p.stn_text }}</p>
-    <a href="https://www.sportstechnation.com/" target="_blank" rel="noopener">{{ p.stn_link }}</a>
-  </div>
+  {# ── Sports Tech Nation ambassador ── #}
+  {% set p = t.partners or i18n.en.partners %}
+  <aside class="stn-band" aria-label="{{ p.stn_title }}">
+    <div class="container stn-band-inner">
+      <a href="https://www.sportstechnation.com/" target="_blank" rel="noopener" class="stn-logo-link"><img src="/assets/images/partners/sports-tech-nation.png" alt="Sports Tech Nation" width="122" height="32" class="stn-logo"></a>
+      <span class="stn-badge">{{ p.stn_label }}</span>
+      <p>{{ p.stn_text }}</p>
+      <a href="https://www.sportstechnation.com/" target="_blank" rel="noopener">{{ p.stn_link }}</a>
+    </div>
+  </aside>
 </section>
 
 <section class="section section--white">
