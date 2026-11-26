@@ -28,8 +28,8 @@ permalink: "{% if lang == 'en' %}/index.html{% else %}/{{ lang }}/index.html{% e
   {% set p = t.partners or i18n.en.partners %}
   <aside class="stn-band eco-band" aria-label="{{ p.band_label }}">
     <div class="container eco-band-inner">
-      <a href="https://www.sportstechnation.com/" target="_blank" rel="noopener" class="eco-item"><img src="/assets/images/partners/sports-tech-nation.png" alt="Sports Tech Nation" width="122" height="32" class="eco-logo"><span>{{ p.stn_band }}</span></a>
-      <a href="https://www.sportingfounders.com/" target="_blank" rel="noopener" class="eco-item"><img src="/assets/images/partners/sporting-founders.png" alt="Sporting Founders" width="32" height="32" class="eco-logo eco-logo--sf"><span>{{ p.sf_band }}</span></a>
+      <a href="https://www.sportstechnation.com/" target="_blank" rel="noopener" class="eco-item"><img src="/assets/images/partners/sports-tech-nation.png" alt="Sports Tech Nation" width="122" height="32" class="eco-logo"><span class="eco-text">{{ p.stn_band }}</span><span class="eco-code" translate="no">{{ p.stn_code_pill }}</span></a>
+      <a href="https://www.sportingfounders.com/" target="_blank" rel="noopener" class="eco-item"><img src="/assets/images/partners/sporting-founders.png" alt="Sporting Founders" width="32" height="32" class="eco-logo eco-logo--sf"><span class="eco-text">{{ p.sf_band }}</span></a>
     </div>
   </aside>
 </section>
